@@ -260,3 +260,55 @@ img {
         font-size: 32px;
     }
 }
+
+.sectionTitle{
+    text-align: center;
+    font-size: medium;
+    font-weight: bold;
+    color: white;
+    vertical-align: -webkit-baseline-middle;
+}
+
+.header{
+    width: 100%;
+}
+
+.header button{
+    float: left;
+}
+
+.partBtn{
+    background-color: white;
+}
+
+.parts li button{
+    color: darkgreen;
+}
+.parts li button:hover{
+    color: black;
+}
+
+.parts li{
+    margin:10px 0px;
+}
+
+body .navbar{
+    background-color:#0a390b;
+}
+
+#leftMenu{
+    width: 50%;
+    position: fixed;
+    z-index: 1000;
+    box-shadow: 5px 10px rgba(0,0,0,0.2);
+    height: 100%;
+    background-color: #042304;
+}
+#leftMenu li{
+    color: #c3e7ba;
+    font-weight: bold;
+}
+
+#titleLMenu{
+    color: #8bc34a;
+}

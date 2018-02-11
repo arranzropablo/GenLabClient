@@ -3,7 +3,8 @@ jQuery(document).ready(function() {
     /*
         Fullscreen background
     */
-    $.backstretch("assets/img/backgrounds/images.jpg");
+    $.backstretch("resources/img/backgrounds/images.jpg");
+
 
     /*
         Form validation
@@ -18,12 +19,22 @@ jQuery(document).ready(function() {
             if ($(this).val() == "") {
                 e.preventDefault();
                 $(this).addClass('input-error');
+
             } else {
                 $(this).removeClass('input-error');
+
             }
+
+            //De momento, pase lo que pase, validamos cualquier usuario (hasta que tengamos la api del servidor)
+            $("#loginView").hide();
+            $("#homeView").show();
+            $("#homeNav").show();
+
         });
 
     });
+
+
 
 
 });

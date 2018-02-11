@@ -13,9 +13,13 @@ jQuery(document).ready(function() {
         $(this).removeClass('input-error');
     });
 
-    $('.login-form').on('submit', function(e) {
+    $('#login-buttons').on('click', 'button', function(e) {
+        //De momento, pase lo que pase, validamos cualquier usuario (hasta que tengamos la api del servidor)
 
-        $(this).find('input[type="text"], input[type="password"], textarea').each(function() {
+        $("#loginView").hide();
+        $("#homeView").show();
+        $("#homeNav").show();
+        /*$(this).find('input[type="text"], input[type="password"], textarea').each(function() {
             if ($(this).val() == "") {
                 e.preventDefault();
                 $(this).addClass('input-error');
@@ -25,12 +29,10 @@ jQuery(document).ready(function() {
 
             }
 
-            //De momento, pase lo que pase, validamos cualquier usuario (hasta que tengamos la api del servidor)
-            $("#loginView").hide();
-            $("#homeView").show();
-            $("#homeNav").show();
 
-        });
+
+
+        });*/
 
     });
 

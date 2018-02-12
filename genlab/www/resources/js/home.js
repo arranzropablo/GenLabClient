@@ -1,6 +1,12 @@
 let application = "one locus";
 
+//Para quitar el texto "Loading" abajo del todo en la página
+/*$(document).bind('mobileinit',function(){
+    $.mobile.loadingMessage = false;
+})*/
+
 $(document).ready(function() {
+
     $("#leftMenu").hide();
 
     $("#menuBtn").click(function() {
@@ -36,6 +42,10 @@ $(document).ready(function() {
             title = "Tests";
             //Obtener número de preguntas
             let num = 10;
+            //Pregunta actual
+            let act = 1;
+            //Label pregunta
+            let numQuestion = act+"/"+num;
             let testContent = `<div class="row">
                         <div id="question_1" class="questionCont col-sm-6 col-sm-offset-3">
                             <div class="form-top">
@@ -43,7 +53,7 @@ $(document).ready(function() {
                                     <h3>1. Question Title</h3>
                                 </div>
                                 <div class="form-top-right">
-                                    <h4>1/`+num+`</h3>
+                                    <h4 id="numQuestion">`+numQuestion+`</h3>
                                 </div>
                             </div>
                             <div class="form-bottom">
@@ -63,7 +73,9 @@ $(document).ready(function() {
                             </div>
                         </div>
                     </div>`;
+
             $("#sectionContent").html(testContent);
+
             $(".answerCont").on("click", (event) => {
                 let answer = $(event.target);
                 let sel = $(answer).data("selected");
@@ -75,6 +87,24 @@ $(document).ready(function() {
                     $(answer).data("selected","False");
                 }
             });
+
+            //Funcionan
+            /*$(".questionCont").on("swipeleft", (event) => {
+                if(act < num){
+                    act++;
+                    numQuestion = act+"/"+num;
+                    $("#numQuestion").text(numQuestion);
+                }
+            });
+
+            $(".questionCont").on("swiperight", (event) => {
+                if(act > 1){
+                    act--;
+                    numQuestion = act+"/"+num;
+                    $("#numQuestion").text(numQuestion);
+                }
+            });*/
+
         } else if (section.data("section") === "Books") {
             title = "Recommended books";
 

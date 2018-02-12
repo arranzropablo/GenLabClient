@@ -319,6 +319,7 @@ body .navbar {
 #leftMenu li {
     color: #c3e7ba;
     font-weight: bold;
+    cursor: pointer;
 }
 
 #titleLMenu {
@@ -327,4 +328,40 @@ body .navbar {
 
 #sectionTitle {
     color: white;
+}
+
+#headerQuestions button{
+    color: black;
+}
+
+#logout{
+    width: 100%;
+    color: white;
+    background-color: darkred;
+    font-weight: bold;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#dirButtons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.btnDir{
+    background-color: transparent;
+    border: 1px solid lightgreen;
+    color: lightgreen;
+}
+
+.answerCont{
+    cursor: pointer;
+}
+
+.answerContSel{
+    cursor: pointer;
+    color: white;
+    background-color: #5fba7d;
 }

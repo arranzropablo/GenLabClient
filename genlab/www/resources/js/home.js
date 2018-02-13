@@ -58,11 +58,21 @@ $(document).ready(function() {
         } else if (section.data("section") === "Books") {
             title = "Recommended books";
 
+            $("#booksView").show();
+
         }
         $("#sectionTitle").text(title);
 
 
 
+    });
+
+    $(".book-link").on("mouseover", event => {
+        $(event.target).css("color", "rgb(250, 64, 157)");
+    });
+
+    $(".book-link").on("mouseleave", event => {
+        $(event.target).css("color", "rgb(201, 0, 107)");
     });
 
     $("#logout").on("click", (event) => {

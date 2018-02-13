@@ -5,6 +5,7 @@ body {
     color: #888;
     line-height: 30px;
     text-align: center;
+    width: 100%;
 }
 
 strong {
@@ -15,8 +16,27 @@ strong {
     display: none;
 }
 
+.mobile-view {
+    width: 100%;
+}
+
+#problems-list {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.problem {
+    background-color: #8bc34a;
+    color: white;
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+    padding: 3vw;
+}
+
 .back-btn {
-    position: absolute;
+    position: fixed;
     right: 0;
     bottom: 0;
 }
@@ -319,6 +339,7 @@ body .navbar {
 #leftMenu li {
     color: #c3e7ba;
     font-weight: bold;
+    cursor: pointer;
 }
 
 #titleLMenu {
@@ -327,4 +348,36 @@ body .navbar {
 
 #sectionTitle {
     color: white;
+}
+
+#logout {
+    width: 100%;
+    color: white;
+    background-color: darkred;
+    font-weight: bold;
+    cursor: pointer;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#dirButtons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.btnDir {
+    background-color: transparent;
+    border: 1px solid lightgreen;
+    color: lightgreen;
+}
+
+.answerCont {
+    cursor: pointer;
+}
+
+.answerContSel {
+    cursor: pointer;
+    color: white;
+    background-color: #5fba7d;
 }

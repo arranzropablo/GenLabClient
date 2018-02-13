@@ -6,11 +6,12 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap Login Form Template</title>
+    <title>Genlab</title>
 
     <!-- CSS -->
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
     <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="resources/font-awesome/css/font-awesome.min.css">
     <link rel="stylesheet" href="resources/css/form-elements.css">
     <link rel="stylesheet" href="resources/css/style.css">
@@ -60,11 +61,11 @@
                                 <div class="login-form">
                                     <div class="form-group">
                                         <label class="sr-only" for="form-username">Username</label>
-                                        <input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username">
+                                        <input type="text" name="form-username" placeholder="Username..." class="form-username form-control" id="form-username" required>
                                     </div>
                                     <div class="form-group">
                                         <label class="sr-only" for="form-password">Password</label>
-                                        <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password">
+                                        <input type="password" name="form-password" placeholder="Password..." class="form-password form-control" id="form-password" required>
                                     </div>
                                     <div id="login-buttons" class="form-group">
                                         <button class="btn btn-success">Sign in!</button>
@@ -86,13 +87,11 @@
                     <p class="navbar-text header">
                         <button type="button" class="btn btn-success" id="menuBtn"><img src="https://cdn4.iconfinder.com/data/icons/wirecons-free-vector-icons/32/menu-alt-256.png"/ style="height: 20px;"></button>
                         <span class="sectionTitle" id="application">One Locus</span>
-                        <button class="btn btn-danger" id="logout">Logout</button>
                     </p>
 
             </nav>
             <div id="leftMenu">
                 <h3 id="titleLMenu">Sections</h3>
-                <br>
                 <hr></hr>
                 <ul id="applications" class="nav flex-column">
                     <li class="nav-item">One Locus</li>
@@ -106,6 +105,7 @@
                     <li class="nav-item">Epistasias</li>
                     <hr></hr>
                 </ul>
+                <p id="logout">Logout</p>
             </div>
             </div>
             <div id="homeView">
@@ -133,6 +133,59 @@
             </div>
             <div id="sectionView">
                 <h1 id="sectionTitle"></h1>
+                <div id="sectionContent">
+                    <!--TESTS-->
+                    <div id="testsView">
+                        <div id="question_1" class="col-sm-6 col-sm-offset-3 form-box">
+                            <div class="form-top">
+                                <div class="form-top-left">
+                                    <h3 id="titleQuestion">1. Question Title</h3>
+                                </div>
+                                <div class="form-top-right">
+                                    <h4 id="numQuestion">1/10</h4>
+                                </div>
+                            </div>
+                            <div class="form-bottom">
+                                <!-- La clase mobile-view metedla en aquellos sitios donde el tamaño pueda sobrepasar el tamaño de la pantalla, para que de esta manera se adapte al dispositivo -->
+                                <div class="login-form mobile-view">
+                                    <div class="form-group answerCont" id="answer_1_1" data-selected="False">1) Answer 1.1</div>
+                                    <div class="form-group answerCont" id="answer_1_2" data-selected="False">2) Answer 1.2</div>
+                                    <div class="form-group answerCont" id="answer_1_3" data-selected="False">3) Answer 1.3</div>
+                                    <div id="dirButtons" class="form-group">
+                                        <button id="btnLeft" class="btnDir">&#60;&#60;</button>
+                                        <button id="btnRight" class="btnDir">&#62;&#62;</button>
+                                    </div>
+                                    <div id="login-buttons" class="form-group">
+                                        <button id="btnSaveTest" class="btn btn-success">Save</button>
+                                        <button id="btnRstTest" class="btn btn-info">Reset</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- -->
+                    <!-- PROBLEMS -->
+                    <div id="problemsView">
+                        <div id="problems-list" class="mobile-view">
+                            <div class="problem mobile-view">
+                                <h2 class="problem-title">Problema 1 ucsshshc shicsihcsic ishishcisc ishishcsic ischischschc</h2>
+                                <p>Tenemos estas especies de plantas que bla bla bla</p>
+                            </div>
+                            <div class="problem mobile-view">
+                                <h2 class="problem-title">Problema 2</h2>
+                                <p>Tenemos estas especies de plantas que bla bla bla</p>
+                            </div>
+                            <div class="problem mobile-view">
+                                <h2 class="problem-title">Problema 3</h2>
+                                <p>Tenemos estas especies de plantas que bla bla bla hschshusc sihcsicischs sihcishcishcisch ischsihcishcsic shcishcsihcischs</p>
+                            </div>
+                            <div class="problem mobile-view">
+                                <h2 class="problem-title">Problema 4</h2>
+                                <p>Tenemos estas especies de plantas que bla bla bla</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
                 <button class="back-btn btn btn-primary">Back</button>
             </div>
         </div>

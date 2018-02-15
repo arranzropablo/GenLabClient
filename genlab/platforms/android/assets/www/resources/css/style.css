@@ -20,7 +20,8 @@ strong {
     width: 100%;
 }
 
-#problems-list {
+#problems-list,
+#books-list {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -29,10 +30,36 @@ strong {
 
 .problem {
     background-color: #8bc34a;
+    border-width: medium;
+    border-color: #042304;
+    border-style: solid;
     color: white;
     margin-top: 4vw;
     margin-bottom: 4vw;
     padding: 3vw;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+.book-title {
+    color: white;
+}
+
+.book {
+    margin-top: 4vw;
+    margin-bottom: 4vw;
+    background-color: #8bc34a;
+    color: black;
+    border-width: medium;
+    border-color: #042304;
+    border-style: solid;
+    margin-left: 7%;
+    margin-right: 7%;
+    padding: 7vw;
+}
+
+.book-link {
+    color: rgb(189, 0, 101);
 }
 
 .back-btn {

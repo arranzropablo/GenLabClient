@@ -336,10 +336,27 @@ img {
 
 .partBtn {
     background-color: white;
+    color: darkgreen;
+}
+
+.btn-test {
+    color: black;
+    background-color: darkgreen;
+}
+
+.app-sections li button {
+    overflow: hidden;
 }
 
 .parts li button {
     color: darkgreen;
+}
+
+.partsTest li button {
+    color: white;
+    background-color: #1b711b;
+    border: 1px solid white;
+    margin-top: 1vw;
 }
 
 .parts li button:hover {

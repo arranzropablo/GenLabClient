@@ -49,6 +49,33 @@ $(document).ready(function() {
         let section = $(event.target).parent();
         if (section.data("section") === "Theory") {
             title = "Theory";
+
+            //DESCOMENTAR CUANDO ESTE LISTA LA API
+            /*$.ajax({
+                type: "GET",
+                //url: "http://ingenias.fdi.ucm.es:60070/api/v1/theory",
+                url: "http://raspberrypablo.ddns.net:8080/api/v1/theory",
+                contentType: "application/json",
+                data: { sectionid: application },
+                success: function(data, textStatus, jqXHR) {
+                    //data es un objeto javascript, con la teoria de la aplicacion en cuestion
+                    if (data) {
+                        data.forEach(t => {
+                            let theory = $("<div>").addClass("theory");
+                            theory.append($("<h2>").addClass("theory-title").text(t.titulo));
+                            theory.append($("<p>").text(t.contenido));
+
+                            $("#theory-list").append(theory);
+                        });
+                    } else {
+                        $("#login-message").text(err).css("color", "red");
+                    }
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert("Se ha producido un error: " + errorThrown);
+                }
+            });*/
+
         } else if (section.data("section") === "Problems") {
             title = "Problems";
 
@@ -57,7 +84,11 @@ $(document).ready(function() {
             //DESCOMENTAR CUANDO ESTE LISTA LA API
             /*$.ajax({
                 type: "GET",
-                url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems", //COMPLETAR
+                //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+                url: "http://raspberrypablo.ddns.net:8080/api/v1/problems",
+                beforeSend: function(request) {
+                    request.setRequestHeader("Access-Control-Allow-Origin", "*");
+                },
                 contentType: "application/json",
                 data: { sectionid: application },
                 success: function(data, textStatus, jqXHR) {
@@ -82,6 +113,7 @@ $(document).ready(function() {
         } else if (section.data("section") === "CTools") {
             title = "Calculation Tools";
         } else if (section.data("section") === "Tests") {
+            $("#question_1").hide();
             title = "Tests";
             //Obtener numero de preguntas
             let num = 10;
@@ -104,7 +136,8 @@ $(document).ready(function() {
 
             /*$.ajax({
                 type: "GET",
-                url: "http://ingenias.fdi.ucm.es:60070/api/v1/books", //COMPLETAR
+                //url: "http://ingenias.fdi.ucm.es:60070/api/v1/books", //COMPLETAR
+                url: "http://raspberrypablo.ddns.net:8080/api/v1/books",
                 contentType: "application/json",
                 data: { sectionid: application },
                 success: function(data, textStatus, jqXHR) {

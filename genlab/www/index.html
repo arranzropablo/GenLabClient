@@ -136,7 +136,7 @@
                 <div id="sectionContent">
                     <!--TESTS-->
                     <div id="testsView">
-                        <div id="homeView">
+                        <div id="test-list">
                             <!-- Top content -->
                             <div class="top-content">
                                 <div class="inner-bg">
@@ -157,33 +157,41 @@
 
                             </div>
                         </div>
-                        <div id="question_1" class="col-sm-6 col-sm-offset-3 form-box">
-                            <div class="form-top">
-                                <div class="form-top-left">
-                                    <h3 id="titleQuestion">1. Question Title</h3>
-                                </div>
-                                <div class="form-top-right">
-                                    <h4 id="numQuestion">1/10</h4>
-                                </div>
-                            </div>
-                            <div class="form-bottom">
-                                <!-- La clase mobile-view metedla en aquellos sitios donde el tamaño pueda sobrepasar el tamaño de la pantalla, para que de esta manera se adapte al dispositivo -->
-                                <div class="login-form mobile-view">
-                                    <div class="form-group answerCont" id="answer_1_1" data-selected="False">1) Answer 1.1</div>
-                                    <div class="form-group answerCont" id="answer_1_2" data-selected="False">2) Answer 1.2</div>
-                                    <div class="form-group answerCont" id="answer_1_3" data-selected="False">3) Answer 1.3</div>
-                                    <div id="dirButtons" class="form-group">
-                                        <button id="btnLeft" class="btnDir">&#60;&#60;</button>
-                                        <button id="btnRight" class="btnDir">&#62;&#62;</button>
+                        <div id="testQuestions-list">
+                            <div id="question_1" data-question="1" class="questionCont col-sm-6 col-sm-offset-3 form-box">
+                                <div class="form-top">
+                                    <div class="form-top-left">
+                                        <h4 class="titleQuestion">1. Question Title</h4>
                                     </div>
-                                    <div id="login-buttons" class="form-group">
-                                        <button id="btnSaveTest" class="btn btn-success">Save</button>
-                                        <button id="btnRstTest" class="btn btn-info">Reset</button>
+                                </div>
+                                <div class="form-bottom">
+                                    <!-- La clase mobile-view metedla en aquellos sitios donde el tamaño pueda sobrepasar el tamaño de la pantalla, para que de esta manera se adapte al dispositivo -->
+                                    <div class="login-form mobile-view">
+                                        <div class="form-group answerCont" data-answer="1" id="answer_1_1" data-selected="False">1) Answer 1.1</div>
+                                        <div class="form-group answerCont" data-answer="2" id="answer_1_2" data-selected="False">2) Answer 1.2</div>
+                                        <div class="form-group answerCont" data-answer="3" id="answer_1_3" data-selected="False">3) Answer 1.3</div>
                                     </div>
                                 </div>
                             </div>
+                            <div id="question_2" data-question="2" class="questionCont col-sm-6 col-sm-offset-3 form-box">
+                                <div class="form-top">
+                                    <div class="form-top-left">
+                                        <h4 class="titleQuestion">2. Question Title</h4>
+                                    </div>
+                                </div>
+                                <div class="form-bottom">
+                                    <!-- La clase mobile-view metedla en aquellos sitios donde el tamaño pueda sobrepasar el tamaño de la pantalla, para que de esta manera se adapte al dispositivo -->
+                                    <div class="login-form mobile-view">
+                                        <div class="form-group answerCont" data-answer="1" id="answer_2_1" data-selected="False">1) Answer 2.1</div>
+                                        <div class="form-group answerCont" data-answer="2" id="answer_2_2" data-selected="False">2) Answer 2.2</div>
+                                        <div class="form-group answerCont" data-answer="3" id="answer_2_3" data-selected="False">3) Answer 2.3</div>
+                                    </div>
+                                </div>
+                            </div>
+                            <br>
                         </div>
                     </div>
+                    <button class="back-btn-test btn btn-primary">Back</button>
                     <!-- -->
                     <!-- PROBLEMS -->
                     <div id="problemsView">

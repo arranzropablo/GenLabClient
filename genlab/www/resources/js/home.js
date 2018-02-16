@@ -113,13 +113,18 @@ $(document).ready(function() {
         } else if (section.data("section") === "CTools") {
             title = "Calculation Tools";
         } else if (section.data("section") === "Tests") {
-            $("#question_1").hide();
+            $("#testQuestions-list").hide();
             title = "Tests";
             //Obtener numero de preguntas
             let num = 10;
             $("#testsView").show();
             $(".answerCont").on("click", (event) => {
-                let answer = $(event.target);
+                /////////////////////////////////////
+                //Comprobar que la respuesta clicada
+                //es correcta en esa pregunta
+                //Mediante peticion ajax
+                /////////////////////////////////////
+                /*let answer = $(event.target);
                 let sel = $(answer).data("selected");
                 if (sel == 'False') {
                     $(answer).addClass("answerContSel");
@@ -127,7 +132,22 @@ $(document).ready(function() {
                 } else {
                     $(answer).removeClass("answerContSel");
                     $(answer).data("selected", "False");
-                }
+                }*/
+            });
+            $(".partsTest button").on("click", (event) => {
+                var title= $(event.target).text();
+                $("#sectionTitle").text(title);
+                $("#testQuestions-list").show();
+                $("#test-list").hide();
+                $(".back-btn-test").show();
+                $(".back-btn").hide();
+            });
+            $(".back-btn-test").on("click", (event) => {
+                $("#sectionTitle").text("Tests");
+                $("#testQuestions-list").hide();
+                $("#test-list").show();
+                $(".back-btn-test").hide();
+                $(".back-btn").show();
             });
         } else if (section.data("section") === "Books") {
             title = "Recommended books";
@@ -196,6 +216,7 @@ $(document).ready(function() {
     $("#logout").on("click", (event) => {
         $("#application_view>div").hide();
         $("#loginView").show();
+        $("#leftMenu").hide();
     });
 
     $(".back-btn").on("click", (event) => {

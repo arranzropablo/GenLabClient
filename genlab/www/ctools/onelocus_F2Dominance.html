@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Genlab</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="resources/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="resources/css/form-elements.css">
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/ctools.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+<body>
+
+    <div id="onelocus_F2Dominance" class="mobile-view">
+        <h1 class="ctool-title">F2Dominance: Aa x Aa</h1>
+        <div style="overflow-x:auto;">
+            <table class="F2Dominance-table">
+                <tr>
+                    <td>Types</td>
+                    <td>A</td>
+                    <td>a</td>
+                    <td>Total</td>
+                </tr>
+                <tr>
+                    <td>Obs.</td>
+                    <td><input id="Alelles-A-F2Dominance" type="text" size="1" /></td>
+                    <td><input id="Alelles-a-F2Dominance" type="text" size="1" /></td>
+                    <td id="total"></td>
+                </tr>
+                <tr>
+                    <td>Exp.</td>
+                    <td id="Expected-A-F2Dominance"></td>
+                    <td id="Expected-a-F2Dominance"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="calculate-buttons">
+            <button class="btn btn-primary calculate">Calculate</button>
+            <button class="btn btn-primary clean">Clean</button>
+        </div>
+    </div>
+    <table class="F2Dominance-table">
+        <tr>
+            <td></td>
+            <td> Value </td>
+            <td> Agree?</td>
+        </tr>
+        <tr>
+            <td>X^2 (df=1) = </td>
+            <td id="value_Testcross"></td>
+            <td id="agree_Testcross"></td>
+        </tr>
+    </table>
+    <a href="../index.html" class="back-btn btn btn-primary">Back</a>
+
+</body>

@@ -1,4 +1,5 @@
 let application = 1;
+let nameApp = "onelocus";
 //two-loci 0
 //one locus 1
 //linkage 2
@@ -22,14 +23,19 @@ $(document).ready(function() {
         $("#application").text(application);
         if (application === "Two Loci") {
             application = 0;
+            nameApp = "twoloci";
         } else if (application === "One Locus") {
             application = 1;
+            nameApp = "onelocus"
         } else if (application === "Linkage") {
             application = 2;
+            nameApp = "linkage";
         } else if (application === "Epistasias") {
             application = 3;
+            nameApp = "epistasias";
         } else if (application === "Polyhybrid") {
             application = 4;
+            nameApp = "polyhybrid";
         }
         $("#leftMenu").hide();
 
@@ -41,6 +47,11 @@ $(document).ready(function() {
         let vistas = $("#sectionContent").children();
         for (let i = 0; i < vistas.length; ++i) {
             vistas.eq(i).hide();
+        }
+
+        let ctools = $("#ctoolsView").children();
+        for (let i = 0; i < ctools.length; ++i) {
+            ctools.eq(i).hide();
         }
 
         $("#sectionView").show();
@@ -82,10 +93,13 @@ $(document).ready(function() {
             $("#problemsView").show();
 
             //DESCOMENTAR CUANDO ESTE LISTA LA API
-            $.ajax({
+            /*$.ajax({
                 type: "GET",
                 //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
                 url: "http://raspberrypablo.ddns.net:8080/api/v1/problems",
+                beforeSend: function(request) {
+                    request.setRequestHeader("Access-Control-Allow-Origin", "*");
+                },
                 contentType: "application/json",
                 data: { sectionid: application },
                 success: function(data, textStatus, jqXHR) {
@@ -105,18 +119,31 @@ $(document).ready(function() {
                 error: function(jqXHR, textStatus, errorThrown) {
                     alert("Se ha producido un error: " + errorThrown);
                 }
-            });
+            });*/
 
         } else if (section.data("section") === "CTools") {
             title = "Calculation Tools";
+
+            //$("#pruebaI").load('ctools/onelocus_Testcross.html');
+            $("#ctoolsView").show();
+            if (application == 1) {
+                $("#one-locus-ctools").show();
+            } else if (application == 0) {
+                $("#two-independent-loci-ctools").show();
+            }
         } else if (section.data("section") === "Tests") {
-            $("#question_1").hide();
+            $("#testQuestions-list").hide();
             title = "Tests";
             //Obtener numero de preguntas
             let num = 10;
             $("#testsView").show();
             $(".answerCont").on("click", (event) => {
-                let answer = $(event.target);
+                /////////////////////////////////////
+                //Comprobar que la respuesta clicada
+                //es correcta en esa pregunta
+                //Mediante peticion ajax
+                /////////////////////////////////////
+                /*let answer = $(event.target);
                 let sel = $(answer).data("selected");
                 if (sel == 'False') {
                     $(answer).addClass("answerContSel");
@@ -124,7 +151,22 @@ $(document).ready(function() {
                 } else {
                     $(answer).removeClass("answerContSel");
                     $(answer).data("selected", "False");
-                }
+                }*/
+            });
+            $(".partsTest button").on("click", (event) => {
+                var title = $(event.target).text();
+                $("#sectionTitle").text(title);
+                $("#testQuestions-list").show();
+                $("#test-list").hide();
+                $(".back-btn-test").show();
+                $(".back-btn").hide();
+            });
+            $(".back-btn-test").on("click", (event) => {
+                $("#sectionTitle").text("Tests");
+                $("#testQuestions-list").hide();
+                $("#test-list").show();
+                $(".back-btn-test").hide();
+                $(".back-btn").show();
             });
         } else if (section.data("section") === "Books") {
             title = "Recommended books";
@@ -182,6 +224,22 @@ $(document).ready(function() {
 
     });
 
+    $(".ctools-list").on("click", "div", (event) => {
+        let ctool = $(event.target);
+
+        let ctools = $("#ctoolsView").children();
+
+        for (let i = 0; i < ctools.length; ++i) {
+            ctools.eq(i).hide();
+        }
+
+        let file = "ctools/" + nameApp + "_" + ctool.data('ctool') + ".html";
+
+        $("#ctoolView").load(file);
+        $("#ctoolView").show();
+        //$("#ctoolView").text(file);
+    });
+
     $(".book-link").on("mouseover", event => {
         $(event.target).css("color", "rgb(250, 64, 157)");
     });
@@ -193,6 +251,7 @@ $(document).ready(function() {
     $("#logout").on("click", (event) => {
         $("#application_view>div").hide();
         $("#loginView").show();
+        $("#leftMenu").hide();
     });
 
     $(".back-btn").on("click", (event) => {

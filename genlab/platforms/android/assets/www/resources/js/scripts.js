@@ -76,7 +76,8 @@ jQuery(document).ready(function() {
         } else {
             $.ajax({
                 type: "POST",
-                url: "", //COMPLETAR
+                //url: "http://ingenias.fdi.ucm.es:60070/api/v1/login",
+                url: "http://raspberrypablo.ddns.net:8080/api/v1/login",
                 contentType: "application/json",
                 data: JSON.stringify({ user: user, password: password }),
                 success: function(data, textStatus, jqXHR) {

@@ -1,0 +1,3 @@
+$("#pruebaI").load('ctools/ert.html'); (Cargar html en un div con id pruebaI)
+
+.\chrome --allow-file-access-from-files rutaIndex (esto en terminal para probar las vistas de otros html)

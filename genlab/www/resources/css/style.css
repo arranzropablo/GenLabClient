@@ -62,7 +62,8 @@ strong {
     color: rgb(189, 0, 101);
 }
 
-.back-btn,.back-btn-test {
+.back-btn,
+.back-btn-test {
     position: fixed;
     right: 0;
     bottom: 0;
@@ -416,7 +417,7 @@ body .navbar {
     color: lightgreen;
 }
 
-.titleQuestion{
+.titleQuestion {
     color: white;
 }
 
@@ -429,4 +430,17 @@ body .navbar {
     cursor: pointer;
     color: white;
     background-color: #5fba7d;
+}
+
+.ctools-list div,
+.ctools-list a {
+    border: 1px solid rgb(0, 56, 3);
+    background-color: rgb(0, 204, 44);
+    color: white;
+    margin-top: 3vw;
+    margin-bottom: 3vw;
+    padding: 2vw;
+    margin-left: 10%;
+    margin-right: 10%;
+    font-size: small;
 }

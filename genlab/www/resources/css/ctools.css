@@ -1,0 +1,24 @@
+.Testcross-table,
+.F2Dominance-table {
+    margin-left: 7%;
+    align-self: center;
+    margin-top: 3vw;
+}
+
+.ctool-title {
+    color: white;
+}
+
+.Testcross-table tr td,
+.F2Dominance-table tr td {
+    align-items: center;
+    padding: 2vw;
+    color: white;
+}
+
+.calculate-buttons {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+}

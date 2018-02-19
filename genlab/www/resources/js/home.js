@@ -1,4 +1,5 @@
 let application = 1;
+let nameApp = "onelocus";
 //two-loci 0
 //one locus 1
 //linkage 2
@@ -22,14 +23,19 @@ $(document).ready(function() {
         $("#application").text(application);
         if (application === "Two Loci") {
             application = 0;
+            nameApp = "twoloci";
         } else if (application === "One Locus") {
             application = 1;
+            nameApp = "onelocus"
         } else if (application === "Linkage") {
             application = 2;
+            nameApp = "linkage";
         } else if (application === "Epistasias") {
             application = 3;
+            nameApp = "epistasias";
         } else if (application === "Polyhybrid") {
             application = 4;
+            nameApp = "polyhybrid";
         }
         $("#leftMenu").hide();
 
@@ -41,6 +47,11 @@ $(document).ready(function() {
         let vistas = $("#sectionContent").children();
         for (let i = 0; i < vistas.length; ++i) {
             vistas.eq(i).hide();
+        }
+
+        let ctools = $("#ctoolsView").children();
+        for (let i = 0; i < ctools.length; ++i) {
+            ctools.eq(i).hide();
         }
 
         $("#sectionView").show();
@@ -112,6 +123,14 @@ $(document).ready(function() {
 
         } else if (section.data("section") === "CTools") {
             title = "Calculation Tools";
+
+            //$("#pruebaI").load('ctools/onelocus_Testcross.html');
+            $("#ctoolsView").show();
+            if (application == 1) {
+                $("#one-locus-ctools").show();
+            } else if (application == 0) {
+                $("#two-independent-loci-ctools").show();
+            }
         } else if (section.data("section") === "Tests") {
             $("#testQuestions-list").hide();
             title = "Tests";
@@ -135,7 +154,7 @@ $(document).ready(function() {
                 }*/
             });
             $(".partsTest button").on("click", (event) => {
-                var title= $(event.target).text();
+                var title = $(event.target).text();
                 $("#sectionTitle").text(title);
                 $("#testQuestions-list").show();
                 $("#test-list").hide();
@@ -203,6 +222,22 @@ $(document).ready(function() {
 
 
 
+    });
+
+    $(".ctools-list").on("click", "div", (event) => {
+        let ctool = $(event.target);
+
+        let ctools = $("#ctoolsView").children();
+
+        for (let i = 0; i < ctools.length; ++i) {
+            ctools.eq(i).hide();
+        }
+
+        let file = "ctools/" + nameApp + "_" + ctool.data('ctool') + ".html";
+
+        $("#ctoolView").load(file);
+        $("#ctoolView").show();
+        //$("#ctoolView").text(file);
     });
 
     $(".book-link").on("mouseover", event => {

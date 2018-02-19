@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Genlab</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+    <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="resources/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="resources/font-awesome/css/font-awesome.min.css">
+    <link rel="stylesheet" href="resources/css/form-elements.css">
+    <link rel="stylesheet" href="resources/css/style.css">
+    <link rel="stylesheet" href="resources/css/ctools.css">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+</head>
+
+<body>
+    <div id="onelocus_Testcross" class="mobile-view">
+        <h1 class="ctool-title">TestCross: Aa x aa</h1>
+        <div style="overflow-x:auto;">
+            <table class="Testcross-table">
+                <tr>
+                    <td>Types</td>
+                    <td>A</td>
+                    <td>a</td>
+                    <td>Total</td>
+                </tr>
+                <tr>
+                    <td>Obs.</td>
+                    <td><input id="Alelles_A_Testcross" type="text" size="1" /></td>
+                    <td><input id="Alelles_a_Testcross" type="text" size="1" /></td>
+                    <td id="total"></td>
+                </tr>
+                <tr>
+                    <td>Exp.</td>
+                    <td id="Expected_A_Testcross"></td>
+                    <td id="Expected_a_Testcross"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </div>
+        <div class="calculate-buttons">
+            <button class="btn btn-primary calculate">Calculate</button>
+            <button class="btn btn-primary clean">Clean</button>
+        </div>
+    </div>
+    <table class="Testcross-table">
+        <tr>
+            <td></td>
+            <td> Value </td>
+            <td> Agree?</td>
+        </tr>
+        <tr>
+            <td>X^2 (df=1) = </td>
+            <td id="value_Testcross"></td>
+            <td id="agree_Testcross"></td>
+        </tr>
+    </table>
+    <a href="../index.html" class="back-btn btn btn-primary">Back</a>
+
+    <!-- Javascript -->
+    <!--<script src="../resources/js/jquery-1.11.1.min.js"></script>
+    <script src="../resources/bootstrap/js/bootstrap.min.js"></script>
+    <script src="../resources/js/jquery.backstretch.min.js"></script>
+    <script src="../resources/js/home.js"></script>
+    <script src="../resources/js/imagen.js"></script>-->
+</body>
+
+</html>

@@ -259,4 +259,8 @@ $(document).ready(function() {
         $("#sectionView").hide();
         $("#sectionContent").hide();
     });
+
+    $(".btn-calculate").on("click", (ev) => {
+        $("#total-Codominance3").text(34);
+    });
 });

@@ -27,32 +27,39 @@
 </head>
 
 <body>
-    <div id="onelocus-Testcross" class="mobile-view">
-        <h1 class="ctool-title">Testcross: Aa x aa</h1>
+
+    <div id="onelocus-Codominance4" class="mobile-view">
+        <h1 class="ctool-title">Codominance 3 alleles: A1A2 x A1A3</h1>
         <div class="responsive-table">
             <table class="onelocus-table">
                 <tr>
                     <td>Types</td>
-                    <td>A</td>
-                    <td>a</td>
+                    <td>A1A3</td>
+                    <td>A1A4</td>
+                    <td>A2A3</td>
+                    <td>A2A4</td>
                     <td>Total</td>
                 </tr>
                 <tr>
                     <td>Obs.</td>
-                    <td><input id="Alelles-A-Testcross" type="text" size="1" /></td>
-                    <td><input id="Alelles-a-Testcross" type="text" size="1" /></td>
-                    <td id="total-Testcross"></td>
+                    <td><input id="Alelles-A1A3-Codominance4" type="text" size="1" /></td>
+                    <td><input id="Alelles-A1A4-Codominance4" type="text" size="1" /></td>
+                    <td><input id="Alelles-A2A3-Codominance4" type="text" size="1" /></td>
+                    <td><input id="Alelles-A2A4-Codominance4" type="text" size="1" /></td>
+                    <td id="total-Codominance4"></td>
                 </tr>
                 <tr>
                     <td>Exp.</td>
-                    <td id="Expected-A-Testcross"></td>
-                    <td id="Expected-a-Testcross"></td>
+                    <td id="Expected-A1A3-Codominance4"></td>
+                    <td id="Expected-A1A4-Codominance4"></td>
+                    <td id="Expected-A3A3-Codominance4"></td>
+                    <td id="Expected-A2A4-Codominance4"></td>
                     <td></td>
                 </tr>
             </table>
         </div>
         <div class="calculate-buttons">
-            <button class="btn-calculate btn btn-primary">Calculate</button>
+            <button class="btn btn-primary btn-calculate">Calculate</button>
             <button class="btn btn-primary btn-clean">Clean</button>
         </div>
     </div>
@@ -64,19 +71,12 @@
         </tr>
         <tr>
             <td>X^2 (df=1) = </td>
-            <td id="value-Testcross"></td>
-            <td id="agree-Testcross"></td>
+            <td id="value-Codominance4"></td>
+            <td id="agree-Codominance4"></td>
         </tr>
     </table>
-    <!--<button class="back-btn btn btn-primary">Back</button>-->
+    <a href="../index.html" class="back-btn btn btn-primary">Back</a>
 
-    <!-- Javascript -->
-    <!--<script src="../resources/js/jquery-1.11.1.min.js"></script>
-    <script src="../resources/bootstrap/js/bootstrap.min.js"></script>
-    <script src="../resources/js/jquery.backstretch.min.js"></script>
-    <script src="../resources/js/home.js"></script>
-    <script src="../resources/js/imagen.js"></script>-->
     <script src="resources/js/home.js"></script>
-</body>
 
-</html>
+</body>

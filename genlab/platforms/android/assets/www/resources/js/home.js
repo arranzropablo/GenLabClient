@@ -258,6 +258,10 @@ $(document).ready(function() {
         $("#homeView").show();
         $("#sectionView").hide();
         $("#sectionContent").hide();
+        //Esto va en el boton de back de las ctools pero aun no esta creado
+        $("#ctoolView").remove();
+        $("#ctoolsView").append($("<div>").prop("id", "ctoolView"));
+
     });
 
     $(".btn-calculate").on("click", (ev) => {

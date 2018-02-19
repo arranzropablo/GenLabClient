@@ -258,11 +258,17 @@ $(".back-btn").on("click", (event) => {
     $("#sectionView").hide();
     $("#sectionContent").hide();
     //Esto va en el boton de back de las ctools pero aun no esta creado
-    $("#ctoolView").remove();
-    $("#ctoolsView").append($("<div>").prop("id", "ctoolView"));
+    $("#ctoolView").hide();
 
 });
 
 $(".btn-calculate").on("click", (ev) => {
     $("#total-Codominance3").text(34);
+    alert("hola");
 });
+
+$("#ctoolView").on("click", ".btn-calculate", (evt) => {
+    let h = $("#Alelles-A-Testcross").val();
+    $("#total-Testcross").text(34);
+    alert("hola " + h);
+})

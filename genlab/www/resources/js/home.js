@@ -258,17 +258,13 @@ $(".back-btn").on("click", (event) => {
     $("#sectionView").hide();
     $("#sectionContent").hide();
     //Esto va en el boton de back de las ctools pero aun no esta creado
-    $("#ctoolView").hide();
+    $("#ctoolView").empty();
 
-});
-
-$(".btn-calculate").on("click", (ev) => {
-    $("#total-Codominance3").text(34);
-    alert("hola");
 });
 
 $("#ctoolView").on("click", ".btn-calculate", (evt) => {
     let h = $("#Alelles-A-Testcross").val();
     $("#total-Testcross").text(34);
-    alert("hola " + h);
-})
+    console.log("Pulsado");
+    alert("Hola! Has metido " + h);
+});

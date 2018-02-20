@@ -129,7 +129,16 @@ $("#app_sections").on("click", "li", (event) => {
             $("#one-locus-ctools").show();
         } else if (application == 0) {
             $("#two-independent-loci-ctools").show();
+        } else if (application == 2) {
+            $("#linkage-ctools").show();
+        } else if (application == 4) {
+            $("#polyhybrid-ctools").show();
+        } else if (application == 3) {
+            $("#epistasias-ctools").show();
         }
+
+
+
     } else if (section.data("section") === "Tests") {
         $("#testQuestions-list").hide();
         title = "Tests";

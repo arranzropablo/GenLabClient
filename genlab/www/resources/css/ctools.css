@@ -1,6 +1,7 @@
 .onelocus-table {
     align-self: center;
     margin-top: 3vw;
+    width: 100%;
 }
 
 .responsive-table {
@@ -27,4 +28,16 @@
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
+}
+
+@media screen and (max-width: 450px) {
+    .onelocus-table input {
+        width: 100%;
+    }
+    .responsive-table {
+        margin-left: 0;
+        margin-right: 0;
+        overflow-x: auto;
+        border: 1px solid rgb(0, 46, 0);
+    }
 }

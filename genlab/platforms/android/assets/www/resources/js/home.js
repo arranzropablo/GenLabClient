@@ -241,7 +241,7 @@ $(".ctools-list").on("click", "div", (event) => {
         ctools.eq(i).hide();
     }
 
-    let file = "ctools/" + nameApp + "_" + ctool.data('ctool') + ".html";
+    let file = "ctools/" + nameApp + "/" + nameApp + "_" + ctool.data('ctool') + ".html";
 
     $("#ctoolView").load(file);
     $("#ctoolView").show();

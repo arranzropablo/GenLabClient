@@ -92,7 +92,7 @@ $("#app_sections").on("click", "li", (event) => {
         $("#problemsView").show();
 
         //DESCOMENTAR CUANDO ESTE LISTA LA API
-        /*$.ajax({
+        $.ajax({
             type: "GET",
             //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
             url: "http://raspberrypablo.ddns.net:8080/api/v1/problems",
@@ -107,7 +107,7 @@ $("#app_sections").on("click", "li", (event) => {
                     data.forEach(p => {
                         let problem = $("<div>").addClass("problem");
                         problem.append($("<h2>").addClass("problem-title").text(p.nombre));
-                        problem.append($("<p>").text(p.contenido));
+                        problem.append($("<p>").html(p.contenido));
 
                         $("#problems-list").append(problem);
                     });
@@ -118,7 +118,7 @@ $("#app_sections").on("click", "li", (event) => {
             error: function(jqXHR, textStatus, errorThrown) {
                 alert("Se ha producido un error: " + errorThrown);
             }
-        });*/
+        });
 
     } else if (section.data("section") === "CTools") {
         title = "Calculation Tools";
@@ -181,7 +181,7 @@ $("#app_sections").on("click", "li", (event) => {
 
         $("#booksView").show();
 
-        /*$.ajax({
+        $.ajax({
             type: "GET",
             //url: "http://ingenias.fdi.ucm.es:60070/api/v1/books", //COMPLETAR
             url: "http://raspberrypablo.ddns.net:8080/api/v1/books",
@@ -209,7 +209,7 @@ $("#app_sections").on("click", "li", (event) => {
             error: function(jqXHR, textStatus, errorThrown) {
                 alert("Se ha producido un error: " + errorThrown);
             }
-        });*/
+        });
 
         let data = [];
         data[0] = { name: "libro genial", author: "Alberto", editorial: "Anaya", isbn: 23232434, link: "https://www.google.es" }

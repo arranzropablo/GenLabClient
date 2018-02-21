@@ -1,4 +1,6 @@
-.onelocus-table {
+.onelocus-table,
+.generic-ctools-table,
+.calculationTool-table {
     align-self: center;
     margin-top: 3vw;
     width: 100%;
@@ -16,7 +18,9 @@
     font-size: medium;
 }
 
-.onelocus-table tr td {
+.onelocus-table tr td,
+.twolocus-table tr td,
+.generic-ctools-table tr td {
     align-items: center;
     padding: 2vw;
     color: white;
@@ -31,7 +35,9 @@
 }
 
 @media screen and (max-width: 450px) {
-    .onelocus-table input {
+    .onelocus-table input,
+    .twolocus-table input,
+    .generic-ctools-table input {
         width: 100%;
     }
     .responsive-table {
@@ -40,4 +46,12 @@
         overflow-x: auto;
         border: 1px solid rgb(0, 46, 0);
     }
+}
+
+.calculation-tool tr td {
+    color: white;
+}
+
+.explanation {
+    color: darkkhaki;
 }

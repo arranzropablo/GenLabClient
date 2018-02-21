@@ -48,10 +48,10 @@
     }
 }
 
-.calculation-tool tr td {
+.calculation-tool tr td , .subtitle{
     color: white;
 }
 
-.explanation {
+.explanation{
     color: darkkhaki;
 }

@@ -1,5 +1,6 @@
 .onelocus-table,
 .generic-ctools-table,
+.linkage-table,
 .calculationTool-table {
     align-self: center;
     margin-top: 3vw;
@@ -20,6 +21,7 @@
 
 .onelocus-table tr td,
 .twolocus-table tr td,
+.linkage-table tr td,
 .generic-ctools-table tr td {
     align-items: center;
     padding: 2vw;
@@ -48,10 +50,39 @@
     }
 }
 
-.calculation-tool tr td {
+.calculation-tool tr td,
+.subtitle {
     color: white;
 }
 
 .explanation {
     color: darkkhaki;
+}
+
+.titleTab {
+    font-size: 6vw;
+    color: yellowgreen;
+    margin-top: 3vw;
+}
+
+.imagenDM {
+    margin: 0 auto;
+    width: 79%;
+    background-image: url(../../resources/img/testcross3LociDM.jpg);
+    min-height: 69vw;
+    background-repeat: no-repeat;
+}
+
+.ctool-sub-title {
+    text-align: center;
+    font-size: medium;
+    font-weight: bold;
+    color: white;
+    vertical-align: -webkit-baseline-middle;
+    margin-top: 2vw;
+}
+
+.ctool-alert {
+    color: red;
+    font-weight: bold;
 }

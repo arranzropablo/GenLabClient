@@ -50,24 +50,39 @@
     }
 }
 
-.calculation-tool tr td , .subtitle{
+.calculation-tool tr td,
+.subtitle {
     color: white;
 }
 
-.explanation{
+.explanation {
     color: darkkhaki;
 }
 
-.titleTab{
+.titleTab {
     font-size: 6vw;
     color: yellowgreen;
     margin-top: 3vw;
 }
 
-.imagenDM{
+.imagenDM {
     margin: 0 auto;
     width: 79%;
     background-image: url(../../resources/img/testcross3LociDM.jpg);
     min-height: 69vw;
     background-repeat: no-repeat;
+}
+
+.ctool-sub-title {
+    text-align: center;
+    font-size: medium;
+    font-weight: bold;
+    color: white;
+    vertical-align: -webkit-baseline-middle;
+    margin-top: 2vw;
+}
+
+.ctool-alert {
+    color: red;
+    font-weight: bold;
 }

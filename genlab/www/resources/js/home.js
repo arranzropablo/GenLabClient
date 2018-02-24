@@ -270,10 +270,3 @@ $(".back-btn").on("click", (event) => {
     $("#ctoolView").empty();
 
 });
-
-$("#ctoolView").on("click", ".btn-calculate", (evt) => {
-    let h = $("#Alelles-A-Testcross").val();
-    $("#total-Testcross").text(34);
-    console.log("Pulsado");
-    alert("Hola! Has metido " + h);
-});

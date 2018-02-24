@@ -1,9 +1,133 @@
-$("#ctoolView").on("click", ".btn-calculate", (evt) => {
+/*$("#ctoolView").on("click", ".btn-calculate", (evt) => {
     let h = $("#Alelles-A-Testcross").val();
     $("#total-Testcross").text(34);
     console.log("Pulsado");
     alert("Hola! Has metido " + h);
+});*/
+
+//ONE LOCUS
+
+$("#ctoolView").on("click", "#testcross-onelocus", (evt) => {
+    let alelles_A = $("#Alelles-A-Testcross").val();
+    let alelles_a = $("#Alelles-a-Testcross").val();
+
+    alert(alelles_A + " " + alelles_a);
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/onelocus/F2Dominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: { alelles_A: alelles_A, alelles_a: alelles_a },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
 });
+
+$("#ctoolView").on("click", "#F2Dominance-onelocus", (evt) => {
+    let alelles_A = $("#Alelles-A-F2Dominance").val();
+    let alelles_a = $("#Alelles-a-F2Dominance").val();
+
+    alert(alelles_A + " y el otro " + alelles_a);
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/onelocus/testcross",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: { alelles_A: alelles_A, alelles_a: alelles_a },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#F2Codominance-onelocus", (evt) => {
+    let alelles_A1A1 = $("#Alelles-A1A1-F2Codominance").val();
+    let alelles_A1A2 = $("#Alelles-A1A2-F2Codominance").val();
+    let alelles_A2A2 = $("#Alelles-A2A2-F2Codominance").val();
+
+    alert(alelles_A1A1 + " " + alelles_A1A2 + " " + alelles_A2A2);
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/onelocus/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: { alelles_A1A1: alelles_A1A1, alelles_A1A2: alelles_A1A2, alelles_A2A2: alelles_A2A2 },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#Codominance3-onelocus", (evt) => {
+    let alelles_A1A1 = $("#Alelles-A1A1-Codominance3").val();
+    let alelles_A1A3 = $("#Alelles-A1A3-Codominance3").val();
+    let alelles_A1A2 = $("#Alelles-A1A2-Codominance3").val();
+    let alelles_A2A3 = $("#Alelles-A2A3-Codominance3").val();
+
+    alert(alelles_A1A1 + " " + alelles_A1A3 + " " + alelles_A1A2 + " " + alelles_A2A3);
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/onelocus/Codominance3",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: { alelles_A1A1: alelles_A1A1, alelles_A1A3: alelles_A1A3, alelles_A1A2: alelles_A1A2, alelles_A2A3: alelles_A2A3 },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#Codominance4-onelocus", (evt) => {
+    let alelles_A1A3 = $("#Alelles-A1A3-Codominance4").val();
+    let alelles_A1A4 = $("#Alelles-A1A4-Codominance4").val();
+    let alelles_A2A3 = $("#Alelles-A2A3-Codominance4").val();
+    let alelles_A2A4 = $("#Alelles-A2A4-Codominance4").val();
+
+
+    alert(alelles_A1A3 + " " + alelles_A1A4 + " " + alelles_A2A3 + " " + alelles_A2A4);
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/onelocus/Codominance4",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: { alelles_A1A3: alelles_A1A3, alelles_A1A4: alelles_A1A4, alelles_A2A3: alelles_A2A3, alelles_A2A4: alelles_A2A4 },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
 
 $("#ctoolView").on("click", ".btn-clean", (evt) => {
     //ONE LOCUS

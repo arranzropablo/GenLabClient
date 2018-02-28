@@ -128,6 +128,296 @@ $("#ctoolView").on("click", "#Codominance4-onelocus", (evt) => {
     });*/
 });
 
+//TWO LOCI
+
+$("#ctoolView").on("click", "#F2Codom2-twoloci", (evt) => {
+
+    let alelles_A1A1B = $("#Alelles-A1A1B-F2Codom2").val();
+    let alelles_A1A2B = $("#Alelles-A1A2B-F2Codom2").val();
+    let alelles_A2A2B = $("#Alelles-A2A2B-F2Codom2").val();
+    let alelles_A1A1b = $("#Alelles-A1A1b-F2Codom2").val();
+    let alelles_A1A2b = $("#Alelles-A1A2b-F2Codom2").val();
+    let alelles_A2A2b = $("#Alelles-A2A2b-F2Codom2").val();
+
+
+    alert(alelles_A1A1B + " " + alelles_A1A2B + " " + alelles_A2A2B + " " + alelles_A1A1b + " " + alelles_A1A2b + " " + alelles_A2A2b);
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codom2",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: { 
+            alelles_A1A1B: alelles_A1A1B, 
+            alelles_A1A2B: alelles_A1A2B, 
+            alelles_A2A2B: alelles_A2A2B, 
+            alelles_A1A1b: alelles_A1A1b,
+            alelles_A1A2b: alelles_A1A2b,
+            alelles_A2A2b: alelles_A2A2b
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#F2Codom4-twoloci", (evt) => {
+
+    let alelles_A1A3B = $("#Alelles-A1A3B-F2Codom4").val();
+    let alelles_A1A3b = $("#Alelles-A1A3b-F2Codom4").val();
+    let alelles_A1A4B = $("#Alelles-A1A4B-F2Codom4").val();
+    let alelles_A1A4b = $("#Alelles-A1A4b-F2Codom4").val();
+    let alelles_A2A3B = $("#Alelles-A2A3B-F2Codom4").val();
+    let alelles_A2A3b = $("#Alelles-A2A3b-F2Codom4").val();
+    let alelles_A2A4B = $("#Alelles-A2A4B-F2Codom4").val();
+    let alelles_A2A4b = $("#Alelles-A2A4b-F2Codom4").val();
+    
+    
+    alert(alelles_A1A3B + " " + alelles_A1A3b + " " + alelles_A1A4B + " " + alelles_A1A4b + " " + alelles_A2A3B + " " + alelles_A2A3b + " " + alelles_A2A4B + " " + alelles_A2A4b);
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codom4",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: { 
+            alelles_A1A3B: alelles_A1A3B, 
+            alelles_A1A3b: alelles_A1A3b, 
+            alelles_A1A4B: alelles_A1A4B, 
+            alelles_A1A4b: alelles_A1A4b,
+            alelles_A2A3B: alelles_A2A3B,
+            alelles_A2A3b: alelles_A2A3b,
+            alelles_A2A4B: alelles_A2A4B,
+            alelles_A2A4b: alelles_A2A4b
+        },
+        success: function(data, textStatus, jqXHR) {
+    
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#F2Codominance-twoloci", (evt) => {
+    
+    let alelles_A1A1B1B1 = $("#Alelles-A1A1B1B1-F2Codominance").val();
+    let alelles_A1A1B1B2 = $("#Alelles-A1A1B1B2-F2Codominance").val();
+    let alelles_A1A1B2B2 = $("#Alelles-A1A1B2B2-F2Codominance").val();
+    let alelles_A1A2B1B1 = $("#Alelles-A1A2B1B1-F2Codominance").val();
+    let alelles_A1A2B1B2 = $("#Alelles-A1A2B1B2-F2Codominance").val();
+    let alelles_A1A2B2B2 = $("#Alelles-A1A2B2B2-F2Codominance").val();
+    let alelles_A2A2B1B1 = $("#Alelles-A2A2B1B1-F2Codominance").val();
+    let alelles_A2A2B1B2 = $("#Alelles-A2A2B1B2-F2Codominance").val();
+    let alelles_A2A2B2B2 = $("#Alelles-A2A2B2B2-F2Codominance").val();
+        
+        
+    alert(alelles_A1A1B1B1 + " " + alelles_A1A1B1B2 + " " + alelles_A1A1B2B2 + " " + alelles_A1A2B1B1 + " " + alelles_A1A2B1B2 + " " + alelles_A1A2B2B2 + " " + alelles_A2A2B1B1 + " " + alelles_A2A2B1B2 + " " + alelles_A2A2B2B2);
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: { 
+            alelles_A1A1B1B1: alelles_A1A1B1B1, 
+            alelles_A1A1B1B2: alelles_A1A1B1B2, 
+            alelles_A1A1B2B2: alelles_A1A1B2B2, 
+            alelles_A1A2B1B1: alelles_A1A2B1B1,
+            alelles_A1A2B1B2: alelles_A1A2B1B2,
+            alelles_A1A2B2B2: alelles_A1A2B2B2,
+            alelles_A2A2B1B1: alelles_A2A2B1B1,
+            alelles_A2A2B1B2: alelles_A2A2B1B2,
+            alelles_A2A2B2B2: alelles_A2A2B2B2
+        },
+        success: function(data, textStatus, jqXHR) {
+        
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#F2Dominance-twoloci", (evt) => {
+    
+
+    let alelles_AB = $("#Alelles-AB-F2Dominance").val();
+    let alelles_aB = $("#Alelles-aB-F2Dominance").val();
+    let alelles_Ab = $("#Alelles-Ab-F2Dominance").val();
+    let alelles_ab = $("#Alelles-ab-F2Dominance").val();
+        
+        
+    alert(alelles_AB + " " + alelles_aB + " " + alelles_Ab + " " + alelles_ab);
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Dominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: { 
+            alelles_AB: alelles_AB, 
+            alelles_aB: alelles_aB, 
+            alelles_Ab: alelles_Ab, 
+            alelles_ab: alelles_ab
+        },
+        success: function(data, textStatus, jqXHR) {
+        
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#F2TestcrossDominance-twoloci", (evt) => {
+    
+    let alelles_AB = $("#Alelles-AB-F2TestcrossDominance").val();
+    let alelles_aB = $("#Alelles-aB-F2TestcrossDominance").val();
+    let alelles_Ab = $("#Alelles-Ab-F2TestcrossDominance").val();
+    let alelles_ab = $("#Alelles-ab-F2TestcrossDominance").val();
+        
+        
+    alert(alelles_AB + " " + alelles_aB + " " + alelles_Ab + " " + alelles_ab);
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: { 
+            alelles_AB: alelles_AB, 
+            alelles_aB: alelles_aB, 
+            alelles_Ab: alelles_Ab, 
+            alelles_ab: alelles_ab
+        },
+        success: function(data, textStatus, jqXHR) {
+        
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#F2TestcrossDom2_1-twoloci", (evt) => {
+    
+    let alelles_A1A1B = $("#Alelles-A1A1B-F2TestcrossDom2_1").val();
+    let alelles_A1A2B = $("#Alelles-A1A2B-F2TestcrossDom2_1").val();
+    let alelles_A2A2B = $("#Alelles-A2A2B-F2TestcrossDom2_1").val();
+    let alelles_A1A1b = $("#Alelles-A1A1b-F2TestcrossDom2_1").val();
+    let alelles_A1A2b = $("#Alelles-A1A2b-F2TestcrossDom2_1").val();
+    let alelles_A2A2b = $("#Alelles-A2A2b-F2TestcrossDom2_1").val();
+        
+    alert(alelles_A1A1B + " " + alelles_A1A2B + " " + alelles_A2A2B + " " + alelles_A1A1b + " " + alelles_A1A2b + " " + alelles_A2A2b);
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: { 
+            alelles_A1A1B: alelles_A1A1B, 
+            alelles_A1A2B: alelles_A1A2B, 
+            alelles_A2A2B: alelles_A2A2B, 
+            alelles_A1A1b: alelles_A1A1b,
+            alelles_A1A2b: alelles_A1A2b,
+            alelles_A2A2b: alelles_A2A2b
+        },
+        success: function(data, textStatus, jqXHR) {
+        
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#F2TestcrossDom2_2-twoloci", (evt) => {
+    
+    let alelles_A1A3B = $("#Alelles-A1A3B-F2TestcrossDom2_2").val();
+    let alelles_A1A3b = $("#Alelles-A1A3b-F2TestcrossDom2_2").val();
+    let alelles_A1A4B = $("#Alelles-A1A4B-F2TestcrossDom2_2").val();
+    let alelles_A1A4b = $("#Alelles-A1A4b-F2TestcrossDom2_2").val();
+    let alelles_A2A3B = $("#Alelles-A2A3B-F2TestcrossDom2_2").val();
+    let alelles_A2A3b = $("#Alelles-A2A3b-F2TestcrossDom2_2").val();
+    let alelles_A2A4B = $("#Alelles-A2A4B-F2TestcrossDom2_2").val();
+    let alelles_A2A4b = $("#Alelles-A2A4b-F2TestcrossDom2_2").val();
+        
+    alert(alelles_A1A3B + " " + alelles_A1A3b + " " + alelles_A1A4B + " " + alelles_A1A4b + " " + alelles_A2A3B + " " + alelles_A2A3b + " " + alelles_A2A4B + " " + alelles_A2A4b);
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: { 
+            alelles_A1A3B: alelles_A1A3B, 
+            alelles_A1A3b: alelles_A1A3b, 
+            alelles_A1A4B: alelles_A1A4B, 
+            alelles_A1A4b: alelles_A1A4b,
+            alelles_A2A3B: alelles_A2A3B,
+            alelles_A2A3b: alelles_A2A3b,
+            alelles_A2A4B: alelles_A2A4B,
+            alelles_A2A4b: alelles_A2A4b
+        },
+        success: function(data, textStatus, jqXHR) {
+        
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#Testcross-twoloci", (evt) => {
+    
+    let alelles_AB = $("#Alelles-AB-Testcross").val();
+    let alelles_aB = $("#Alelles-aB-Testcross").val();
+    let alelles_Ab = $("#Alelles-Ab-Testcross").val();
+    let alelles_ab = $("#Alelles-ab-Testcross").val();
+        
+    alert(alelles_AB + " " + alelles_aB + " " + alelles_Ab + " " + alelles_ab);
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: { 
+            alelles_AB: alelles_AB, 
+            alelles_aB: alelles_aB, 
+            alelles_Ab: alelles_Ab, 
+            alelles_ab: alelles_ab
+        },
+        success: function(data, textStatus, jqXHR) {
+        
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
 
 $("#ctoolView").on("click", ".btn-clean", (evt) => {
     //ONE LOCUS
@@ -307,7 +597,7 @@ $("#ctoolView").on("click", ".btn-clean", (evt) => {
     $("#Data-d-polyhybrid").val("");
     $("#Data-D-polyhybrid").val("");
     $("#Data-r-polyhybrid").val("");
-    //Multiples Alleles
+    //Multiples alelles
     $("#locus1-multiplesAlleles").val("");
     $("#locus2-multiplesAlleles").val("");
     $("#locus3-multiplesAlleles").val("");

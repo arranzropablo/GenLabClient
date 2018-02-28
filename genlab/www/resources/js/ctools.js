@@ -5,7 +5,10 @@
     alert("Hola! Has metido " + h);
 });*/
 
+/////////////////////////////////////////////////////////////////////////////
 //ONE LOCUS
+/////////////////////////////////////////////////////////////////////////////
+
 
 $("#ctoolView").on("click", "#testcross-onelocus", (evt) => {
     let alleles_A = $("#Alleles-A-Testcross").val();
@@ -128,7 +131,11 @@ $("#ctoolView").on("click", "#Codominance4-onelocus", (evt) => {
     });*/
 });
 
+
+/////////////////////////////////////////////////////////////////////////////
 //TWO LOCI
+/////////////////////////////////////////////////////////////////////////////
+
 
 $("#ctoolView").on("click", "#F2Codom2-twoloci", (evt) => {
 
@@ -411,6 +418,264 @@ $("#ctoolView").on("click", "#Testcross-twoloci", (evt) => {
         },
         success: function(data, textStatus, jqXHR) {
         
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+/////////////////////////////////////////////////////////////////////////////
+//LINKAGE
+/////////////////////////////////////////////////////////////////////////////
+
+$("#ctoolView").on("click", "#F2Codominance-linkage", (evt) => {
+
+    let alleles_A1A1B1B1 = $("#Alleles-A1A1B1B1-F2Codominance-linkage").val();
+    let alleles_A1A1B1B2 = $("#Alleles-A1A1B1B2-F2Codominance-linkage").val();
+    let alleles_A1A1B2B2 = $("#Alleles-A1A1B2B2-F2Codominance-linkage").val();
+    let alleles_A1A2B1B1 = $("#Alleles-A1A2B1B1-F2Codominance-linkage").val();
+    let alleles_A1A2B1B2 = $("#Alleles-A1A2B1B2-F2Codominance-linkage").val();
+    let alleles_A1A2B2B2 = $("#Alleles-A1A2B2B2-F2Codominance-linkage").val();
+    let alleles_A2A2B1B1 = $("#Alleles-A2A2B1B1-F2Codominance-linkage").val();
+    let alleles_A2A2B1B2 = $("#Alleles-A2A2B1B2-F2Codominance-linkage").val();
+    let alleles_A2A2B2B2 = $("#Alleles-A2A2B2B2-F2Codominance-linkage").val();
+
+    alert("Boton f2codominance");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            alleles_A1A1B1B1: alleles_A1A1B1B1,
+            alleles_A1A1B1B2: alleles_A1A1B1B2,
+            alleles_A1A1B2B2: alleles_A1A1B2B2,
+            alleles_A1A2B1B1: alleles_A1A2B1B1,
+            alleles_A1A2B1B2: alleles_A1A2B1B2,
+            alleles_A1A2B2B2: alleles_A1A2B2B2,
+            alleles_A2A2B1B1: alleles_A2A2B1B1,
+            alleles_A2A2B1B2: alleles_A2A2B1B2,
+            alleles_A2A2B2B2: alleles_A2A2B2B2
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#F2CodominanceDM-linkage", (evt) => {
+
+    let recFreq = $("#Alleles-F2CodominanceDM-RecFreq").val();
+    let ToS = $("#Alleles-F2CodominanceDM-ToS").val();
+
+    alert("Boton f2codominancedm");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            recFreq: recFreq,
+            ToS: ToS
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#F2Dominance-linkage", (evt) => {
+
+    let alleles_AB = $("#Alleles-AB-F2Dominance-linkage").val();
+    let alleles_aB = $("#Alleles-aB-F2Dominance-linkage").val();
+    let alleles_Ab = $("#Alleles-Ab-F2Dominance-linkage").val();
+    let alleles_ab = $("#Alleles-ab-F2Dominance-linkage").val();
+
+    alert("Boton f2dominance");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            alleles_AB: alleles_AB,
+            alleles_aB: alleles_aB,
+            alleles_Ab: alleles_Ab,
+            alleles_ab: alleles_ab
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#F2DominanceDM-linkage", (evt) => {
+
+    let recFreq = $("#Alleles-F2DominanceDM-RecFreq").val();
+    let ToS = $("#Alleles-F2DominanceDM-ToS").val();
+
+    alert("Boton f2dominanceDM");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            recFreq: recFreq,
+            ToS: ToS
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#Testcross-linkage", (evt) => {
+
+    let alleles_AB = $("#Alleles-AB-Testcross-linkage").val();
+    let alleles_aB = $("#Alleles-aB-Testcross-linkage").val();
+    let alleles_Ab = $("#Alleles-Ab-Testcross-linkage").val();
+    let alleles_ab = $("#Alleles-ab-Testcross-linkage").val();
+
+    alert("Boton Testcross");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            alleles_AB: alleles_AB,
+            alleles_aB: alleles_aB,
+            alleles_Ab: alleles_Ab,
+            alleles_ab: alleles_ab
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#Testcross3Loci-linkage", (evt) => {
+
+    let alleles_ABC = $("#Alleles-Testcross3Loci-ABC").val();
+    let alleles_abc = $("#Alleles-Testcross3Loci-abc").val();
+    let alleles_ABc = $("#Alleles-Testcross3Loci-ABc").val();
+    let alleles_abC = $("#Alleles-Testcross3Loci-abC").val();
+    let alleles_aBC = $("#Alleles-Testcross3Loci-aBC").val();
+    let alleles_Abc = $("#Alleles-Testcross3Loci-Abc").val();
+    let alleles_AbC = $("#Alleles-Testcross3Loci-AbC").val();
+    let alleles_aBc = $("#Alleles-Testcross3Loci-aBc").val();
+
+    alert("Boton Testcross3Loci");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            alleles_ABC: alleles_ABC,
+            alleles_abc: alleles_abc,
+            alleles_ABc: alleles_ABc,
+            alleles_abC: alleles_abC,
+            alleles_aBC: alleles_aBC,
+            alleles_Abc: alleles_Abc,
+            alleles_AbC: alleles_AbC,
+            alleles_aBc: alleles_aBc
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#Testcross3LociDM-linkage", (evt) => {
+
+    let recFreqR1 = $("#Alleles-Testcross3LociDM-RecFreqR1").val();
+    let recFreqR2 = $("#Alleles-Testcross3LociDM-RecFreqR2").val();
+    let CoC = $("#Alleles-Testcross3LociDM-CoC").val();
+    let ToS = $("#Alleles-Testcross3LociDM-ToS").val();
+
+    alert("Boton Testcross3LociDM");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            recFreqR1: recFreqR1,
+            recFreqR2: recFreqR2,
+            CoC: CoC,
+            ToS: ToS
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#TestcrossDM-linkage", (evt) => {
+
+    let recFreq = $("#Alleles-TestcrossDM-RecFreq").val();
+    let ToS = $("#Alleles-TestcrossDM-ToS").val();
+
+    alert("Boton TestcrossDM");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            recFreq: recFreq,
+            ToS: ToS
+        },
+        success: function(data, textStatus, jqXHR) {
+
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert("Se ha producido un error: " + errorThrown);

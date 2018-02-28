@@ -1,17 +1,20 @@
 /*$("#ctoolView").on("click", ".btn-calculate", (evt) => {
-    let h = $("#Alelles-A-Testcross").val();
+    let h = $("#Alleles-A-Testcross").val();
     $("#total-Testcross").text(34);
     console.log("Pulsado");
     alert("Hola! Has metido " + h);
 });*/
 
+/////////////////////////////////////////////////////////////////////////////
 //ONE LOCUS
+/////////////////////////////////////////////////////////////////////////////
+
 
 $("#ctoolView").on("click", "#testcross-onelocus", (evt) => {
-    let alelles_A = $("#Alelles-A-Testcross").val();
-    let alelles_a = $("#Alelles-a-Testcross").val();
+    let alleles_A = $("#Alleles-A-Testcross").val();
+    let alleles_a = $("#Alleles-a-Testcross").val();
 
-    alert(alelles_A + " " + alelles_a);
+    alert(alleles_A + " " + alleles_a);
     /*$.ajax({
         type: "GET",
         //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
@@ -20,7 +23,7 @@ $("#ctoolView").on("click", "#testcross-onelocus", (evt) => {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
         contentType: "application/json",
-        data: { alelles_A: alelles_A, alelles_a: alelles_a },
+        data: { alleles_A: alleles_A, alleles_a: alleles_a },
         success: function(data, textStatus, jqXHR) {
 
         },
@@ -31,10 +34,10 @@ $("#ctoolView").on("click", "#testcross-onelocus", (evt) => {
 });
 
 $("#ctoolView").on("click", "#F2Dominance-onelocus", (evt) => {
-    let alelles_A = $("#Alelles-A-F2Dominance").val();
-    let alelles_a = $("#Alelles-a-F2Dominance").val();
+    let alleles_A = $("#Alleles-A-F2Dominance").val();
+    let alleles_a = $("#Alleles-a-F2Dominance").val();
 
-    alert(alelles_A + " y el otro " + alelles_a);
+    alert(alleles_A + " y el otro " + alleles_a);
     /*$.ajax({
         type: "GET",
         //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
@@ -43,7 +46,7 @@ $("#ctoolView").on("click", "#F2Dominance-onelocus", (evt) => {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
         contentType: "application/json",
-        data: { alelles_A: alelles_A, alelles_a: alelles_a },
+        data: { alleles_A: alleles_A, alleles_a: alleles_a },
         success: function(data, textStatus, jqXHR) {
 
         },
@@ -54,11 +57,11 @@ $("#ctoolView").on("click", "#F2Dominance-onelocus", (evt) => {
 });
 
 $("#ctoolView").on("click", "#F2Codominance-onelocus", (evt) => {
-    let alelles_A1A1 = $("#Alelles-A1A1-F2Codominance").val();
-    let alelles_A1A2 = $("#Alelles-A1A2-F2Codominance").val();
-    let alelles_A2A2 = $("#Alelles-A2A2-F2Codominance").val();
+    let alleles_A1A1 = $("#Alleles-A1A1-F2Codominance").val();
+    let alleles_A1A2 = $("#Alleles-A1A2-F2Codominance").val();
+    let alleles_A2A2 = $("#Alleles-A2A2-F2Codominance").val();
 
-    alert(alelles_A1A1 + " " + alelles_A1A2 + " " + alelles_A2A2);
+    alert(alleles_A1A1 + " " + alleles_A1A2 + " " + alleles_A2A2);
     /*$.ajax({
         type: "GET",
         //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
@@ -67,7 +70,7 @@ $("#ctoolView").on("click", "#F2Codominance-onelocus", (evt) => {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
         contentType: "application/json",
-        data: { alelles_A1A1: alelles_A1A1, alelles_A1A2: alelles_A1A2, alelles_A2A2: alelles_A2A2 },
+        data: { alleles_A1A1: alleles_A1A1, alleles_A1A2: alleles_A1A2, alleles_A2A2: alleles_A2A2 },
         success: function(data, textStatus, jqXHR) {
 
         },
@@ -78,12 +81,12 @@ $("#ctoolView").on("click", "#F2Codominance-onelocus", (evt) => {
 });
 
 $("#ctoolView").on("click", "#Codominance3-onelocus", (evt) => {
-    let alelles_A1A1 = $("#Alelles-A1A1-Codominance3").val();
-    let alelles_A1A3 = $("#Alelles-A1A3-Codominance3").val();
-    let alelles_A1A2 = $("#Alelles-A1A2-Codominance3").val();
-    let alelles_A2A3 = $("#Alelles-A2A3-Codominance3").val();
+    let alleles_A1A1 = $("#Alleles-A1A1-Codominance3").val();
+    let alleles_A1A3 = $("#Alleles-A1A3-Codominance3").val();
+    let alleles_A1A2 = $("#Alleles-A1A2-Codominance3").val();
+    let alleles_A2A3 = $("#Alleles-A2A3-Codominance3").val();
 
-    alert(alelles_A1A1 + " " + alelles_A1A3 + " " + alelles_A1A2 + " " + alelles_A2A3);
+    alert(alleles_A1A1 + " " + alleles_A1A3 + " " + alleles_A1A2 + " " + alleles_A2A3);
     /*$.ajax({
         type: "GET",
         //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
@@ -92,7 +95,7 @@ $("#ctoolView").on("click", "#Codominance3-onelocus", (evt) => {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
         contentType: "application/json",
-        data: { alelles_A1A1: alelles_A1A1, alelles_A1A3: alelles_A1A3, alelles_A1A2: alelles_A1A2, alelles_A2A3: alelles_A2A3 },
+        data: { alleles_A1A1: alleles_A1A1, alleles_A1A3: alleles_A1A3, alleles_A1A2: alleles_A1A2, alleles_A2A3: alleles_A2A3 },
         success: function(data, textStatus, jqXHR) {
 
         },
@@ -103,13 +106,13 @@ $("#ctoolView").on("click", "#Codominance3-onelocus", (evt) => {
 });
 
 $("#ctoolView").on("click", "#Codominance4-onelocus", (evt) => {
-    let alelles_A1A3 = $("#Alelles-A1A3-Codominance4").val();
-    let alelles_A1A4 = $("#Alelles-A1A4-Codominance4").val();
-    let alelles_A2A3 = $("#Alelles-A2A3-Codominance4").val();
-    let alelles_A2A4 = $("#Alelles-A2A4-Codominance4").val();
+    let alleles_A1A3 = $("#Alleles-A1A3-Codominance4").val();
+    let alleles_A1A4 = $("#Alleles-A1A4-Codominance4").val();
+    let alleles_A2A3 = $("#Alleles-A2A3-Codominance4").val();
+    let alleles_A2A4 = $("#Alleles-A2A4-Codominance4").val();
 
 
-    alert(alelles_A1A3 + " " + alelles_A1A4 + " " + alelles_A2A3 + " " + alelles_A2A4);
+    alert(alleles_A1A3 + " " + alleles_A1A4 + " " + alleles_A2A3 + " " + alleles_A2A4);
     /*$.ajax({
         type: "GET",
         //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
@@ -118,7 +121,7 @@ $("#ctoolView").on("click", "#Codominance4-onelocus", (evt) => {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
         contentType: "application/json",
-        data: { alelles_A1A3: alelles_A1A3, alelles_A1A4: alelles_A1A4, alelles_A2A3: alelles_A2A3, alelles_A2A4: alelles_A2A4 },
+        data: { alleles_A1A3: alleles_A1A3, alleles_A1A4: alleles_A1A4, alleles_A2A3: alleles_A2A3, alleles_A2A4: alleles_A2A4 },
         success: function(data, textStatus, jqXHR) {
 
         },
@@ -128,19 +131,23 @@ $("#ctoolView").on("click", "#Codominance4-onelocus", (evt) => {
     });*/
 });
 
+
+/////////////////////////////////////////////////////////////////////////////
 //TWO LOCI
+/////////////////////////////////////////////////////////////////////////////
+
 
 $("#ctoolView").on("click", "#F2Codom2-twoloci", (evt) => {
 
-    let alelles_A1A1B = $("#Alelles-A1A1B-F2Codom2").val();
-    let alelles_A1A2B = $("#Alelles-A1A2B-F2Codom2").val();
-    let alelles_A2A2B = $("#Alelles-A2A2B-F2Codom2").val();
-    let alelles_A1A1b = $("#Alelles-A1A1b-F2Codom2").val();
-    let alelles_A1A2b = $("#Alelles-A1A2b-F2Codom2").val();
-    let alelles_A2A2b = $("#Alelles-A2A2b-F2Codom2").val();
+    let alleles_A1A1B = $("#Alleles-A1A1B-F2Codom2").val();
+    let alleles_A1A2B = $("#Alleles-A1A2B-F2Codom2").val();
+    let alleles_A2A2B = $("#Alleles-A2A2B-F2Codom2").val();
+    let alleles_A1A1b = $("#Alleles-A1A1b-F2Codom2").val();
+    let alleles_A1A2b = $("#Alleles-A1A2b-F2Codom2").val();
+    let alleles_A2A2b = $("#Alleles-A2A2b-F2Codom2").val();
 
 
-    alert(alelles_A1A1B + " " + alelles_A1A2B + " " + alelles_A2A2B + " " + alelles_A1A1b + " " + alelles_A1A2b + " " + alelles_A2A2b);
+    alert(alleles_A1A1B + " " + alleles_A1A2B + " " + alleles_A2A2B + " " + alleles_A1A1b + " " + alleles_A1A2b + " " + alleles_A2A2b);
     /*$.ajax({
         type: "GET",
         //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
@@ -150,12 +157,12 @@ $("#ctoolView").on("click", "#F2Codom2-twoloci", (evt) => {
         },
         contentType: "application/json",
         data: { 
-            alelles_A1A1B: alelles_A1A1B, 
-            alelles_A1A2B: alelles_A1A2B, 
-            alelles_A2A2B: alelles_A2A2B, 
-            alelles_A1A1b: alelles_A1A1b,
-            alelles_A1A2b: alelles_A1A2b,
-            alelles_A2A2b: alelles_A2A2b
+            alleles_A1A1B: alleles_A1A1B, 
+            alleles_A1A2B: alleles_A1A2B, 
+            alleles_A2A2B: alleles_A2A2B, 
+            alleles_A1A1b: alleles_A1A1b,
+            alleles_A1A2b: alleles_A1A2b,
+            alleles_A2A2b: alleles_A2A2b
         },
         success: function(data, textStatus, jqXHR) {
 
@@ -168,17 +175,17 @@ $("#ctoolView").on("click", "#F2Codom2-twoloci", (evt) => {
 
 $("#ctoolView").on("click", "#F2Codom4-twoloci", (evt) => {
 
-    let alelles_A1A3B = $("#Alelles-A1A3B-F2Codom4").val();
-    let alelles_A1A3b = $("#Alelles-A1A3b-F2Codom4").val();
-    let alelles_A1A4B = $("#Alelles-A1A4B-F2Codom4").val();
-    let alelles_A1A4b = $("#Alelles-A1A4b-F2Codom4").val();
-    let alelles_A2A3B = $("#Alelles-A2A3B-F2Codom4").val();
-    let alelles_A2A3b = $("#Alelles-A2A3b-F2Codom4").val();
-    let alelles_A2A4B = $("#Alelles-A2A4B-F2Codom4").val();
-    let alelles_A2A4b = $("#Alelles-A2A4b-F2Codom4").val();
-    
-    
-    alert(alelles_A1A3B + " " + alelles_A1A3b + " " + alelles_A1A4B + " " + alelles_A1A4b + " " + alelles_A2A3B + " " + alelles_A2A3b + " " + alelles_A2A4B + " " + alelles_A2A4b);
+    let alleles_A1A3B = $("#Alleles-A1A3B-F2Codom4").val();
+    let alleles_A1A3b = $("#Alleles-A1A3b-F2Codom4").val();
+    let alleles_A1A4B = $("#Alleles-A1A4B-F2Codom4").val();
+    let alleles_A1A4b = $("#Alleles-A1A4b-F2Codom4").val();
+    let alleles_A2A3B = $("#Alleles-A2A3B-F2Codom4").val();
+    let alleles_A2A3b = $("#Alleles-A2A3b-F2Codom4").val();
+    let alleles_A2A4B = $("#Alleles-A2A4B-F2Codom4").val();
+    let alleles_A2A4b = $("#Alleles-A2A4b-F2Codom4").val();
+
+
+    alert(alleles_A1A3B + " " + alleles_A1A3b + " " + alleles_A1A4B + " " + alleles_A1A4b + " " + alleles_A2A3B + " " + alleles_A2A3b + " " + alleles_A2A4B + " " + alleles_A2A4b);
     /*$.ajax({
         type: "GET",
         //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
@@ -188,14 +195,14 @@ $("#ctoolView").on("click", "#F2Codom4-twoloci", (evt) => {
         },
         contentType: "application/json",
         data: { 
-            alelles_A1A3B: alelles_A1A3B, 
-            alelles_A1A3b: alelles_A1A3b, 
-            alelles_A1A4B: alelles_A1A4B, 
-            alelles_A1A4b: alelles_A1A4b,
-            alelles_A2A3B: alelles_A2A3B,
-            alelles_A2A3b: alelles_A2A3b,
-            alelles_A2A4B: alelles_A2A4B,
-            alelles_A2A4b: alelles_A2A4b
+            alleles_A1A3B: alleles_A1A3B, 
+            alleles_A1A3b: alleles_A1A3b, 
+            alleles_A1A4B: alleles_A1A4B, 
+            alleles_A1A4b: alleles_A1A4b,
+            alleles_A2A3B: alleles_A2A3B,
+            alleles_A2A3b: alleles_A2A3b,
+            alleles_A2A4B: alleles_A2A4B,
+            alleles_A2A4b: alleles_A2A4b
         },
         success: function(data, textStatus, jqXHR) {
     
@@ -207,19 +214,19 @@ $("#ctoolView").on("click", "#F2Codom4-twoloci", (evt) => {
 });
 
 $("#ctoolView").on("click", "#F2Codominance-twoloci", (evt) => {
-    
-    let alelles_A1A1B1B1 = $("#Alelles-A1A1B1B1-F2Codominance").val();
-    let alelles_A1A1B1B2 = $("#Alelles-A1A1B1B2-F2Codominance").val();
-    let alelles_A1A1B2B2 = $("#Alelles-A1A1B2B2-F2Codominance").val();
-    let alelles_A1A2B1B1 = $("#Alelles-A1A2B1B1-F2Codominance").val();
-    let alelles_A1A2B1B2 = $("#Alelles-A1A2B1B2-F2Codominance").val();
-    let alelles_A1A2B2B2 = $("#Alelles-A1A2B2B2-F2Codominance").val();
-    let alelles_A2A2B1B1 = $("#Alelles-A2A2B1B1-F2Codominance").val();
-    let alelles_A2A2B1B2 = $("#Alelles-A2A2B1B2-F2Codominance").val();
-    let alelles_A2A2B2B2 = $("#Alelles-A2A2B2B2-F2Codominance").val();
-        
-        
-    alert(alelles_A1A1B1B1 + " " + alelles_A1A1B1B2 + " " + alelles_A1A1B2B2 + " " + alelles_A1A2B1B1 + " " + alelles_A1A2B1B2 + " " + alelles_A1A2B2B2 + " " + alelles_A2A2B1B1 + " " + alelles_A2A2B1B2 + " " + alelles_A2A2B2B2);
+
+    let alleles_A1A1B1B1 = $("#Alleles-A1A1B1B1-F2Codominance").val();
+    let alleles_A1A1B1B2 = $("#Alleles-A1A1B1B2-F2Codominance").val();
+    let alleles_A1A1B2B2 = $("#Alleles-A1A1B2B2-F2Codominance").val();
+    let alleles_A1A2B1B1 = $("#Alleles-A1A2B1B1-F2Codominance").val();
+    let alleles_A1A2B1B2 = $("#Alleles-A1A2B1B2-F2Codominance").val();
+    let alleles_A1A2B2B2 = $("#Alleles-A1A2B2B2-F2Codominance").val();
+    let alleles_A2A2B1B1 = $("#Alleles-A2A2B1B1-F2Codominance").val();
+    let alleles_A2A2B1B2 = $("#Alleles-A2A2B1B2-F2Codominance").val();
+    let alleles_A2A2B2B2 = $("#Alleles-A2A2B2B2-F2Codominance").val();
+
+
+    alert(alleles_A1A1B1B1 + " " + alleles_A1A1B1B2 + " " + alleles_A1A1B2B2 + " " + alleles_A1A2B1B1 + " " + alleles_A1A2B1B2 + " " + alleles_A1A2B2B2 + " " + alleles_A2A2B1B1 + " " + alleles_A2A2B1B2 + " " + alleles_A2A2B2B2);
     /*$.ajax({
         type: "GET",
         //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
@@ -229,15 +236,15 @@ $("#ctoolView").on("click", "#F2Codominance-twoloci", (evt) => {
         },
         contentType: "application/json",
         data: { 
-            alelles_A1A1B1B1: alelles_A1A1B1B1, 
-            alelles_A1A1B1B2: alelles_A1A1B1B2, 
-            alelles_A1A1B2B2: alelles_A1A1B2B2, 
-            alelles_A1A2B1B1: alelles_A1A2B1B1,
-            alelles_A1A2B1B2: alelles_A1A2B1B2,
-            alelles_A1A2B2B2: alelles_A1A2B2B2,
-            alelles_A2A2B1B1: alelles_A2A2B1B1,
-            alelles_A2A2B1B2: alelles_A2A2B1B2,
-            alelles_A2A2B2B2: alelles_A2A2B2B2
+            alleles_A1A1B1B1: alleles_A1A1B1B1, 
+            alleles_A1A1B1B2: alleles_A1A1B1B2, 
+            alleles_A1A1B2B2: alleles_A1A1B2B2, 
+            alleles_A1A2B1B1: alleles_A1A2B1B1,
+            alleles_A1A2B1B2: alleles_A1A2B1B2,
+            alleles_A1A2B2B2: alleles_A1A2B2B2,
+            alleles_A2A2B1B1: alleles_A2A2B1B1,
+            alleles_A2A2B1B2: alleles_A2A2B1B2,
+            alleles_A2A2B2B2: alleles_A2A2B2B2
         },
         success: function(data, textStatus, jqXHR) {
         
@@ -249,15 +256,15 @@ $("#ctoolView").on("click", "#F2Codominance-twoloci", (evt) => {
 });
 
 $("#ctoolView").on("click", "#F2Dominance-twoloci", (evt) => {
-    
 
-    let alelles_AB = $("#Alelles-AB-F2Dominance").val();
-    let alelles_aB = $("#Alelles-aB-F2Dominance").val();
-    let alelles_Ab = $("#Alelles-Ab-F2Dominance").val();
-    let alelles_ab = $("#Alelles-ab-F2Dominance").val();
-        
-        
-    alert(alelles_AB + " " + alelles_aB + " " + alelles_Ab + " " + alelles_ab);
+
+    let alleles_AB = $("#Alleles-AB-F2Dominance").val();
+    let alleles_aB = $("#Alleles-aB-F2Dominance").val();
+    let alleles_Ab = $("#Alleles-Ab-F2Dominance").val();
+    let alleles_ab = $("#Alleles-ab-F2Dominance").val();
+
+
+    alert(alleles_AB + " " + alleles_aB + " " + alleles_Ab + " " + alleles_ab);
     /*$.ajax({
         type: "GET",
         //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
@@ -267,10 +274,10 @@ $("#ctoolView").on("click", "#F2Dominance-twoloci", (evt) => {
         },
         contentType: "application/json",
         data: { 
-            alelles_AB: alelles_AB, 
-            alelles_aB: alelles_aB, 
-            alelles_Ab: alelles_Ab, 
-            alelles_ab: alelles_ab
+            alleles_AB: alleles_AB, 
+            alleles_aB: alleles_aB, 
+            alleles_Ab: alleles_Ab, 
+            alleles_ab: alleles_ab
         },
         success: function(data, textStatus, jqXHR) {
         
@@ -282,14 +289,14 @@ $("#ctoolView").on("click", "#F2Dominance-twoloci", (evt) => {
 });
 
 $("#ctoolView").on("click", "#F2TestcrossDominance-twoloci", (evt) => {
-    
-    let alelles_AB = $("#Alelles-AB-F2TestcrossDominance").val();
-    let alelles_aB = $("#Alelles-aB-F2TestcrossDominance").val();
-    let alelles_Ab = $("#Alelles-Ab-F2TestcrossDominance").val();
-    let alelles_ab = $("#Alelles-ab-F2TestcrossDominance").val();
-        
-        
-    alert(alelles_AB + " " + alelles_aB + " " + alelles_Ab + " " + alelles_ab);
+
+    let alleles_AB = $("#Alleles-AB-F2TestcrossDominance").val();
+    let alleles_aB = $("#Alleles-aB-F2TestcrossDominance").val();
+    let alleles_Ab = $("#Alleles-Ab-F2TestcrossDominance").val();
+    let alleles_ab = $("#Alleles-ab-F2TestcrossDominance").val();
+
+
+    alert(alleles_AB + " " + alleles_aB + " " + alleles_Ab + " " + alleles_ab);
     /*$.ajax({
         type: "GET",
         //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
@@ -299,10 +306,10 @@ $("#ctoolView").on("click", "#F2TestcrossDominance-twoloci", (evt) => {
         },
         contentType: "application/json",
         data: { 
-            alelles_AB: alelles_AB, 
-            alelles_aB: alelles_aB, 
-            alelles_Ab: alelles_Ab, 
-            alelles_ab: alelles_ab
+            alleles_AB: alleles_AB, 
+            alleles_aB: alleles_aB, 
+            alleles_Ab: alleles_Ab, 
+            alleles_ab: alleles_ab
         },
         success: function(data, textStatus, jqXHR) {
         
@@ -314,15 +321,15 @@ $("#ctoolView").on("click", "#F2TestcrossDominance-twoloci", (evt) => {
 });
 
 $("#ctoolView").on("click", "#F2TestcrossDom2_1-twoloci", (evt) => {
-    
-    let alelles_A1A1B = $("#Alelles-A1A1B-F2TestcrossDom2_1").val();
-    let alelles_A1A2B = $("#Alelles-A1A2B-F2TestcrossDom2_1").val();
-    let alelles_A2A2B = $("#Alelles-A2A2B-F2TestcrossDom2_1").val();
-    let alelles_A1A1b = $("#Alelles-A1A1b-F2TestcrossDom2_1").val();
-    let alelles_A1A2b = $("#Alelles-A1A2b-F2TestcrossDom2_1").val();
-    let alelles_A2A2b = $("#Alelles-A2A2b-F2TestcrossDom2_1").val();
-        
-    alert(alelles_A1A1B + " " + alelles_A1A2B + " " + alelles_A2A2B + " " + alelles_A1A1b + " " + alelles_A1A2b + " " + alelles_A2A2b);
+
+    let alleles_A1A1B = $("#Alleles-A1A1B-F2TestcrossDom2_1").val();
+    let alleles_A1A2B = $("#Alleles-A1A2B-F2TestcrossDom2_1").val();
+    let alleles_A2A2B = $("#Alleles-A2A2B-F2TestcrossDom2_1").val();
+    let alleles_A1A1b = $("#Alleles-A1A1b-F2TestcrossDom2_1").val();
+    let alleles_A1A2b = $("#Alleles-A1A2b-F2TestcrossDom2_1").val();
+    let alleles_A2A2b = $("#Alleles-A2A2b-F2TestcrossDom2_1").val();
+
+    alert(alleles_A1A1B + " " + alleles_A1A2B + " " + alleles_A2A2B + " " + alleles_A1A1b + " " + alleles_A1A2b + " " + alleles_A2A2b);
     /*$.ajax({
         type: "GET",
         //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
@@ -332,12 +339,12 @@ $("#ctoolView").on("click", "#F2TestcrossDom2_1-twoloci", (evt) => {
         },
         contentType: "application/json",
         data: { 
-            alelles_A1A1B: alelles_A1A1B, 
-            alelles_A1A2B: alelles_A1A2B, 
-            alelles_A2A2B: alelles_A2A2B, 
-            alelles_A1A1b: alelles_A1A1b,
-            alelles_A1A2b: alelles_A1A2b,
-            alelles_A2A2b: alelles_A2A2b
+            alleles_A1A1B: alleles_A1A1B, 
+            alleles_A1A2B: alleles_A1A2B, 
+            alleles_A2A2B: alleles_A2A2B, 
+            alleles_A1A1b: alleles_A1A1b,
+            alleles_A1A2b: alleles_A1A2b,
+            alleles_A2A2b: alleles_A2A2b
         },
         success: function(data, textStatus, jqXHR) {
         
@@ -349,17 +356,17 @@ $("#ctoolView").on("click", "#F2TestcrossDom2_1-twoloci", (evt) => {
 });
 
 $("#ctoolView").on("click", "#F2TestcrossDom2_2-twoloci", (evt) => {
-    
-    let alelles_A1A3B = $("#Alelles-A1A3B-F2TestcrossDom2_2").val();
-    let alelles_A1A3b = $("#Alelles-A1A3b-F2TestcrossDom2_2").val();
-    let alelles_A1A4B = $("#Alelles-A1A4B-F2TestcrossDom2_2").val();
-    let alelles_A1A4b = $("#Alelles-A1A4b-F2TestcrossDom2_2").val();
-    let alelles_A2A3B = $("#Alelles-A2A3B-F2TestcrossDom2_2").val();
-    let alelles_A2A3b = $("#Alelles-A2A3b-F2TestcrossDom2_2").val();
-    let alelles_A2A4B = $("#Alelles-A2A4B-F2TestcrossDom2_2").val();
-    let alelles_A2A4b = $("#Alelles-A2A4b-F2TestcrossDom2_2").val();
-        
-    alert(alelles_A1A3B + " " + alelles_A1A3b + " " + alelles_A1A4B + " " + alelles_A1A4b + " " + alelles_A2A3B + " " + alelles_A2A3b + " " + alelles_A2A4B + " " + alelles_A2A4b);
+
+    let alleles_A1A3B = $("#Alleles-A1A3B-F2TestcrossDom2_2").val();
+    let alleles_A1A3b = $("#Alleles-A1A3b-F2TestcrossDom2_2").val();
+    let alleles_A1A4B = $("#Alleles-A1A4B-F2TestcrossDom2_2").val();
+    let alleles_A1A4b = $("#Alleles-A1A4b-F2TestcrossDom2_2").val();
+    let alleles_A2A3B = $("#Alleles-A2A3B-F2TestcrossDom2_2").val();
+    let alleles_A2A3b = $("#Alleles-A2A3b-F2TestcrossDom2_2").val();
+    let alleles_A2A4B = $("#Alleles-A2A4B-F2TestcrossDom2_2").val();
+    let alleles_A2A4b = $("#Alleles-A2A4b-F2TestcrossDom2_2").val();
+
+    alert(alleles_A1A3B + " " + alleles_A1A3b + " " + alleles_A1A4B + " " + alleles_A1A4b + " " + alleles_A2A3B + " " + alleles_A2A3b + " " + alleles_A2A4B + " " + alleles_A2A4b);
     /*$.ajax({
         type: "GET",
         //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
@@ -369,14 +376,14 @@ $("#ctoolView").on("click", "#F2TestcrossDom2_2-twoloci", (evt) => {
         },
         contentType: "application/json",
         data: { 
-            alelles_A1A3B: alelles_A1A3B, 
-            alelles_A1A3b: alelles_A1A3b, 
-            alelles_A1A4B: alelles_A1A4B, 
-            alelles_A1A4b: alelles_A1A4b,
-            alelles_A2A3B: alelles_A2A3B,
-            alelles_A2A3b: alelles_A2A3b,
-            alelles_A2A4B: alelles_A2A4B,
-            alelles_A2A4b: alelles_A2A4b
+            alleles_A1A3B: alleles_A1A3B, 
+            alleles_A1A3b: alleles_A1A3b, 
+            alleles_A1A4B: alleles_A1A4B, 
+            alleles_A1A4b: alleles_A1A4b,
+            alleles_A2A3B: alleles_A2A3B,
+            alleles_A2A3b: alleles_A2A3b,
+            alleles_A2A4B: alleles_A2A4B,
+            alleles_A2A4b: alleles_A2A4b
         },
         success: function(data, textStatus, jqXHR) {
         
@@ -388,13 +395,13 @@ $("#ctoolView").on("click", "#F2TestcrossDom2_2-twoloci", (evt) => {
 });
 
 $("#ctoolView").on("click", "#Testcross-twoloci", (evt) => {
-    
-    let alelles_AB = $("#Alelles-AB-Testcross").val();
-    let alelles_aB = $("#Alelles-aB-Testcross").val();
-    let alelles_Ab = $("#Alelles-Ab-Testcross").val();
-    let alelles_ab = $("#Alelles-ab-Testcross").val();
-        
-    alert(alelles_AB + " " + alelles_aB + " " + alelles_Ab + " " + alelles_ab);
+
+    let alleles_AB = $("#Alleles-AB-Testcross").val();
+    let alleles_aB = $("#Alleles-aB-Testcross").val();
+    let alleles_Ab = $("#Alleles-Ab-Testcross").val();
+    let alleles_ab = $("#Alleles-ab-Testcross").val();
+
+    alert(alleles_AB + " " + alleles_aB + " " + alleles_Ab + " " + alleles_ab);
     /*$.ajax({
         type: "GET",
         //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
@@ -404,13 +411,271 @@ $("#ctoolView").on("click", "#Testcross-twoloci", (evt) => {
         },
         contentType: "application/json",
         data: { 
-            alelles_AB: alelles_AB, 
-            alelles_aB: alelles_aB, 
-            alelles_Ab: alelles_Ab, 
-            alelles_ab: alelles_ab
+            alleles_AB: alleles_AB, 
+            alleles_aB: alleles_aB, 
+            alleles_Ab: alleles_Ab, 
+            alleles_ab: alleles_ab
         },
         success: function(data, textStatus, jqXHR) {
         
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+/////////////////////////////////////////////////////////////////////////////
+//LINKAGE
+/////////////////////////////////////////////////////////////////////////////
+
+$("#ctoolView").on("click", "#F2Codominance-linkage", (evt) => {
+
+    let alleles_A1A1B1B1 = $("#Alleles-A1A1B1B1-F2Codominance-linkage").val();
+    let alleles_A1A1B1B2 = $("#Alleles-A1A1B1B2-F2Codominance-linkage").val();
+    let alleles_A1A1B2B2 = $("#Alleles-A1A1B2B2-F2Codominance-linkage").val();
+    let alleles_A1A2B1B1 = $("#Alleles-A1A2B1B1-F2Codominance-linkage").val();
+    let alleles_A1A2B1B2 = $("#Alleles-A1A2B1B2-F2Codominance-linkage").val();
+    let alleles_A1A2B2B2 = $("#Alleles-A1A2B2B2-F2Codominance-linkage").val();
+    let alleles_A2A2B1B1 = $("#Alleles-A2A2B1B1-F2Codominance-linkage").val();
+    let alleles_A2A2B1B2 = $("#Alleles-A2A2B1B2-F2Codominance-linkage").val();
+    let alleles_A2A2B2B2 = $("#Alleles-A2A2B2B2-F2Codominance-linkage").val();
+
+    alert("Boton f2codominance");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            alleles_A1A1B1B1: alleles_A1A1B1B1,
+            alleles_A1A1B1B2: alleles_A1A1B1B2,
+            alleles_A1A1B2B2: alleles_A1A1B2B2,
+            alleles_A1A2B1B1: alleles_A1A2B1B1,
+            alleles_A1A2B1B2: alleles_A1A2B1B2,
+            alleles_A1A2B2B2: alleles_A1A2B2B2,
+            alleles_A2A2B1B1: alleles_A2A2B1B1,
+            alleles_A2A2B1B2: alleles_A2A2B1B2,
+            alleles_A2A2B2B2: alleles_A2A2B2B2
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#F2CodominanceDM-linkage", (evt) => {
+
+    let recFreq = $("#Alleles-F2CodominanceDM-RecFreq").val();
+    let ToS = $("#Alleles-F2CodominanceDM-ToS").val();
+
+    alert("Boton f2codominancedm");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            recFreq: recFreq,
+            ToS: ToS
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#F2Dominance-linkage", (evt) => {
+
+    let alleles_AB = $("#Alleles-AB-F2Dominance-linkage").val();
+    let alleles_aB = $("#Alleles-aB-F2Dominance-linkage").val();
+    let alleles_Ab = $("#Alleles-Ab-F2Dominance-linkage").val();
+    let alleles_ab = $("#Alleles-ab-F2Dominance-linkage").val();
+
+    alert("Boton f2dominance");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            alleles_AB: alleles_AB,
+            alleles_aB: alleles_aB,
+            alleles_Ab: alleles_Ab,
+            alleles_ab: alleles_ab
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#F2DominanceDM-linkage", (evt) => {
+
+    let recFreq = $("#Alleles-F2DominanceDM-RecFreq").val();
+    let ToS = $("#Alleles-F2DominanceDM-ToS").val();
+
+    alert("Boton f2dominanceDM");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            recFreq: recFreq,
+            ToS: ToS
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#Testcross-linkage", (evt) => {
+
+    let alleles_AB = $("#Alleles-AB-Testcross-linkage").val();
+    let alleles_aB = $("#Alleles-aB-Testcross-linkage").val();
+    let alleles_Ab = $("#Alleles-Ab-Testcross-linkage").val();
+    let alleles_ab = $("#Alleles-ab-Testcross-linkage").val();
+
+    alert("Boton Testcross");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            alleles_AB: alleles_AB,
+            alleles_aB: alleles_aB,
+            alleles_Ab: alleles_Ab,
+            alleles_ab: alleles_ab
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#Testcross3Loci-linkage", (evt) => {
+
+    let alleles_ABC = $("#Alleles-Testcross3Loci-ABC").val();
+    let alleles_abc = $("#Alleles-Testcross3Loci-abc").val();
+    let alleles_ABc = $("#Alleles-Testcross3Loci-ABc").val();
+    let alleles_abC = $("#Alleles-Testcross3Loci-abC").val();
+    let alleles_aBC = $("#Alleles-Testcross3Loci-aBC").val();
+    let alleles_Abc = $("#Alleles-Testcross3Loci-Abc").val();
+    let alleles_AbC = $("#Alleles-Testcross3Loci-AbC").val();
+    let alleles_aBc = $("#Alleles-Testcross3Loci-aBc").val();
+
+    alert("Boton Testcross3Loci");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            alleles_ABC: alleles_ABC,
+            alleles_abc: alleles_abc,
+            alleles_ABc: alleles_ABc,
+            alleles_abC: alleles_abC,
+            alleles_aBC: alleles_aBC,
+            alleles_Abc: alleles_Abc,
+            alleles_AbC: alleles_AbC,
+            alleles_aBc: alleles_aBc
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#Testcross3LociDM-linkage", (evt) => {
+
+    let recFreqR1 = $("#Alleles-Testcross3LociDM-RecFreqR1").val();
+    let recFreqR2 = $("#Alleles-Testcross3LociDM-RecFreqR2").val();
+    let CoC = $("#Alleles-Testcross3LociDM-CoC").val();
+    let ToS = $("#Alleles-Testcross3LociDM-ToS").val();
+
+    alert("Boton Testcross3LociDM");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            recFreqR1: recFreqR1,
+            recFreqR2: recFreqR2,
+            CoC: CoC,
+            ToS: ToS
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#TestcrossDM-linkage", (evt) => {
+
+    let recFreq = $("#Alleles-TestcrossDM-RecFreq").val();
+    let ToS = $("#Alleles-TestcrossDM-ToS").val();
+
+    alert("Boton TestcrossDM");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            recFreq: recFreq,
+            ToS: ToS
+        },
+        success: function(data, textStatus, jqXHR) {
+
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert("Se ha producido un error: " + errorThrown);
@@ -423,169 +688,169 @@ $("#ctoolView").on("click", ".btn-clean", (evt) => {
     //ONE LOCUS
 
     //Codominance 3
-    $("#Alelles-A1A1-Codominance3").val("");
-    $("#Alelles-A1A3-Codominance3").val("");
-    $("#Alelles-A1A2-Codominance3").val("");
-    $("#Alelles-A2A3-Codominance3").val("");
+    $("#Alleles-A1A1-Codominance3").val("");
+    $("#Alleles-A1A3-Codominance3").val("");
+    $("#Alleles-A1A2-Codominance3").val("");
+    $("#Alleles-A2A3-Codominance3").val("");
     //Codominance 4
-    $("#Alelles-A1A3-Codominance4").val("");
-    $("#Alelles-A1A4-Codominance4").val("");
-    $("#Alelles-A2A3-Codominance4").val("");
-    $("#Alelles-A2A4-Codominance4").val("");
+    $("#Alleles-A1A3-Codominance4").val("");
+    $("#Alleles-A1A4-Codominance4").val("");
+    $("#Alleles-A2A3-Codominance4").val("");
+    $("#Alleles-A2A4-Codominance4").val("");
     //F2 codominance
-    $("#Alelles-A1A1-F2Codominance").val("");
-    $("#Alelles-A1A2-F2Codominance").val("");
-    $("#Alelles-A2A2-F2Codominance").val("");
+    $("#Alleles-A1A1-F2Codominance").val("");
+    $("#Alleles-A1A2-F2Codominance").val("");
+    $("#Alleles-A2A2-F2Codominance").val("");
     //F2 dominance
-    $("#Alelles-A-F2Dominance").val("");
-    $("#Alelles-a-F2Dominance").val("");
+    $("#Alleles-A-F2Dominance").val("");
+    $("#Alleles-a-F2Dominance").val("");
     //Testcross
-    $("#Alelles-A-Testcross").val("");
-    $("#Alelles-a-Testcross").val("");
+    $("#Alleles-A-Testcross").val("");
+    $("#Alleles-a-Testcross").val("");
 
     //TWO LOCI
 
     //F2 Codom2
-    $("#Alelles-A1A1B-F2Codom2").val("");
-    $("#Alelles-A1A2B-F2Codom2").val("");
-    $("#Alelles-A2A2B-F2Codom2").val("");
-    $("#Alelles-A1A1b-F2Codom2").val("");
-    $("#Alelles-A1A2b-F2Codom2").val("");
-    $("#Alelles-A2A2b-F2Codom2").val("");
+    $("#Alleles-A1A1B-F2Codom2").val("");
+    $("#Alleles-A1A2B-F2Codom2").val("");
+    $("#Alleles-A2A2B-F2Codom2").val("");
+    $("#Alleles-A1A1b-F2Codom2").val("");
+    $("#Alleles-A1A2b-F2Codom2").val("");
+    $("#Alleles-A2A2b-F2Codom2").val("");
     ////F2 Codom4
-    $("#Alelles-A1A3B-F2Codom4").val("");
-    $("#Alelles-A1A3b-F2Codom4").val("");
-    $("#Alelles-A1A4B-F2Codom4").val("");
-    $("#Alelles-A1A4b-F2Codom4").val("");
-    $("#Alelles-A2A3B-F2Codom4").val("");
-    $("#Alelles-A2A3b-F2Codom4").val("");
-    $("#Alelles-A2A4B-F2Codom4").val("");
-    $("#Alelles-A2A4b-F2Codom4").val("");
+    $("#Alleles-A1A3B-F2Codom4").val("");
+    $("#Alleles-A1A3b-F2Codom4").val("");
+    $("#Alleles-A1A4B-F2Codom4").val("");
+    $("#Alleles-A1A4b-F2Codom4").val("");
+    $("#Alleles-A2A3B-F2Codom4").val("");
+    $("#Alleles-A2A3b-F2Codom4").val("");
+    $("#Alleles-A2A4B-F2Codom4").val("");
+    $("#Alleles-A2A4b-F2Codom4").val("");
     //F2 Codominance
-    $("#Alelles-A1A1B1B1-F2Codominance").val("");
-    $("#Alelles-A1A1B1B2-F2Codominance").val("");
-    $("#Alelles-A1A1B2B2-F2Codominance").val("");
-    $("#Alelles-A1A2B1B1-F2Codominance").val("");
-    $("#Alelles-A1A2B1B2-F2Codominance").val("");
-    $("#Alelles-A1A2B2B2-F2Codominance").val("");
-    $("#Alelles-A2A2B1B1-F2Codominance").val("");
-    $("#Alelles-A2A2B1B2-F2Codominance").val("");
-    $("#Alelles-A2A2B2B2-F2Codominance").val("");
+    $("#Alleles-A1A1B1B1-F2Codominance").val("");
+    $("#Alleles-A1A1B1B2-F2Codominance").val("");
+    $("#Alleles-A1A1B2B2-F2Codominance").val("");
+    $("#Alleles-A1A2B1B1-F2Codominance").val("");
+    $("#Alleles-A1A2B1B2-F2Codominance").val("");
+    $("#Alleles-A1A2B2B2-F2Codominance").val("");
+    $("#Alleles-A2A2B1B1-F2Codominance").val("");
+    $("#Alleles-A2A2B1B2-F2Codominance").val("");
+    $("#Alleles-A2A2B2B2-F2Codominance").val("");
     //F2 Dominance
-    $("#Alelles-AB-F2Dominance").val("");
-    $("#Alelles-aB-F2Dominance").val("");
-    $("#Alelles-Ab-F2Dominance").val("");
-    $("#Alelles-ab-F2Dominance").val("");
+    $("#Alleles-AB-F2Dominance").val("");
+    $("#Alleles-aB-F2Dominance").val("");
+    $("#Alleles-Ab-F2Dominance").val("");
+    $("#Alleles-ab-F2Dominance").val("");
     //F2 Testcross Dom
-    $("#Alelles-AB-F2TestcrossDominance").val("");
-    $("#Alelles-aB-F2TestcrossDominance").val("");
-    $("#Alelles-Ab-F2TestcrossDominance").val("");
-    $("#Alelles-ab-F2TestcrossDominance").val("");
+    $("#Alleles-AB-F2TestcrossDominance").val("");
+    $("#Alleles-aB-F2TestcrossDominance").val("");
+    $("#Alleles-Ab-F2TestcrossDominance").val("");
+    $("#Alleles-ab-F2TestcrossDominance").val("");
     //F2 Testcross Dom 2_1
-    $("#Alelles-A1A1B-F2TestcrossDom2_1").val("");
-    $("#Alelles-A1A2B-F2TestcrossDom2_1").val("");
-    $("#Alelles-A2A2B-F2TestcrossDom2_1").val("");
-    $("#Alelles-A1A1b-F2TestcrossDom2_1").val("");
-    $("#Alelles-A1A2b-F2TestcrossDom2_1").val("");
-    $("#Alelles-A2A2b-F2TestcrossDom2_1").val("");
+    $("#Alleles-A1A1B-F2TestcrossDom2_1").val("");
+    $("#Alleles-A1A2B-F2TestcrossDom2_1").val("");
+    $("#Alleles-A2A2B-F2TestcrossDom2_1").val("");
+    $("#Alleles-A1A1b-F2TestcrossDom2_1").val("");
+    $("#Alleles-A1A2b-F2TestcrossDom2_1").val("");
+    $("#Alleles-A2A2b-F2TestcrossDom2_1").val("");
     //F2 Testcross Dom 2_2
-    $("#Alelles-A1A3B-F2TestcrossDom2_2").val("");
-    $("#Alelles-A1A3b-F2TestcrossDom2_2").val("");
-    $("#Alelles-A1A4B-F2TestcrossDom2_2").val("");
-    $("#Alelles-A1A4b-F2TestcrossDom2_2").val("");
-    $("#Alelles-A2A3B-F2TestcrossDom2_2").val("");
-    $("#Alelles-A2A3b-F2TestcrossDom2_2").val("");
-    $("#Alelles-A2A4B-F2TestcrossDom2_2").val("");
-    $("#Alelles-A2A4b-F2TestcrossDom2_2").val("");
+    $("#Alleles-A1A3B-F2TestcrossDom2_2").val("");
+    $("#Alleles-A1A3b-F2TestcrossDom2_2").val("");
+    $("#Alleles-A1A4B-F2TestcrossDom2_2").val("");
+    $("#Alleles-A1A4b-F2TestcrossDom2_2").val("");
+    $("#Alleles-A2A3B-F2TestcrossDom2_2").val("");
+    $("#Alleles-A2A3b-F2TestcrossDom2_2").val("");
+    $("#Alleles-A2A4B-F2TestcrossDom2_2").val("");
+    $("#Alleles-A2A4b-F2TestcrossDom2_2").val("");
     //Testcross
-    $("#Alelles-AB-Testcross").val("");
-    $("#Alelles-aB-Testcross").val("");
-    $("#Alelles-Ab-Testcross").val("");
-    $("#Alelles-ab-Testcross").val("");
+    $("#Alleles-AB-Testcross").val("");
+    $("#Alleles-aB-Testcross").val("");
+    $("#Alleles-Ab-Testcross").val("");
+    $("#Alleles-ab-Testcross").val("");
 
     //LINKAGE
 
     //F2 Codominance
-    $("#Alelles-A1A1B1B1-F2Codominance-linkage").val("");
-    $("#Alelles-A1A1B1B2-F2Codominance-linkage").val("");
-    $("#Alelles-A1A1B2B2-F2Codominance-linkage").val("");
-    $("#Alelles-A1A2B1B1-F2Codominance-linkage").val("");
-    $("#Alelles-A1A2B1B2-F2Codominance-linkage").val("");
-    $("#Alelles-A1A2B2B2-F2Codominance-linkage").val("");
-    $("#Alelles-A2A2B1B1-F2Codominance-linkage").val("");
-    $("#Alelles-A2A2B1B2-F2Codominance-linkage").val("");
-    $("#Alelles-A2A2B2B2-F2Codominance-linkage").val("");
+    $("#Alleles-A1A1B1B1-F2Codominance-linkage").val("");
+    $("#Alleles-A1A1B1B2-F2Codominance-linkage").val("");
+    $("#Alleles-A1A1B2B2-F2Codominance-linkage").val("");
+    $("#Alleles-A1A2B1B1-F2Codominance-linkage").val("");
+    $("#Alleles-A1A2B1B2-F2Codominance-linkage").val("");
+    $("#Alleles-A1A2B2B2-F2Codominance-linkage").val("");
+    $("#Alleles-A2A2B1B1-F2Codominance-linkage").val("");
+    $("#Alleles-A2A2B1B2-F2Codominance-linkage").val("");
+    $("#Alleles-A2A2B2B2-F2Codominance-linkage").val("");
     //F2 Codominance DM
-    $("#Alelles-F2CodominanceDM-RecFreq").val("");
-    $("#Alelles-F2CodominanceDM-ToS").val("");
+    $("#Alleles-F2CodominanceDM-RecFreq").val("");
+    $("#Alleles-F2CodominanceDM-ToS").val("");
     //F2 Dominance
-    $("#Alelles-AB-F2Dominance-linkage").val("");
-    $("#Alelles-aB-F2Dominance-linkage").val("");
-    $("#Alelles-Ab-F2Dominance-linkage").val("");
-    $("#Alelles-ab-F2Dominance-linkage").val("");
+    $("#Alleles-AB-F2Dominance-linkage").val("");
+    $("#Alleles-aB-F2Dominance-linkage").val("");
+    $("#Alleles-Ab-F2Dominance-linkage").val("");
+    $("#Alleles-ab-F2Dominance-linkage").val("");
     //F2 Dominance DM
-    $("#Alelles-F2DominanceDM-RecFreq").val("");
-    $("#Alelles-F2DominanceDM-ToS").val("");
+    $("#Alleles-F2DominanceDM-RecFreq").val("");
+    $("#Alleles-F2DominanceDM-ToS").val("");
     //Testcross
-    $("#Alelles-AB-Testcross-linkage").val("");
-    $("#Alelles-aB-Testcross-linkage").val("");
-    $("#Alelles-Ab-Testcross-linkage").val("");
-    $("#Alelles-ab-Testcross-linkage").val("");
+    $("#Alleles-AB-Testcross-linkage").val("");
+    $("#Alleles-aB-Testcross-linkage").val("");
+    $("#Alleles-Ab-Testcross-linkage").val("");
+    $("#Alleles-ab-Testcross-linkage").val("");
     //Testcross 3 loci
-    $("#Alelles-Testcross3Loci-ABC").val("");
-    $("#Alelles-Testcross3Loci-abc").val("");
-    $("#Alelles-Testcross3Loci-ABc").val("");
-    $("#Alelles-Testcross3Loci-abC").val("");
-    $("#Alelles-Testcross3Loci-aBC").val("");
-    $("#Alelles-Testcross3Loci-Abc").val("");
-    $("#Alelles-Testcross3Loci-AbC").val("");
-    $("#Alelles-Testcross3Loci-aBc").val("");
+    $("#Alleles-Testcross3Loci-ABC").val("");
+    $("#Alleles-Testcross3Loci-abc").val("");
+    $("#Alleles-Testcross3Loci-ABc").val("");
+    $("#Alleles-Testcross3Loci-abC").val("");
+    $("#Alleles-Testcross3Loci-aBC").val("");
+    $("#Alleles-Testcross3Loci-Abc").val("");
+    $("#Alleles-Testcross3Loci-AbC").val("");
+    $("#Alleles-Testcross3Loci-aBc").val("");
     //Testcross 3 loci DM
-    $("#Alelles-Testcross3LociDM-RecFreqR1").val("");
-    $("#Alelles-Testcross3LociDM-RecFreqR2").val("");
-    $("#Alelles-Testcross3LociDM-CoC").val("");
-    $("#Alelles-Testcross3LociDM-ToS").val("");
+    $("#Alleles-Testcross3LociDM-RecFreqR1").val("");
+    $("#Alleles-Testcross3LociDM-RecFreqR2").val("");
+    $("#Alleles-Testcross3LociDM-CoC").val("");
+    $("#Alleles-Testcross3LociDM-ToS").val("");
     //Testcross DM
-    $("#Alelles-TestcrossDM-RecFreq").val("");
-    $("#Alelles-TestcrossDM-ToS").val("");
+    $("#Alleles-TestcrossDM-RecFreq").val("");
+    $("#Alleles-TestcrossDM-ToS").val("");
 
     //EPISTASIAS
 
     //Double dominant
-    $("#Alelles-ABAbaB-DoubleDominant").val("");
-    $("#Alelles-ab-DoubleDominant").val("");
+    $("#Alleles-ABAbaB-DoubleDominant").val("");
+    $("#Alleles-ab-DoubleDominant").val("");
     //Double dominant recessive
-    $("#Alelles-ABAbab-DoubleDominantRecesive").val("");
-    $("#Alelles-aB-DoubleDominantRecesive").val("");
+    $("#Alleles-ABAbab-DoubleDominantRecesive").val("");
+    $("#Alleles-aB-DoubleDominantRecesive").val("");
     //Double recessive
-    $("#Alelles-AB-DoubleRecesive").val("");
-    $("#Alelles-AbaBab-DoubleRecesive").val("");
+    $("#Alleles-AB-DoubleRecesive").val("");
+    $("#Alleles-AbaBab-DoubleRecesive").val("");
     //Segregation 961
-    $("#Alelles-AB-Segregation961").val("");
-    $("#Alelles-AbaB-Segregation961").val("");
-    $("#Alelles-ab-Segregation961").val("");
+    $("#Alleles-AB-Segregation961").val("");
+    $("#Alleles-AbaB-Segregation961").val("");
+    $("#Alleles-ab-Segregation961").val("");
     //Segregation 1033
-    $("#Alelles-ABab-Segregation1033").val("");
-    $("#Alelles-Ab-Segregation1033").val("");
-    $("#Alelles-aB-Segregation1033").val("");
+    $("#Alleles-ABab-Segregation1033").val("");
+    $("#Alleles-Ab-Segregation1033").val("");
+    $("#Alleles-aB-Segregation1033").val("");
     //Segregation 6334
-    $("#Alelles-AaB-Segregation6334").val("");
-    $("#Alelles-AAB-Segregation6334").val("");
-    $("#Alelles-Ab-Segregation6334").val("");
-    $("#Alelles-aBab-Segregation6334").val("");
+    $("#Alleles-AaB-Segregation6334").val("");
+    $("#Alleles-AAB-Segregation6334").val("");
+    $("#Alleles-Ab-Segregation6334").val("");
+    $("#Alleles-aBab-Segregation6334").val("");
     //Single Dominant
-    $("#Alelles-ABAb-SingleDominant").val("");
-    $("#Alelles-aB-SingleDominant").val("");
-    $("#Alelles-ab-SingleDominant").val("");
+    $("#Alleles-ABAb-SingleDominant").val("");
+    $("#Alleles-aB-SingleDominant").val("");
+    $("#Alleles-ab-SingleDominant").val("");
     //Single Recessive
-    $("#Alelles-AB-SingleRecesive").val("");
-    $("#Alelles-Ab-SingleRecesive").val("");
-    $("#Alelles-aBab-SingleRecesive").val("");
+    $("#Alleles-AB-SingleRecesive").val("");
+    $("#Alleles-Ab-SingleRecesive").val("");
+    $("#Alleles-aBab-SingleRecesive").val("");
     //Without modification
-    $("#Alelles-AB-WhithoutModification").val("");
-    $("#Alelles-Ab-WhithoutModification").val("");
-    $("#Alelles-aB-WhithoutModification").val("");
-    $("#Alelles-ab-WhithoutModification").val("");
+    $("#Alleles-AB-WhithoutModification").val("");
+    $("#Alleles-Ab-WhithoutModification").val("");
+    $("#Alleles-aB-WhithoutModification").val("");
+    $("#Alleles-ab-WhithoutModification").val("");
 
     //POLYHYBRID
 
@@ -597,7 +862,7 @@ $("#ctoolView").on("click", ".btn-clean", (evt) => {
     $("#Data-d-polyhybrid").val("");
     $("#Data-D-polyhybrid").val("");
     $("#Data-r-polyhybrid").val("");
-    //Multiples alelles
+    //Multiples alleles
     $("#locus1-multiplesAlleles").val("");
     $("#locus2-multiplesAlleles").val("");
     $("#locus3-multiplesAlleles").val("");

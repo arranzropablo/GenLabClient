@@ -684,6 +684,343 @@ $("#ctoolView").on("click", "#TestcrossDM-linkage", (evt) => {
 });
 
 
+/////////////////////////////////////////////////////////////////////////////
+//EPISTASIAS
+/////////////////////////////////////////////////////////////////////////////
+
+$("#ctoolView").on("click", "#DoubleDominant-epistasias", (evt) => {
+
+    let alleles_ABAbaB = $("#Alleles-ABAbaB-DoubleDominant").val();
+    let alleles_ab = $("#Alleles-ab-DoubleDominant").val();
+
+    alert("Boton DoubleDominant");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            alleles_ABAbaB: alleles_ABAbaB,
+            alleles_ab: alleles_ab
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#DoubleDominantRecesive-epistasias", (evt) => {
+
+    let alleles_ABAbab = $("#Alleles-ABAbab-DoubleDominantRecesive").val();
+    let alleles_aB = $("#Alleles-aB-DoubleDominantRecesive").val();
+
+    alert("Boton DoubleDominantRecesive");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            alleles_ABAbab: alleles_ABAbab,
+            alleles_aB: alleles_aB
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#DoubleRecesive-epistasias", (evt) => {
+
+    let alleles_AB = $("#Alleles-AB-DoubleRecesive").val();
+    let alleles_AbaBab = $("#Alleles-AbaBab-DoubleRecesive").val();
+
+    alert("Boton DoubleRecesive");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            alleles_AB: alleles_AB,
+            alleles_AbaBab: alleles_AbaBab
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#Segregation961-epistasias", (evt) => {
+
+    let alleles_AB = $("#Alleles-AB-Segregation961").val();
+    let alleles_AbaB = $("#Alleles-AbaB-Segregation961").val();
+    let alleles_ab = $("#Alleles-ab-Segregation961").val();
+
+    alert("Boton Segregation961");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            alleles_AB: alleles_AB,
+            alleles_AbaB: alleles_AbaB,
+            alleles_ab: alleles_ab
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#Segregation1033-epistasias", (evt) => {
+
+    let alleles_ABab = $("#Alleles-ABab-Segregation1033").val();
+    let alleles_Ab = $("#Alleles-Ab-Segregation1033").val();
+    let alleles_aB = $("#Alleles-aB-Segregation1033").val();
+
+    alert("Boton Segregation1033");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            alleles_ABab: alleles_ABab,
+            alleles_Ab: alleles_Ab,
+            alleles_aB: alleles_aB
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#Segregation6334-epistasias", (evt) => {
+
+    let alleles_AaB = $("#Alleles-AaB-Segregation6334").val();
+    let alleles_AAB = $("#Alleles-AAB-Segregation6334").val();
+    let alleles_Ab = $("#Alleles-Ab-Segregation6334").val();
+    let alleles_aBab = $("#Alleles-aBab-Segregation6334").val();
+
+    alert("Boton Segregation6334");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            alleles_AaB: alleles_AaB,
+            alleles_AAB: alleles_AAB,
+            alleles_Ab: alleles_Ab,
+            alleles_aBab: alleles_aBab
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#SingleDominant-epistasias", (evt) => {
+
+    let alleles_ABAb = $("#Alleles-ABAb-SingleDominant").val();
+    let alleles_aB = $("#Alleles-aB-SingleDominant").val();
+    let alleles_ab = $("#Alleles-ab-SingleDominant").val();
+
+    alert("Boton SingleDominant");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            alleles_ABAb: alleles_ABAb,
+            alleles_aB: alleles_aB,
+            alleles_ab: alleles_ab
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#SingleRecesive-epistasias", (evt) => {
+
+    let alleles_AB = $("#Alleles-AB-SingleRecesive").val();
+    let alleles_Ab = $("#Alleles-Ab-SingleRecesive").val();
+    let alleles_aBab = $("#Alleles-aBab-SingleRecesive").val();
+
+    alert("Boton SingleRecesive");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            alleles_AB: alleles_AB,
+            alleles_Ab: alleles_Ab,
+            alleles_aBab: alleles_aBab
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#WhithoutModification-epistasias", (evt) => {
+
+    let alleles_AB = $("#Alleles-AB-WhithoutModification").val();
+    let alleles_Ab = $("#Alleles-Ab-WhithoutModification").val();
+    let alleles_aB = $("#Alleles-aB-WhithoutModification").val();
+    let alleles_ab = $("#Alleles-ab-WhithoutModification").val();
+
+    alert("Boton WhithoutModification");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            alleles_AB: alleles_AB,
+            alleles_Ab: alleles_Ab,
+            alleles_aB: alleles_aB,
+            alleles_ab: alleles_ab
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+/////////////////////////////////////////////////////////////////////////////
+//POLYHYBRID
+/////////////////////////////////////////////////////////////////////////////
+
+$("#ctoolView").on("click", "#multiplesAlleles-polyhybrid", (evt) => {
+
+    let locus1 = $("#locus1-multiplesAlleles").val();
+    let locus2 = $("#locus2-multiplesAlleles").val();
+    let locus3 = $("#locus3-multiplesAlleles").val();
+    let locus4 = $("#locus4-multiplesAlleles").val();
+    let locus5 = $("#locus5-multiplesAlleles").val();
+
+    alert("Boton multiplesAlleles");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            locus1: locus1,
+            locus2: locus2,
+            locus3: locus3,
+            locus4: locus4,
+            locus5: locus5
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
+$("#ctoolView").on("click", "#Polyhybrid-polyhybrid", (evt) => {
+
+    let n = $("#Data-n-polyhybrid").val();
+    let T = $("#Data-T-polyhybrid").val();
+    let h = $("#Data-h-polyhybrid").val();
+    let R = $("#Data-R-polyhybrid").val();
+    let d = $("#Data-d-polyhybrid").val();
+    let D = $("#Data-D-polyhybrid").val();
+    let r = $("#Data-r-polyhybrid").val();
+
+    alert("Boton Polyhybrid");
+    /*$.ajax({
+        type: "GET",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+        beforeSend: function(request) {
+            request.setRequestHeader("Access-Control-Allow-Origin", "*");
+        },
+        contentType: "application/json",
+        data: {
+            n: n,
+            T: T,
+            h: h,
+            R: R,
+            d: d,
+            D: D,
+            r: r
+        },
+        success: function(data, textStatus, jqXHR) {
+
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });*/
+});
+
 $("#ctoolView").on("click", ".btn-clean", (evt) => {
     //ONE LOCUS
 

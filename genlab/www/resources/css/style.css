@@ -331,6 +331,16 @@ img {
     color: yellow;
 }
 
+.correct-answer {
+    background-color: #00e200;
+    color: white;
+}
+
+.incorrect-answer {
+    background-color: #f00000;
+    color: white;
+}
+
 .header {
     width: 100%;
 }

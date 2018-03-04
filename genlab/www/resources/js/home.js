@@ -1,5 +1,6 @@
 let application = 1;
 let tests;
+let currentTest;
 let nameApp = "onelocus";
 //two-loci 0
 //one locus 1
@@ -270,6 +271,7 @@ $(".tests-list").on("click", "button", (event) => {
     $(".back-btn").hide();
 
     let pos = Number($(event.target).data("pos"));
+    currentTest = pos;
     let aux = 0;
     tests[pos].questions.forEach(question => {
         let questionHTML = $("<div>").addClass("questionCont col-sm-6 col-sm-offset-3 form-box").data("pos", aux++);
@@ -282,6 +284,28 @@ $(".tests-list").on("click", "button", (event) => {
         questionHTML.append($("<div>").addClass("form-bottom").append(answersHTML));
         $("#testQuestions-list").append(questionHTML);
     });
+});
+
+//Evento al hacer click en una respuesta
+
+$("#testQuestions-list").on("click", ".answerCont", (event) => {
+    let answer = Number($(event.target).data("pos"));
+    let question = Number($(event.target).parent().parent().parent().data("pos"));
+
+    console.log(answer + " " + question + " " + currentTest);
+
+    if (!tests[currentTest].questions[question].answers[answer].correcta) {
+        $(event.target).addClass("incorrect-answer");
+        //Esto depende, ya que es posible que si falla se le deje seguir probando para buscar la correcta
+        tests[currentTest].questions[question].answers.forEach(answer => {
+            if (answer.correcta) {
+                //addClass correcta
+                return;
+            }
+        });
+    } else {
+        $(event.target).addClass("correct-answer");
+    }
 });
 
 
@@ -326,5 +350,6 @@ $(".back-btn").on("click", (event) => {
     $("#ctoolView").empty();
     $(".tests-list").empty();
     $("#problems-list").empty();
+    $("#testQuestions-list").empty();
 
 });

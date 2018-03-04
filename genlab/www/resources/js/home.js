@@ -1,4 +1,5 @@
 let application = 1;
+let tests;
 let nameApp = "onelocus";
 //two-loci 0
 //one locus 1
@@ -104,6 +105,7 @@ $("#app_sections").on("click", "li", (event) => {
             success: function(data, textStatus, jqXHR) {
                 //data es un objeto javascript, con los problemas de la aplicacion en cuestion
                 if (data) {
+                    console.log(data);
                     data.forEach(p => {
                         let problem = $("<div>").addClass("problem");
                         problem.append($("<h2>").addClass("problem-title").text(p.nombre));
@@ -143,8 +145,32 @@ $("#app_sections").on("click", "li", (event) => {
         $("#testQuestions-list").hide();
         title = "Tests";
         //Obtener numero de preguntas
+        $.ajax({
+            type: "GET",
+            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/tests", //COMPLETAR
+            url: "http://raspberrypablo.ddns.net:8080/api/v1/tests",
+            contentType: "application/json",
+            data: { sectionid: application },
+            success: function(data, textStatus, jqXHR) {
+                //data es un objeto javascript, con los problemas de la aplicacion en cuestion
+                //data = [{ titulo: "Test 3" }, { titulo: "Test 4" }];
+                if (data) {
+                    console.log(data);
+                    tests = data;
+                    let pos = 0;
+                    tests.forEach(test => {
+                        let testHTML = $("<li>").addClass("nav-item");
+                        testHTML.append($("<button>").addClass("partBtn btn btn-block").text(test.titulo).data("pos", pos++));
+                        $(".tests-list").append(testHTML);
+                    });
+                }
+                $("#testsView").show();
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("Se ha producido un error: " + errorThrown);
+            }
+        });
         let num = 10;
-        $("#testsView").show();
         $(".answerCont").on("click", (event) => {
             /////////////////////////////////////
             //Comprobar que la respuesta clicada
@@ -161,14 +187,14 @@ $("#app_sections").on("click", "li", (event) => {
                 $(answer).data("selected", "False");
             }*/
         });
-        $(".partsTest button").on("click", (event) => {
+        /*$(".partsTest button").on("click", (event) => {
             var title = $(event.target).text();
             $("#sectionTitle").text(title);
             $("#testQuestions-list").show();
             $("#test-list").hide();
             $(".back-btn-test").show();
             $(".back-btn").hide();
-        });
+        });*/
         $(".back-btn-test").on("click", (event) => {
             $("#sectionTitle").text("Tests");
             $("#testQuestions-list").hide();
@@ -232,6 +258,33 @@ $("#app_sections").on("click", "li", (event) => {
 
 });
 
+//Evento al hacer click en un test en concreto
+
+$(".tests-list").on("click", "button", (event) => {
+    var title = $(event.target).text();
+
+    $("#sectionTitle").text(title);
+    $("#testQuestions-list").show();
+    $("#test-list").hide();
+    $(".back-btn-test").show();
+    $(".back-btn").hide();
+
+    let pos = Number($(event.target).data("pos"));
+    let aux = 0;
+    tests[pos].questions.forEach(question => {
+        let questionHTML = $("<div>").addClass("questionCont col-sm-6 col-sm-offset-3 form-box").data("pos", aux++);
+        questionHTML.append($("<div>").addClass("form-top").append($("<div>").addClass("form-top-left").append($("<h4>").addClass("titleQuestion").text(question.texto))));
+        answersHTML = $("<div>").addClass("answers-list login-form mobile-view");
+        let auxAnswer = 0;
+        question.answers.forEach(answer => {
+            answersHTML.append($("<div>").addClass("form-group answerCont").text(answer.texto).data("pos", auxAnswer++));
+        });
+        questionHTML.append($("<div>").addClass("form-bottom").append(answersHTML));
+        $("#testQuestions-list").append(questionHTML);
+    });
+});
+
+
 $(".ctools-list").on("click", "div", (event) => {
     let ctool = $(event.target);
 
@@ -243,7 +296,10 @@ $(".ctools-list").on("click", "div", (event) => {
 
     let file = "ctools/" + nameApp + "/" + nameApp + "_" + ctool.data('ctool') + ".html";
 
-    $("#ctoolView").load(file);
+    $("#ctoolView").append($("<span>").prop("id", "loading-message").addClass("loading").text("Loading..."));
+    $("#ctoolView").load(file, () => {
+        $("#loading-message").remove();
+    });
     $("#ctoolView").show();
     //$("#ctoolView").text(file);
 });
@@ -268,5 +324,7 @@ $(".back-btn").on("click", (event) => {
     $("#sectionContent").hide();
     //Esto va en el boton de back de las ctools pero aun no esta creado
     $("#ctoolView").empty();
+    $(".tests-list").empty();
+    $("#problems-list").empty();
 
 });

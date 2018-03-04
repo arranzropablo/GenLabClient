@@ -327,6 +327,10 @@ img {
     vertical-align: -webkit-baseline-middle;
 }
 
+.loading {
+    color: yellow;
+}
+
 .header {
     width: 100%;
 }

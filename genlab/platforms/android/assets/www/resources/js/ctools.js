@@ -11,26 +11,48 @@
 
 
 $("#ctoolView").on("click", "#testcross-onelocus", (evt) => {
-    let alleles_A = $("#Alleles-A-Testcross").val();
-    let alleles_a = $("#Alleles-a-Testcross").val();
+    let alleles_A = Number($("#Alleles-A-Testcross").val());
+    let alleles_a = Number($("#Alleles-a-Testcross").val());
+    if (isNaN(alleles_A) || isNaN(alleles_a)) {
+        alert("Expected values must be numbers");
+    } else {
+        $.ajax({
+            type: "POST",
+            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool",
+            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=10",
+            beforeSend: function(request) {
+                request.setRequestHeader("Access-Control-Allow-Origin", "*");
+            },
+            contentType: "application/json",
+            data: JSON.stringify({
+                "A": alleles_A,
+                "a": alleles_a
+            }),
+            success: function(data, textStatus, jqXHR) {
+                console.log(data);
+                if (!data.cleanInputs) {
+                    $("#total-Testcross").text(alleles_A + alleles_a);
 
-    alert(alleles_A + " " + alleles_a);
-    /*$.ajax({
-        type: "GET",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/onelocus/F2Dominance",
-        beforeSend: function(request) {
-            request.setRequestHeader("Access-Control-Allow-Origin", "*");
-        },
-        contentType: "application/json",
-        data: { alleles_A: alleles_A, alleles_a: alleles_a },
-        success: function(data, textStatus, jqXHR) {
+                    $("#Expected-A-Testcross").text(data.expectedValues.expA.toFixed(1));
+                    $("#Expected-a-Testcross").text(data.expectedValues.expa.toFixed(1));
 
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert("Se ha producido un error: " + errorThrown);
-        }
-    });*/
+                    $("#value-Testcross").text(data.resultValues.chi.toFixed(2));
+                    $("#agree-Testcross").text(data.agree.chi);
+                    if (data.result) {
+                        $("#result-message-Testcross").text(data.result);
+                    }
+                    if (data.feedbackMessage) {
+                        alert(data.feedbackMessage);
+                    }
+                } else {
+                    alert(data.feedbackMessage);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("Se ha producido un error: " + errorThrown);
+            }
+        });
+    }
 });
 
 $("#ctoolView").on("click", "#F2Dominance-onelocus", (evt) => {
@@ -396,33 +418,77 @@ $("#ctoolView").on("click", "#F2TestcrossDom2_2-twoloci", (evt) => {
 
 $("#ctoolView").on("click", "#Testcross-twoloci", (evt) => {
 
-    let alleles_AB = $("#Alleles-AB-Testcross").val();
-    let alleles_aB = $("#Alleles-aB-Testcross").val();
-    let alleles_Ab = $("#Alleles-Ab-Testcross").val();
-    let alleles_ab = $("#Alleles-ab-Testcross").val();
+    let alleles_AB = Number($("#Alleles-AB-Testcross").val());
+    let alleles_aB = Number($("#Alleles-aB-Testcross").val());
+    let alleles_Ab = Number($("#Alleles-Ab-Testcross").val());
+    let alleles_ab = Number($("#Alleles-ab-Testcross").val());
 
     alert(alleles_AB + " " + alleles_aB + " " + alleles_Ab + " " + alleles_ab);
-    /*$.ajax({
-        type: "GET",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/twoloci/F2Codominance",
+    $.ajax({
+        type: "POST",
+        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctools",
+        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=00",
         beforeSend: function(request) {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
         contentType: "application/json",
-        data: { 
-            alleles_AB: alleles_AB, 
-            alleles_aB: alleles_aB, 
-            alleles_Ab: alleles_Ab, 
-            alleles_ab: alleles_ab
-        },
+        data: JSON.stringify({
+            "AB": alleles_AB,
+            "aB": alleles_aB,
+            "Ab": alleles_Ab,
+            "ab": alleles_ab
+        }),
         success: function(data, textStatus, jqXHR) {
-        
+            console.log(data);
+            if (!data.cleanInputs) {
+                $("#total-Testcross").text(data.observed.total);
+                if (data.expectedValues.expectedIndAB) {
+                    $("#ExpectedInd-AB-Testcross").text(data.expectedValues.expectedIndAB.toFixed(1));
+                    $("#ExpectedInd-Ab-Testcross").text(data.expectedValues.expectedIndAb.toFixed(1));
+                    $("#ExpectedInd-aB-Testcross").text(data.expectedValues.expectedIndaB.toFixed(1));
+                    $("#ExpectedInd-ab-Testcross").text(data.expectedValues.expectedIndab.toFixed(1));
+                }
+                if (data.expectedValues.contAB) {
+                    $("#ExpectedCont-AB-Testcross").text(data.expectedValues.contAB.toFixed(1));
+                    $("#ExpectedCont-Ab-Testcross").text(data.expectedValues.contAb.toFixed(1));
+                    $("#ExpectedCont-aB-Testcross").text(data.expectedValues.contaB.toFixed(1));
+                    $("#ExpectedCont-ab-Testcross").text(data.expectedValues.contab.toFixed(1));
+                }
+
+                $("#value-A-Testcross").text(data.observed.obsA);
+                $("#value-a-Testcross").text(data.observed.obsa);
+                $("#value-Total-Testcross").text(data.observed.total);
+
+                $("#Expected-A-Testcross").text(data.expectedValues.expA.toFixed(1));
+                $("#Expected-a-Testcross").text(data.expectedValues.expa.toFixed(1));
+
+                $("#value-B-Testcross").text(data.observed.obsB);
+                $("#value-b-Testcross").text(data.observed.obsb);
+
+                $("#Expected-B-Testcross").text(data.expectedValues.expB.toFixed(1));
+                $("#Expected-b-Testcross").text(data.expectedValues.expb.toFixed(1));
+
+                $("#value-Testcross-Aa").text(data.resultValues.chiAa.toFixed(2));
+                $("#agree-Testcross-Aa").text(data.agree.chiAa);
+                $("#value-Testcross-Bb").text(data.resultValues.chiBb.toFixed(2));
+                $("#agree-Testcross-Bb").text(data.agree.chiBb);
+                if (data.resultValues.chiInd) {
+                    $("#value-Testcross-Indep").text(data.resultValues.chiInd.toFixed(2));
+                    $("#agree-Testcross-Indep").text(data.agree.chiInd);
+                }
+                if (data.resultValues.chiCont) {
+                    $("#value-Testcross-Cont").text(data.resultValues.chiCont.toFixed(2));
+                    $("#agree-Testcross-Cont").text(data.agree.chiCont);
+                }
+                alert(data.feedbackMessage);
+
+            } else { alert(data.feedbackMessage); }
+
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert("Se ha producido un error: " + errorThrown);
         }
-    });*/
+    });
 });
 
 /////////////////////////////////////////////////////////////////////////////
@@ -1205,4 +1271,49 @@ $("#ctoolView").on("click", ".btn-clean", (evt) => {
     $("#locus3-multiplesAlleles").val("");
     $("#locus4-multiplesAlleles").val("");
     $("#locus5-multiplesAlleles").val("");
+
+    cleanResults();
 });
+
+function cleanResults() {
+    //ONE LOCUS
+
+    //Testcross
+    $("#total-Testcross").text("");
+    $("#Expected-A-Testcross").text("");
+    $("#Expected-a-Testcross").text("");
+    $("#value-Testcross").text("");
+    $("#agree-Testcross").text("");
+
+    //TWO LOCI
+
+    //Testcross
+    $("#total-Testcross").text("");
+    $("#ExpectedInd-AB-Testcross").text("");
+    $("#ExpectedInd-Ab-Testcross").text("");
+    $("#ExpectedInd-aB-Testcross").text("");
+    $("#ExpectedInd-ab-Testcross").text("");
+    $("#ExpectedCont-AB-Testcross").text("");
+    $("#ExpectedCont-Ab-Testcross").text("");
+    $("#ExpectedCont-aB-Testcross").text("");
+    $("#ExpectedCont-ab-Testcross").text("");
+    $("#value-A-Testcross").text("");
+    $("#value-a-Testcross").text("");
+    $("#value-Total-Testcross").text("");
+    $("#Expected-A-Testcross").text("");
+    $("#Expected-a-Testcross").text("");
+    $("#value-B-Testcross").text("");
+    $("#value-b-Testcross").text("");
+    $("#Expected-B-Testcross").text("");
+    $("#Expected-b-Testcross").text("");
+    $("#value-Testcross-Aa").text("");
+    $("#agree-Testcross-Aa").text("");
+    $("#value-Testcross-Bb").text("");
+    $("#agree-Testcross-Bb").text("");
+    $("#value-Testcross-Indep").text("");
+    $("#agree-Testcross-Indep").text("");
+    $("#value-Testcross-Cont").text("");
+    $("#agree-Testcross-Cont").text("");
+
+
+}

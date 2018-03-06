@@ -296,6 +296,7 @@ $("#testQuestions-list").on("click", ".answerCont", (event) => {
 
     if (!tests[currentTest].questions[question].answers[answer].correcta) {
         $(event.target).addClass("incorrect-answer");
+        //Esto depende, ya que es posible que si falla se le deje seguir probando para buscar la correcta
         tests[currentTest].questions[question].answers.forEach(answer => {
             if (answer.correcta) {
                 //addClass correcta
@@ -349,5 +350,6 @@ $(".back-btn").on("click", (event) => {
     $("#ctoolView").empty();
     $(".tests-list").empty();
     $("#problems-list").empty();
+    $("#testQuestions-list").empty();
 
 });

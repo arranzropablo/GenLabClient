@@ -269,54 +269,56 @@ $("#ctoolView").on("click", "#F2Codom2-twoloci", (evt) => {
             }),
             success: function(data, textStatus, jqXHR) {
                 console.log(data);
-                $("#total-F2Codom2").text(data.observed.total);
-                if (data.expectedValues.expectedIndA1B) {
-                    $("#ExpectedInd-A1A1B-F2Codom2").text(data.expectedValues.expectedIndA1B.toFixed(1));
-                    $("#ExpectedInd-A1A2B-F2Codom2").text(data.expectedValues.expectedIndA1A2B.toFixed(1));
-                    $("#ExpectedInd-A2A2B-F2Codom2").text(data.expectedValues.expectedIndA2B.toFixed(1));
-                    $("#ExpectedInd-A1A1b-F2Codom2").text(data.expectedValues.expectedIndA1b.toFixed(1));
-                    $("#ExpectedInd-A1A2b-F2Codom2").text(data.expectedValues.expectedIndA1A2b.toFixed(1));
-                    $("#ExpectedInd-A2A2b-F2Codom2").text(data.expectedValues.expectedIndA2b.toFixed(1));
-                }
-                if (data.expectedValues.contA1B) {
-                    $("#ExpectedCont-A1A1B-F2Codom2").text(data.expectedValues.contA1B.toFixed(1));
-                    $("#ExpectedCont-A1A2B-F2Codom2").text(data.expectedValues.contA1A2B.toFixed(1));
-                    $("#ExpectedCont-A2A2B-F2Codom2").text(data.expectedValues.contA2B.toFixed(1));
-                    $("#ExpectedCont-A1A1b-F2Codom2").text(data.expectedValues.contA1b.toFixed(1));
-                    $("#ExpectedCont-A1A2b-F2Codom2").text(data.expectedValues.contA1A2b.toFixed(1));
-                    $("#ExpectedCont-A2A2b-F2Codom2").text(data.expectedValues.contA2b.toFixed(1));
-                }
+                if (!data.cleanInputs) {
+                    $("#total-F2Codom2").text(data.observed.total);
+                    if (data.expectedValues.expectedIndA1B) {
+                        $("#ExpectedInd-A1A1B-F2Codom2").text(data.expectedValues.expectedIndA1B.toFixed(1));
+                        $("#ExpectedInd-A1A2B-F2Codom2").text(data.expectedValues.expectedIndA1A2B.toFixed(1));
+                        $("#ExpectedInd-A2A2B-F2Codom2").text(data.expectedValues.expectedIndA2B.toFixed(1));
+                        $("#ExpectedInd-A1A1b-F2Codom2").text(data.expectedValues.expectedIndA1b.toFixed(1));
+                        $("#ExpectedInd-A1A2b-F2Codom2").text(data.expectedValues.expectedIndA1A2b.toFixed(1));
+                        $("#ExpectedInd-A2A2b-F2Codom2").text(data.expectedValues.expectedIndA2b.toFixed(1));
+                    }
+                    if (data.expectedValues.contA1B) {
+                        $("#ExpectedCont-A1A1B-F2Codom2").text(data.expectedValues.contA1B.toFixed(1));
+                        $("#ExpectedCont-A1A2B-F2Codom2").text(data.expectedValues.contA1A2B.toFixed(1));
+                        $("#ExpectedCont-A2A2B-F2Codom2").text(data.expectedValues.contA2B.toFixed(1));
+                        $("#ExpectedCont-A1A1b-F2Codom2").text(data.expectedValues.contA1b.toFixed(1));
+                        $("#ExpectedCont-A1A2b-F2Codom2").text(data.expectedValues.contA1A2b.toFixed(1));
+                        $("#ExpectedCont-A2A2b-F2Codom2").text(data.expectedValues.contA2b.toFixed(1));
+                    }
 
-                $("#value-A1A1-F2Codom2").text(data.observed.obsA1);
-                $("#value-A1A2-F2Codom2").text(data.observed.obsA1A2);
-                $("#value-A2A2-F2Codom2").text(data.observed.obsA2);
-                $("#value-Total-F2Codom2").text(data.observed.total);
+                    $("#value-A1A1-F2Codom2").text(data.observed.obsA1);
+                    $("#value-A1A2-F2Codom2").text(data.observed.obsA1A2);
+                    $("#value-A2A2-F2Codom2").text(data.observed.obsA2);
+                    $("#value-Total-F2Codom2").text(data.observed.total);
 
-                $("#Expected-A1A1-F2Codom2").text(data.expectedValues.expA1.toFixed(1));
-                $("#Expected-A1A2-F2Codom2").text(data.expectedValues.expA1A2.toFixed(1));
-                $("#Expected-A2A2-F2Codom2").text(data.expectedValues.expA2.toFixed(1));
+                    $("#Expected-A1A1-F2Codom2").text(data.expectedValues.expA1.toFixed(1));
+                    $("#Expected-A1A2-F2Codom2").text(data.expectedValues.expA1A2.toFixed(1));
+                    $("#Expected-A2A2-F2Codom2").text(data.expectedValues.expA2.toFixed(1));
 
-                $("#value-B-F2Codom2").text(data.observed.obsB1);
-                $("#value-b-F2Codom2").text(data.observed.obsB2);
+                    $("#value-B-F2Codom2").text(data.observed.obsB1);
+                    $("#value-b-F2Codom2").text(data.observed.obsB2);
 
-                $("#Expected-B-F2Codom2").text(data.expectedValues.expB.toFixed(1));
-                $("#Expected-b-F2Codom2").text(data.expectedValues.expb.toFixed(1));
+                    $("#Expected-B-F2Codom2").text(data.expectedValues.expB.toFixed(1));
+                    $("#Expected-b-F2Codom2").text(data.expectedValues.expb.toFixed(1));
 
-                $("#value-F2Codom2-A1A2").text(data.resultValues.chiA1A2.toFixed(2));
-                $("#agree-F2Codom2-A1A2").text(data.agree.chiA1A2);
-                $("#value-F2Codom2-Bb").text(data.resultValues.chiBb.toFixed(2));
-                $("#agree-F2Codom2-Bb").text(data.agree.chiBb);
-                if (data.resultValues.chiInd) {
-                    $("#value-F2Codom2-Indep").text(data.resultValues.chiInd.toFixed(2));
-                    $("#agree-F2Codom2-Indep").text(data.agree.chiInd);
-                }
-                if (data.resultValues.chiCont) {
-                    $("#value-F2Codom2-Cont").text(data.resultValues.chiCont.toFixed(2));
-                    $("#agree-F2Codom2-Cont").text(data.agree.chiCont);
-                }
-                if (data.feedbackMessage) {
-                    alert(data.feedbackMessage);
-                }
+                    $("#value-F2Codom2-A1A2").text(data.resultValues.chiA1A2.toFixed(2));
+                    $("#agree-F2Codom2-A1A2").text(data.agree.chiA1A2);
+                    $("#value-F2Codom2-Bb").text(data.resultValues.chiBb.toFixed(2));
+                    $("#agree-F2Codom2-Bb").text(data.agree.chiBb);
+                    if (data.resultValues.chiInd) {
+                        $("#value-F2Codom2-Indep").text(data.resultValues.chiInd.toFixed(2));
+                        $("#agree-F2Codom2-Indep").text(data.agree.chiInd);
+                    }
+                    if (data.resultValues.chiCont) {
+                        $("#value-F2Codom2-Cont").text(data.resultValues.chiCont.toFixed(2));
+                        $("#agree-F2Codom2-Cont").text(data.agree.chiCont);
+                    }
+                    if (data.feedbackMessage) {
+                        alert(data.feedbackMessage);
+                    }
+                } else { alert(data.feedbackMessage); }
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 alert("Se ha producido un error: " + errorThrown);
@@ -360,60 +362,62 @@ $("#ctoolView").on("click", "#F2Codom4-twoloci", (evt) => {
             }),
             success: function(data, textStatus, jqXHR) {
                 console.log(data);
-                $("#total-F2Codom4").text(data.observed.total);
-                if (data.expectedValues.expectedIndA1A3B) {
-                    $("#ExpectedInd-A1A3B-F2Codom4").text(data.expectedValues.expectedIndA1A3B.toFixed(1));
-                    $("#ExpectedInd-A1A3b-F2Codom4").text(data.expectedValues.expectedIndA1A3b.toFixed(1));
-                    $("#ExpectedInd-A1A4B-F2Codom4").text(data.expectedValues.expectedIndA1A4B.toFixed(1));
-                    $("#ExpectedInd-A1A4b-F2Codom4").text(data.expectedValues.expectedIndA1A4b.toFixed(1));
-                    $("#ExpectedInd-A2A3B-F2Codom4").text(data.expectedValues.expectedIndA2A3B.toFixed(1));
-                    $("#ExpectedInd-A2A3b-F2Codom4").text(data.expectedValues.expectedIndA2A3b.toFixed(1));
-                    $("#ExpectedInd-A2A4B-F2Codom4").text(data.expectedValues.expectedIndA2A4B.toFixed(1));
-                    $("#ExpectedInd-A2A4b-F2Codom4").text(data.expectedValues.expectedIndA2A4b.toFixed(1));
-                }
-                if (data.expectedValues.contA1A3B) {
-                    $("#ExpectedCont-A1A3B-F2Codom4").text(data.expectedValues.contA1A3B.toFixed(1));
-                    $("#ExpectedCont-A1A3b-F2Codom4").text(data.expectedValues.contA1A3b.toFixed(1));
-                    $("#ExpectedCont-A1A4B-F2Codom4").text(data.expectedValues.contA1A4B.toFixed(1));
-                    $("#ExpectedCont-A1A4b-F2Codom4").text(data.expectedValues.contA1A4b.toFixed(1));
-                    $("#ExpectedCont-A2A3B-F2Codom4").text(data.expectedValues.contA2A3B.toFixed(1));
-                    $("#ExpectedCont-A2A3b-F2Codom4").text(data.expectedValues.contA2A3b.toFixed(1));
-                    $("#ExpectedCont-A2A4B-F2Codom4").text(data.expectedValues.contA2A4B.toFixed(1));
-                    $("#ExpectedCont-A2A4b-F2Codom4").text(data.expectedValues.contA2A4b.toFixed(1));
-                }
+                if (!data.cleanInputs) {
+                    $("#total-F2Codom4").text(data.observed.total);
+                    if (data.expectedValues.expectedIndA1A3B) {
+                        $("#ExpectedInd-A1A3B-F2Codom4").text(data.expectedValues.expectedIndA1A3B.toFixed(1));
+                        $("#ExpectedInd-A1A3b-F2Codom4").text(data.expectedValues.expectedIndA1A3b.toFixed(1));
+                        $("#ExpectedInd-A1A4B-F2Codom4").text(data.expectedValues.expectedIndA1A4B.toFixed(1));
+                        $("#ExpectedInd-A1A4b-F2Codom4").text(data.expectedValues.expectedIndA1A4b.toFixed(1));
+                        $("#ExpectedInd-A2A3B-F2Codom4").text(data.expectedValues.expectedIndA2A3B.toFixed(1));
+                        $("#ExpectedInd-A2A3b-F2Codom4").text(data.expectedValues.expectedIndA2A3b.toFixed(1));
+                        $("#ExpectedInd-A2A4B-F2Codom4").text(data.expectedValues.expectedIndA2A4B.toFixed(1));
+                        $("#ExpectedInd-A2A4b-F2Codom4").text(data.expectedValues.expectedIndA2A4b.toFixed(1));
+                    }
+                    if (data.expectedValues.contA1A3B) {
+                        $("#ExpectedCont-A1A3B-F2Codom4").text(data.expectedValues.contA1A3B.toFixed(1));
+                        $("#ExpectedCont-A1A3b-F2Codom4").text(data.expectedValues.contA1A3b.toFixed(1));
+                        $("#ExpectedCont-A1A4B-F2Codom4").text(data.expectedValues.contA1A4B.toFixed(1));
+                        $("#ExpectedCont-A1A4b-F2Codom4").text(data.expectedValues.contA1A4b.toFixed(1));
+                        $("#ExpectedCont-A2A3B-F2Codom4").text(data.expectedValues.contA2A3B.toFixed(1));
+                        $("#ExpectedCont-A2A3b-F2Codom4").text(data.expectedValues.contA2A3b.toFixed(1));
+                        $("#ExpectedCont-A2A4B-F2Codom4").text(data.expectedValues.contA2A4B.toFixed(1));
+                        $("#ExpectedCont-A2A4b-F2Codom4").text(data.expectedValues.contA2A4b.toFixed(1));
+                    }
 
-                $("#value-A1A3-F2Codom4").text(data.observed.obsA1A3);
-                $("#value-A1A4-F2Codom4").text(data.observed.obsA1A4);
-                $("#value-A2A3-F2Codom4").text(data.observed.obsA2A3);
-                $("#value-A2A4-F2Codom4").text(data.observed.obsA2A4);
-                $("#value-Total-F2Codom4").text(data.observed.total);
+                    $("#value-A1A3-F2Codom4").text(data.observed.obsA1A3);
+                    $("#value-A1A4-F2Codom4").text(data.observed.obsA1A4);
+                    $("#value-A2A3-F2Codom4").text(data.observed.obsA2A3);
+                    $("#value-A2A4-F2Codom4").text(data.observed.obsA2A4);
+                    $("#value-Total-F2Codom4").text(data.observed.total);
 
-                $("#Expected-A1A3-F2Codom4").text(data.expectedValues.expA1A3.toFixed(1));
-                $("#Expected-A1A4-F2Codom4").text(data.expectedValues.expA1A4.toFixed(1));
-                $("#Expected-A2A3-F2Codom4").text(data.expectedValues.expA2A3.toFixed(1));
-                $("#Expected-A2A4-F2Codom4").text(data.expectedValues.expA2A4.toFixed(1));
+                    $("#Expected-A1A3-F2Codom4").text(data.expectedValues.expA1A3.toFixed(1));
+                    $("#Expected-A1A4-F2Codom4").text(data.expectedValues.expA1A4.toFixed(1));
+                    $("#Expected-A2A3-F2Codom4").text(data.expectedValues.expA2A3.toFixed(1));
+                    $("#Expected-A2A4-F2Codom4").text(data.expectedValues.expA2A4.toFixed(1));
 
-                $("#value-B-F2Codom4").text(data.observed.obsB);
-                $("#value-b-F2Codom4").text(data.observed.obsb);
+                    $("#value-B-F2Codom4").text(data.observed.obsB);
+                    $("#value-b-F2Codom4").text(data.observed.obsb);
 
-                $("#Expected-B-F2Codom4").text(data.expectedValues.expB.toFixed(1));
-                $("#Expected-b-F2Codom4").text(data.expectedValues.expb.toFixed(1));
+                    $("#Expected-B-F2Codom4").text(data.expectedValues.expB.toFixed(1));
+                    $("#Expected-b-F2Codom4").text(data.expectedValues.expb.toFixed(1));
 
-                $("#value-F2Codom4-LocusA").text(data.resultValues.chiA1A2A3A4.toFixed(2));
-                $("#agree-F2Codom4-LocusA").text(data.agree.chiA1A2A3A4);
-                $("#value-F2Codom4-LocusB").text(data.resultValues.chiBb.toFixed(2));
-                $("#agree-F2Codom4-LocusB").text(data.agree.chiBb);
-                if (data.resultValues.chiInd) {
-                    $("#value-F2Codom4-Indep").text(data.resultValues.chiInd.toFixed(2));
-                    $("#agree-F2Codom4-Indep").text(data.agree.chiInd);
-                }
-                if (data.resultValues.chiCont) {
-                    $("#value-F2Codom4-Cont").text(data.resultValues.chiCont.toFixed(2));
-                    $("#agree-F2Codom4-Cont").text(data.agree.chiCont);
-                }
-                if (data.feedbackMessage) {
-                    alert(data.feedbackMessage);
-                }
+                    $("#value-F2Codom4-LocusA").text(data.resultValues.chiA1A2A3A4.toFixed(2));
+                    $("#agree-F2Codom4-LocusA").text(data.agree.chiA1A2A3A4);
+                    $("#value-F2Codom4-LocusB").text(data.resultValues.chiBb.toFixed(2));
+                    $("#agree-F2Codom4-LocusB").text(data.agree.chiBb);
+                    if (data.resultValues.chiInd) {
+                        $("#value-F2Codom4-Indep").text(data.resultValues.chiInd.toFixed(2));
+                        $("#agree-F2Codom4-Indep").text(data.agree.chiInd);
+                    }
+                    if (data.resultValues.chiCont) {
+                        $("#value-F2Codom4-Cont").text(data.resultValues.chiCont.toFixed(2));
+                        $("#agree-F2Codom4-Cont").text(data.agree.chiCont);
+                    }
+                    if (data.feedbackMessage) {
+                        alert(data.feedbackMessage);
+                    }
+                } else { alert(data.feedbackMessage); }
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 alert("Se ha producido un error: " + errorThrown);
@@ -625,6 +629,50 @@ $("#ctoolView").on("click", "#F2TestcrossDominance-twoloci", (evt) => {
         }),
         success: function(data, textStatus, jqXHR) {
             console.log(data);
+            if (!data.cleanInputs) {
+                $("#total-F2TestcrossDominance").text(data.observed.total);
+                if (data.expectedValues.expectedIndAB) {
+                    $("#ExpectedInd-AB-F2TestcrossDominance").text(data.expectedValues.expectedIndAB.toFixed(1));
+                    $("#ExpectedInd-Ab-F2TestcrossDominance").text(data.expectedValues.expectedIndAb.toFixed(1));
+                    $("#ExpectedInd-aB-F2TestcrossDominance").text(data.expectedValues.expectedIndaB.toFixed(1));
+                    $("#ExpectedInd-ab-F2TestcrossDominance").text(data.expectedValues.expectedIndab.toFixed(1));
+                }
+                if (data.expectedValues.contAB) {
+                    $("#ExpectedCont-AB-F2TestcrossDominance").text(data.expectedValues.contAB.toFixed(1));
+                    $("#ExpectedCont-Ab-F2TestcrossDominance").text(data.expectedValues.contAb.toFixed(1));
+                    $("#ExpectedCont-aB-F2TestcrossDominance").text(data.expectedValues.contaB.toFixed(1));
+                    $("#ExpectedCont-ab-F2TestcrossDominance").text(data.expectedValues.contab.toFixed(1));
+                }
+
+                $("#value-A-F2TestcrossDominance").text(data.observed.obsA);
+                $("#value-a-F2TestcrossDominance").text(data.observed.obsa);
+                $("#value-Total-F2TestcrossDominance").text(data.observed.total);
+
+                $("#Expected-A-F2TestcrossDominance").text(data.expectedValues.expA.toFixed(1));
+                $("#Expected-a-F2TestcrossDominance").text(data.expectedValues.expa.toFixed(1));
+
+                $("#value-B-F2TestcrossDominance").text(data.observed.obsB);
+                $("#value-b-F2TestcrossDominance").text(data.observed.obsb);
+
+                $("#Expected-B-F2TestcrossDominance").text(data.expectedValues.expB.toFixed(1));
+                $("#Expected-b-F2TestcrossDominance").text(data.expectedValues.expb.toFixed(1));
+
+                $("#value-F2TestcrossDominance-Aa").text(data.resultValues.chiAa.toFixed(2));
+                $("#agree-F2TestcrossDominance-Aa").text(data.agree.chiAa);
+                $("#value-F2TestcrossDominance-Bb").text(data.resultValues.chiBb.toFixed(2));
+                $("#agree-F2TestcrossDominance-Bb").text(data.agree.chiBb);
+                if (data.resultValues.chiInd) {
+                    $("#value-F2TestcrossDominance-Indep").text(data.resultValues.chiInd.toFixed(2));
+                    $("#agree-F2TestcrossDominance-Indep").text(data.agree.chiInd);
+                }
+                if (data.resultValues.chiCont) {
+                    $("#value-F2TestcrossDominance-Cont").text(data.resultValues.chiCont.toFixed(2));
+                    $("#agree-F2TestcrossDominance-Cont").text(data.agree.chiCont);
+                }
+                if (data.feedbackMessage) {
+                    alert(data.feedbackMessage);
+                }
+            } else { alert(data.feedbackMessage); }
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert("Se ha producido un error: " + errorThrown);
@@ -634,12 +682,12 @@ $("#ctoolView").on("click", "#F2TestcrossDominance-twoloci", (evt) => {
 
 $("#ctoolView").on("click", "#F2TestcrossDom2_1-twoloci", (evt) => {
 
-    let alleles_A1A1B = $("#Alleles-A1A1B-F2TestcrossDom2_1").val();
-    let alleles_A1A2B = $("#Alleles-A1A2B-F2TestcrossDom2_1").val();
-    let alleles_A2A2B = $("#Alleles-A2A2B-F2TestcrossDom2_1").val();
-    let alleles_A1A1b = $("#Alleles-A1A1b-F2TestcrossDom2_1").val();
-    let alleles_A1A2b = $("#Alleles-A1A2b-F2TestcrossDom2_1").val();
-    let alleles_A2A2b = $("#Alleles-A2A2b-F2TestcrossDom2_1").val();
+    let alleles_A1A1B = Number($("#Alleles-A1A1B-F2TestcrossDom2_1").val());
+    let alleles_A1A2B = Number($("#Alleles-A1A2B-F2TestcrossDom2_1").val());
+    let alleles_A2A2B = Number($("#Alleles-A2A2B-F2TestcrossDom2_1").val());
+    let alleles_A1A1b = Number($("#Alleles-A1A1b-F2TestcrossDom2_1").val());
+    let alleles_A1A2b = Number($("#Alleles-A1A2b-F2TestcrossDom2_1").val());
+    let alleles_A2A2b = Number($("#Alleles-A2A2b-F2TestcrossDom2_1").val());
 
     alert(alleles_A1A1B + " " + alleles_A1A2B + " " + alleles_A2A2B + " " + alleles_A1A1b + " " + alleles_A1A2b + " " + alleles_A2A2b);
     $.ajax({
@@ -650,16 +698,66 @@ $("#ctoolView").on("click", "#F2TestcrossDom2_1-twoloci", (evt) => {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
         contentType: "application/json",
-        data: {
+        data: JSON.stringify({
             "A1A1B": alleles_A1A1B,
             "A1A2B": alleles_A1A2B,
             "A2A2B": alleles_A2A2B,
             "A1A1b": alleles_A1A1b,
             "A1A2b": alleles_A1A2b,
             "A2A2b": alleles_A2A2b
-        },
+        }),
         success: function(data, textStatus, jqXHR) {
             console.log(data);
+            if (!data.cleanInputs) {
+                $("#total-F2TestcrossDom2_1").text(data.observed.total);
+                if (data.expectedValues.expectedIndA1B) {
+                    $("#ExpectedInd-A1A1B-F2TestcrossDom2_1").text(data.expectedValues.expectedIndA1B.toFixed(1));
+                    $("#ExpectedInd-A1A2B-F2TestcrossDom2_1").text(data.expectedValues.expectedIndA1A2B.toFixed(1));
+                    $("#ExpectedInd-A2A2B-F2TestcrossDom2_1").text(data.expectedValues.expectedIndA2B.toFixed(1));
+                    $("#ExpectedInd-A1A1b-F2TestcrossDom2_1").text(data.expectedValues.expectedIndA1b.toFixed(1));
+                    $("#ExpectedInd-A1A2b-F2TestcrossDom2_1").text(data.expectedValues.expectedIndA1A2b.toFixed(1));
+                    $("#ExpectedInd-A2A2b-F2TestcrossDom2_1").text(data.expectedValues.expectedIndA2b.toFixed(1));
+                }
+                if (data.expectedValues.contA1B) {
+                    $("#ExpectedCont-A1A1B-F2TestcrossDom2_1").text(data.expectedValues.contA1B.toFixed(1));
+                    $("#ExpectedCont-A1A2B-F2TestcrossDom2_1").text(data.expectedValues.contA1A2B.toFixed(1));
+                    $("#ExpectedCont-A2A2B-F2TestcrossDom2_1").text(data.expectedValues.contA2B.toFixed(1));
+                    $("#ExpectedCont-A1A1b-F2TestcrossDom2_1").text(data.expectedValues.contA1b.toFixed(1));
+                    $("#ExpectedCont-A1A2b-F2TestcrossDom2_1").text(data.expectedValues.contA1A2b.toFixed(1));
+                    $("#ExpectedCont-A2A2b-F2TestcrossDom2_1").text(data.expectedValues.contA2b.toFixed(1));
+                }
+
+                $("#value-A1A1-F2TestcrossDom2_1").text(data.observed.obsA1);
+                $("#value-A1A2-F2TestcrossDom2_1").text(data.observed.obsA1A2);
+                $("#value-A2A2-F2TestcrossDom2_1").text(data.observed.obsA2);
+                $("#value-Total-F2TestcrossDom2_1").text(data.observed.total);
+
+                $("#Expected-A1A1-F2TestcrossDom2_1").text(data.expectedValues.expA1.toFixed(1));
+                $("#Expected-A1A2-F2TestcrossDom2_1").text(data.expectedValues.expA1A2.toFixed(1));
+                $("#Expected-A2A2-F2TestcrossDom2_1").text(data.expectedValues.expA2.toFixed(1));
+
+                $("#value-B-F2TestcrossDom2_1").text(data.observed.obsB);
+                $("#value-b-F2TestcrossDom2_1").text(data.observed.obsb);
+
+                $("#Expected-B-F2TestcrossDom2_1").text(data.expectedValues.expB.toFixed(1));
+                $("#Expected-b-F2TestcrossDom2_1").text(data.expectedValues.expb.toFixed(1));
+
+                $("#value-F2TestcrossDom2_1-LocusA").text(data.resultValues.chiAa.toFixed(2));
+                $("#agree-F2TestcrossDom2_1-LocusA").text(data.agree.chiAa);
+                $("#value-F2TestcrossDom2_1-LocusB").text(data.resultValues.chiBb.toFixed(2));
+                $("#agree-F2TestcrossDom2_1-LocusB").text(data.agree.chiBb);
+                if (data.resultValues.chiInd) {
+                    $("#value-F2TestcrossDom2_1-Indep").text(data.resultValues.chiInd.toFixed(2));
+                    $("#agree-F2TestcrossDom2_1-Indep").text(data.agree.chiInd);
+                }
+                if (data.resultValues.chiCont) {
+                    $("#value-F2TestcrossDom2_1-Cont").text(data.resultValues.chiCont.toFixed(2));
+                    $("#agree-F2TestcrossDom2_1-Cont").text(data.agree.chiCont);
+                }
+                if (data.feedbackMessage) {
+                    alert(data.feedbackMessage);
+                }
+            } else { alert(data.feedbackMessage); }
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert("Se ha producido un error: " + errorThrown);
@@ -669,14 +767,14 @@ $("#ctoolView").on("click", "#F2TestcrossDom2_1-twoloci", (evt) => {
 
 $("#ctoolView").on("click", "#F2TestcrossDom2_2-twoloci", (evt) => {
 
-    let alleles_A1A3B = $("#Alleles-A1A3B-F2TestcrossDom2_2").val();
-    let alleles_A1A3b = $("#Alleles-A1A3b-F2TestcrossDom2_2").val();
-    let alleles_A1A4B = $("#Alleles-A1A4B-F2TestcrossDom2_2").val();
-    let alleles_A1A4b = $("#Alleles-A1A4b-F2TestcrossDom2_2").val();
-    let alleles_A2A3B = $("#Alleles-A2A3B-F2TestcrossDom2_2").val();
-    let alleles_A2A3b = $("#Alleles-A2A3b-F2TestcrossDom2_2").val();
-    let alleles_A2A4B = $("#Alleles-A2A4B-F2TestcrossDom2_2").val();
-    let alleles_A2A4b = $("#Alleles-A2A4b-F2TestcrossDom2_2").val();
+    let alleles_A1A3B = Number($("#Alleles-A1A3B-F2TestcrossDom2_2").val());
+    let alleles_A1A3b = Number($("#Alleles-A1A3b-F2TestcrossDom2_2").val());
+    let alleles_A1A4B = Number($("#Alleles-A1A4B-F2TestcrossDom2_2").val());
+    let alleles_A1A4b = Number($("#Alleles-A1A4b-F2TestcrossDom2_2").val());
+    let alleles_A2A3B = Number($("#Alleles-A2A3B-F2TestcrossDom2_2").val());
+    let alleles_A2A3b = Number($("#Alleles-A2A3b-F2TestcrossDom2_2").val());
+    let alleles_A2A4B = Number($("#Alleles-A2A4B-F2TestcrossDom2_2").val());
+    let alleles_A2A4b = Number($("#Alleles-A2A4b-F2TestcrossDom2_2").val());
 
     alert(alleles_A1A3B + " " + alleles_A1A3b + " " + alleles_A1A4B + " " + alleles_A1A4b + " " + alleles_A2A3B + " " + alleles_A2A3b + " " + alleles_A2A4B + " " + alleles_A2A4b);
     $.ajax({
@@ -687,7 +785,7 @@ $("#ctoolView").on("click", "#F2TestcrossDom2_2-twoloci", (evt) => {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
         contentType: "application/json",
-        data: {
+        data: JSON.stringify({
             "A1A3B": alleles_A1A3B,
             "A1A3b": alleles_A1A3b,
             "A1A4B": alleles_A1A4B,
@@ -696,7 +794,7 @@ $("#ctoolView").on("click", "#F2TestcrossDom2_2-twoloci", (evt) => {
             "A2A3b": alleles_A2A3b,
             "A2A4B": alleles_A2A4B,
             "A2A4b": alleles_A2A4b
-        },
+        }),
         success: function(data, textStatus, jqXHR) {
             console.log(data);
         },
@@ -841,8 +939,8 @@ $("#ctoolView").on("click", "#F2CodominanceDM-linkage", (evt) => {
         },
         contentType: "application/json",
         data: {
-            "recFreq": recFreq,
-            "ToS": ToS
+            "r1": recFreq,
+            "tOs": ToS
         },
         success: function(data, textStatus, jqXHR) {
             console.log(data);
@@ -899,8 +997,8 @@ $("#ctoolView").on("click", "#F2DominanceDM-linkage", (evt) => {
         },
         contentType: "application/json",
         data: {
-            "recFreq": recFreq,
-            "ToS": ToS
+            "r1": recFreq,
+            "tOs": ToS
         },
         success: function(data, textStatus, jqXHR) {
             console.log(data);
@@ -998,10 +1096,10 @@ $("#ctoolView").on("click", "#Testcross3LociDM-linkage", (evt) => {
         },
         contentType: "application/json",
         data: {
-            "recFreqR1": recFreqR1,
-            "recFreqR2": recFreqR2,
-            "CoC": CoC,
-            "ToS": ToS
+            "r1": recFreqR1,
+            "r2": recFreqR2,
+            "cOc": CoC,
+            "tOs": ToS
         },
         success: function(data, textStatus, jqXHR) {
             console.log(data);
@@ -1027,7 +1125,7 @@ $("#ctoolView").on("click", "#TestcrossDM-linkage", (evt) => {
         },
         contentType: "application/json",
         data: {
-            "recFreq": recFreq,
+            "r1": recFreq,
             "ToS": ToS
         },
         success: function(data, textStatus, jqXHR) {
@@ -1745,7 +1843,6 @@ function cleanResults() {
     $("#agree-F2Codom2-Cont").text("");
 
     //F2Codom4
-
     $("#total-F2Codom4").text("");
     $("#ExpectedInd-A1A3B-F2Codom4").text("");
     $("#ExpectedInd-A1A3b-F2Codom4").text("");
@@ -1784,5 +1881,34 @@ function cleanResults() {
     $("#agree-F2Codom4-Indep").text("");
     $("#value-F2Codom4-Cont").text("");
     $("#agree-F2Codom4-Cont").text("");
+
+    //F2 Testcross Dominance
+    $("#total-F2TestcrossDominance").text("");
+    $("#ExpectedInd-AB-F2TestcrossDominance").text("");
+    $("#ExpectedInd-Ab-F2TestcrossDominance").text("");
+    $("#ExpectedInd-aB-F2TestcrossDominance").text("");
+    $("#ExpectedInd-ab-F2TestcrossDominance").text("");
+    $("#ExpectedCont-AB-F2TestcrossDominance").text("");
+    $("#ExpectedCont-Ab-F2TestcrossDominance").text("");
+    $("#ExpectedCont-aB-F2TestcrossDominance").text("");
+    $("#ExpectedCont-ab-F2TestcrossDominance").text("");
+    $("#value-A-F2TestcrossDominance").text("");
+    $("#value-a-F2TestcrossDominance").text("");
+    $("#value-Total-F2TestcrossDominance").text("");
+    $("#Expected-A-F2TestcrossDominance").text("");
+    $("#Expected-a-F2TestcrossDominance").text("");
+    $("#value-B-F2TestcrossDominance").text("");
+    $("#value-b-F2TestcrossDominance").text("");
+    $("#Expected-B-F2TestcrossDominance").text("");
+    $("#Expected-b-F2TestcrossDominance").text("");
+    $("#value-F2TestcrossDominance-Aa").text("");
+    $("#agree-F2TestcrossDominance-Aa").text("");
+    $("#value-F2TestcrossDominance-Bb").text("");
+    $("#agree-F2TestcrossDominance-Bb").text("");
+    $("#value-F2TestcrossDominance-Indep").text("");
+    $("#agree-F2TestcrossDominance-Indep").text("");
+    $("#value-F2TestcrossDominance-Cont").text("");
+    $("#agree-F2TestcrossDominance-Cont").text("");
+
 
 }

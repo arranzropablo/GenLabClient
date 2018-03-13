@@ -5,9 +5,11 @@
     alert("Hola! Has metido " + h);
 });*/
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 //ONE LOCUS
 /////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 
 $("#ctoolView").on("click", "#testcross-onelocus", (evt) => {
@@ -162,10 +164,10 @@ $("#ctoolView").on("click", "#Codominance3-onelocus", (evt) => {
                 if (!data.cleanInputs) {
                     $("#total-Codominance3").text(alleles_A1A1 + alleles_A1A3 + alleles_A1A2 + alleles_A2A3);
 
-                    $("#Expected-A1A1-Codominance3").text(data.expectedValues.expectedA1A1.toFixed(1));
-                    $("#Expected-A1A3-Codominance3").text(data.expectedValues.expectedA1A3.toFixed(1));
-                    $("#Expected-A1A2-Codominance3").text(data.expectedValues.expectedA1A2.toFixed(1));
-                    $("#Expected-A2A3-Codominance3").text(data.expectedValues.expectedA2A3.toFixed(1));
+                    $("#Expected-A1A1-Codominance3").text(data.expectedValues.expA1A1.toFixed(1));
+                    $("#Expected-A1A3-Codominance3").text(data.expectedValues.expA1A3.toFixed(1));
+                    $("#Expected-A1A2-Codominance3").text(data.expectedValues.expA1A2.toFixed(1));
+                    $("#Expected-A2A3-Codominance3").text(data.expectedValues.expA2A3.toFixed(1));
 
                     $("#value-Codominance3").text(data.resultValues.chi.toFixed(2));
                     $("#agree-Codominance3").text(data.agree.chi);
@@ -211,10 +213,10 @@ $("#ctoolView").on("click", "#Codominance4-onelocus", (evt) => {
                 if (!data.cleanInputs) {
                     $("#total-Codominance4").text(alleles_A1A3 + alleles_A1A4 + alleles_A2A3 + alleles_A2A4);
 
-                    $("#Expected-A1A3-Codominance4").text(data.expectedValues.expectedA1A3.toFixed(1));
-                    $("#Expected-A1A4-Codominance4").text(data.expectedValues.expectedA1A4.toFixed(1));
-                    $("#Expected-A2A3-Codominance4").text(data.expectedValues.expectedA2A3.toFixed(1));
-                    $("#Expected-A2A4-Codominance4").text(data.expectedValues.expectedA2A4.toFixed(1));
+                    $("#Expected-A1A3-Codominance4").text(data.expectedValues.expA1A3.toFixed(1));
+                    $("#Expected-A1A4-Codominance4").text(data.expectedValues.expA1A4.toFixed(1));
+                    $("#Expected-A2A3-Codominance4").text(data.expectedValues.expA2A3.toFixed(1));
+                    $("#Expected-A2A4-Codominance4").text(data.expectedValues.expA2A4.toFixed(1));
 
                     $("#value-Codominance4").text(data.resultValues.chi.toFixed(2));
                     $("#agree-Codominance4").text(data.agree.chi);
@@ -232,11 +234,11 @@ $("#ctoolView").on("click", "#Codominance4-onelocus", (evt) => {
     }
 });
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 //TWO LOCI
 /////////////////////////////////////////////////////////////////////////////
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
 
 $("#ctoolView").on("click", "#F2Codom2-twoloci", (evt) => {
 
@@ -797,6 +799,62 @@ $("#ctoolView").on("click", "#F2TestcrossDom2_2-twoloci", (evt) => {
         }),
         success: function(data, textStatus, jqXHR) {
             console.log(data);
+            if (!data.cleanInputs) {
+                $("#total-F2TestcrossDom2_2").text(data.observed.total);
+                if (data.expectedValues.expectedIndA1A3B) {
+                    $("#ExpectedInd-A1A3B-F2TestcrossDom2_2").text(data.expectedValues.expectedIndA1A3B.toFixed(1));
+                    $("#ExpectedInd-A1A3b-F2TestcrossDom2_2").text(data.expectedValues.expectedIndA1A3b.toFixed(1));
+                    $("#ExpectedInd-A1A4B-F2TestcrossDom2_2").text(data.expectedValues.expectedIndA1A4B.toFixed(1));
+                    $("#ExpectedInd-A1A4b-F2TestcrossDom2_2").text(data.expectedValues.expectedIndA1A4b.toFixed(1));
+                    $("#ExpectedInd-A2A3B-F2TestcrossDom2_2").text(data.expectedValues.expectedIndA2A3B.toFixed(1));
+                    $("#ExpectedInd-A2A3b-F2TestcrossDom2_2").text(data.expectedValues.expectedIndA2A3b.toFixed(1));
+                    $("#ExpectedInd-A2A4B-F2TestcrossDom2_2").text(data.expectedValues.expectedIndA2A4B.toFixed(1));
+                    $("#ExpectedInd-A2A4b-F2TestcrossDom2_2").text(data.expectedValues.expectedIndA2A4b.toFixed(1));
+                }
+                if (data.expectedValues.contA1A3B) {
+                    $("#ExpectedCont-A1A3B-F2TestcrossDom2_2").text(data.expectedValues.contA1A3B.toFixed(1));
+                    $("#ExpectedCont-A1A3b-F2TestcrossDom2_2").text(data.expectedValues.contA1A3b.toFixed(1));
+                    $("#ExpectedCont-A1A4B-F2TestcrossDom2_2").text(data.expectedValues.contA1A4B.toFixed(1));
+                    $("#ExpectedCont-A1A4b-F2TestcrossDom2_2").text(data.expectedValues.contA1A4b.toFixed(1));
+                    $("#ExpectedCont-A2A3B-F2TestcrossDom2_2").text(data.expectedValues.contA2A3B.toFixed(1));
+                    $("#ExpectedCont-A2A3b-F2TestcrossDom2_2").text(data.expectedValues.contA2A3b.toFixed(1));
+                    $("#ExpectedCont-A2A4B-F2TestcrossDom2_2").text(data.expectedValues.contA2A4B.toFixed(1));
+                    $("#ExpectedCont-A2A4b-F2TestcrossDom2_2").text(data.expectedValues.contA2A4b.toFixed(1));
+                }
+
+                $("#value-A1A3-F2TestcrossDom2_2").text(data.observed.obsA1A3);
+                $("#value-A1A4-F2TestcrossDom2_2").text(data.observed.obsA1A4);
+                $("#value-A2A3-F2TestcrossDom2_2").text(data.observed.obsA2A3);
+                $("#value-A2A4-F2TestcrossDom2_2").text(data.observed.obsA2A4);
+                $("#value-Total-F2TestcrossDom2_2").text(data.observed.total);
+
+                $("#Expected-A1A3-F2TestcrossDom2_2").text(data.expectedValues.expA1A3.toFixed(1));
+                $("#Expected-A1A4-F2TestcrossDom2_2").text(data.expectedValues.expA1A4.toFixed(1));
+                $("#Expected-A2A3-F2TestcrossDom2_2").text(data.expectedValues.expA2A3.toFixed(1));
+                $("#Expected-A2A4-F2TestcrossDom2_2").text(data.expectedValues.expA2A4.toFixed(1));
+
+                $("#value-B-F2TestcrossDom2_2").text(data.observed.obsB);
+                $("#value-b-F2TestcrossDom2_2").text(data.observed.obsb);
+
+                $("#Expected-B-F2TestcrossDom2_2").text(data.expectedValues.expB.toFixed(1));
+                $("#Expected-b-F2TestcrossDom2_2").text(data.expectedValues.expb.toFixed(1));
+
+                $("#value-F2TestcrossDom2_2-LocusA").text(data.resultValues.chiA1A2A3A4.toFixed(2));
+                $("#agree-F2TestcrossDom2_2-LocusA").text(data.agree.chiA1A2A3A4);
+                $("#value-F2TestcrossDom2_2-LocusB").text(data.resultValues.chiBb.toFixed(2));
+                $("#agree-F2TestcrossDom2_2-LocusB").text(data.agree.chiBb);
+                if (data.resultValues.chiInd) {
+                    $("#value-F2TestcrossDom2_2-Indep").text(data.resultValues.chiInd.toFixed(2));
+                    $("#agree-F2TestcrossDom2_2-Indep").text(data.agree.chiInd);
+                }
+                if (data.resultValues.chiCont) {
+                    $("#value-F2TestcrossDom2_2-Cont").text(data.resultValues.chiCont.toFixed(2));
+                    $("#agree-F2TestcrossDom2_2-Cont").text(data.agree.chiCont);
+                }
+                if (data.feedbackMessage) {
+                    alert(data.feedbackMessage);
+                }
+            } else { alert(data.feedbackMessage); }
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert("Se ha producido un error: " + errorThrown);
@@ -868,7 +926,9 @@ $("#ctoolView").on("click", "#Testcross-twoloci", (evt) => {
                     $("#value-Testcross-Cont").text(data.resultValues.chiCont.toFixed(2));
                     $("#agree-Testcross-Cont").text(data.agree.chiCont);
                 }
-                alert(data.feedbackMessage);
+                if (data.feedbackMessage) {
+                    alert(data.feedbackMessage);
+                }
 
             } else { alert(data.feedbackMessage); }
 
@@ -879,9 +939,12 @@ $("#ctoolView").on("click", "#Testcross-twoloci", (evt) => {
     });
 });
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 //LINKAGE
 /////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 $("#ctoolView").on("click", "#F2Codominance-linkage", (evt) => {
 
@@ -904,7 +967,7 @@ $("#ctoolView").on("click", "#F2Codominance-linkage", (evt) => {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
         contentType: "application/json",
-        data: {
+        data: JSON.stringify({
             "A1A1B1B1": alleles_A1A1B1B1,
             "A1A1B1B2": alleles_A1A1B1B2,
             "A1A1B2B2": alleles_A1A1B2B2,
@@ -914,9 +977,59 @@ $("#ctoolView").on("click", "#F2Codominance-linkage", (evt) => {
             "A2A2B1B1": alleles_A2A2B1B1,
             "A2A2B1B2": alleles_A2A2B1B2,
             "A2A2B2B2": alleles_A2A2B2B2
-        },
+        }),
         success: function(data, textStatus, jqXHR) {
             console.log(data);
+            if (!data.cleanInputs) {
+                $("#total-F2Codominance-linkage").text(data.observed.total);
+
+                $("#value-F2Codominance-Aa").text(data.resultValues.chiA.toFixed(2));
+                $("#agree-F2Codominance-Aa").text(data.agree.chiA);
+                $("#value-F2Codominance-Bb").text(data.resultValues.chiB.toFixed(2));
+                $("#agree-F2Codominance-Bb").text(data.agree.chiB);
+                if (data.resultValues.chiInd) {
+                    $("#value-F2Codominance-Indep").text(data.resultValues.chiInd.toFixed(2));
+                    $("#agree-F2Codominance-Indep").text(data.agree.chiInd);
+                }
+                if (data.resultValues.chiLink) {
+                    $("#value-F2Codominance-Lin").text(data.resultValues.chiLink.toFixed(2));
+                    $("#agree-F2Codominance-Lin").text(data.agree.chiLink);
+                }
+                if (data.resultValues.chiCont) {
+                    $("#value-F2Codominance-Cont").text(data.resultValues.chiCont.toFixed(2));
+                    $("#agree-F2Codominance-Cont").text(data.agree.chiCont);
+                }
+                if (data.resultValues.lodZ) {
+                    $("#value-F2Codominance-LodSZ").text(data.resultValues.lodZ.toFixed(2));
+                }
+                if (data.resultValues.rf) {
+                    $("#value-F2Codominance-RF").text(data.resultValues.rf);
+                }
+                if (data.resultValues.distance) {
+                    $("#value-F2Codominance-Dist").text(data.resultValues.distance.toFixed(2));
+                }
+                if (data.phase.phaseA) {
+                    $("#value-F2Codominance-Phase").text(data.phase.phaseA);
+                    $("#agree-F2Codominance-Phase").text(data.phase.phaseB);
+                }
+
+                $("#value-A1A1-F2Codominance-linkage").text(data.observed.obsA1);
+                $("#value-A1A2-F2Codominance-linkage").text(data.observed.obsA1A2);
+                $("#value-A2A2-F2Codominance-linkage").text(data.observed.obsA2);
+                $("#Expected-A1A1-F2Codominance-linkage").text(data.expectedValues.expA1.toFixed(2));
+                $("#Expected-A1A2-F2Codominance-linkage").text(data.expectedValues.expA1A2.toFixed(2));
+                $("#Expected-A2A2-F2Codominance-linkage").text(data.expectedValues.expA2.toFixed(2));
+                $("#value-B1B1-F2Codominance-linkage").text(data.observed.obsB1);
+                $("#value-B1B2-F2Codominance-linkage").text(data.observed.obsB1B2);
+                $("#value-B2B2-F2Codominance-linkage").text(data.observed.obsB2);
+                $("#Expected-B1B1-F2Codominance-linkage").text(data.expectedValues.expB1.toFixed(2));
+                $("#Expected-B1B2-F2Codominance-linkage").text(data.expectedValues.expB1B2.toFixed(2));
+                $("#Expected-B2B2-F2Codominance-linkage").text(data.expectedValues.expB2.toFixed(2));
+                if (data.result) {
+                    $("#result-message-F2Codominance-linkage").text(data.result);
+                }
+
+            } else { alert(data.feedbackMessage); }
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert("Se ha producido un error: " + errorThrown);
@@ -967,14 +1080,71 @@ $("#ctoolView").on("click", "#F2Dominance-linkage", (evt) => {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
         contentType: "application/json",
-        data: {
+        data: JSON.stringify({
             "AB": alleles_AB,
             "aB": alleles_aB,
             "Ab": alleles_Ab,
             "ab": alleles_ab
-        },
+        }),
         success: function(data, textStatus, jqXHR) {
             console.log(data);
+            if (!data.cleanInputs) {
+                $("#total-F2Dominance-linkage").text(data.observed.total);
+                if (data.expectedValues.expectedIndAB) {
+                    $("#ExpectedInd-AB-F2Dominance-linkage").text(data.expectedValues.expectedIndAB.toFixed(1));
+                    $("#ExpectedInd-Ab-F2Dominance-linkage").text(data.expectedValues.expectedIndAb.toFixed(1));
+                    $("#ExpectedInd-aB-F2Dominance-linkage").text(data.expectedValues.expectedIndaB.toFixed(1));
+                    $("#ExpectedInd-ab-F2Dominance-linkage").text(data.expectedValues.expectedIndab.toFixed(1));
+                }
+                if (data.expectedValues.contAB) {
+                    $("#ExpectedCont-AB-F2Dominance-linkage").text(data.expectedValues.contAB.toFixed(1));
+                    $("#ExpectedCont-Ab-F2Dominance-linkage").text(data.expectedValues.contAb.toFixed(1));
+                    $("#ExpectedCont-aB-F2Dominance-linkage").text(data.expectedValues.contaB.toFixed(1));
+                    $("#ExpectedCont-ab-F2Dominance-linkage").text(data.expectedValues.contab.toFixed(1));
+                }
+                $("#value-F2Dominance-Aa").text(data.resultValues.chiA.toFixed(2));
+                $("#agree-F2Dominance-Aa").text(data.agree.chiA);
+                $("#value-F2Dominance-Bb").text(data.resultValues.chiB.toFixed(2));
+                $("#agree-F2Dominance-Bb").text(data.agree.chiB);
+                if (data.resultValues.chiInd) {
+                    $("#value-F2Dominance-Indep").text(data.resultValues.chiInd.toFixed(2));
+                    $("#agree-F2Dominance-Indep").text(data.agree.chiInd);
+                }
+                if (data.resultValues.chiLink) {
+                    $("#value-F2Dominance-Lin").text(data.resultValues.chiLink.toFixed(2));
+                    $("#agree-F2Dominance-Lin").text(data.agree.chiLink);
+                }
+                if (data.resultValues.chiCont) {
+                    $("#value-F2Dominance-Cont").text(data.resultValues.chiCont.toFixed(2));
+                    $("#agree-F2Dominance-Cont").text(data.agree.chiCont);
+                }
+                if (data.resultValues.lodZ) {
+                    $("#value-F2Dominance-LodSZ").text(data.resultValues.lodZ.toFixed(2));
+                }
+                if (data.resultValues.rf) {
+                    $("#value-F2Dominance-RF").text(data.resultValues.rf.toFixed(2));
+                }
+                if (data.resultValues.distance) {
+                    $("#value-F2Dominance-Dist").text(data.resultValues.distance.toFixed(2));
+                }
+                if (data.phase.phaseA) {
+                    $("#value-F2Dominance-Phase").text(data.phase.phaseA);
+                    $("#agree-F2Dominance-Phase").text(data.phase.phaseB);
+                }
+
+                $("#value-A-F2Dominance-linkage").text(data.observed.obsA);
+                $("#value-a-F2Dominance-linkage").text(data.observed.obsa);
+                $("#Expected-A-F2Dominance-linkage").text(data.expectedValues.expA.toFixed(2));
+                $("#Expected-a-F2Dominance-linkage").text(data.expectedValues.expa.toFixed(2));
+                $("#value-B-F2Dominance-linkage").text(data.observed.obsB);
+                $("#value-b-F2Dominance-linkage").text(data.observed.obsb);
+                $("#Expected-B-F2Dominance-linkage").text(data.expectedValues.expB.toFixed(2));
+                $("#Expected-b-F2Dominance-linkage").text(data.expectedValues.expb.toFixed(2));
+                if (data.result) {
+                    $("#result-message-F2Dominance-linkage").text(data.result);
+                }
+
+            } else { alert(data.feedbackMessage); }
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert("Se ha producido un error: " + errorThrown);
@@ -1025,14 +1195,71 @@ $("#ctoolView").on("click", "#Testcross-linkage", (evt) => {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
         contentType: "application/json",
-        data: {
+        data: JSON.stringify({
             "AB": alleles_AB,
             "aB": alleles_aB,
             "Ab": alleles_Ab,
             "ab": alleles_ab
-        },
+        }),
         success: function(data, textStatus, jqXHR) {
             console.log(data);
+            if (!data.cleanInputs) {
+                $("#total-Testcross-linkage").text(data.observed.total);
+                if (data.expectedValues.expectedIndAB) {
+                    $("#ExpectedInd-AB-Testcross-linkage").text(data.expectedValues.expectedIndAB.toFixed(1));
+                    $("#ExpectedInd-Ab-Testcross-linkage").text(data.expectedValues.expectedIndAb.toFixed(1));
+                    $("#ExpectedInd-aB-Testcross-linkage").text(data.expectedValues.expectedIndaB.toFixed(1));
+                    $("#ExpectedInd-ab-Testcross-linkage").text(data.expectedValues.expectedIndab.toFixed(1));
+                }
+                if (data.expectedValues.contAB) {
+                    $("#ExpectedCont-AB-Testcross-linkage").text(data.expectedValues.contAB.toFixed(1));
+                    $("#ExpectedCont-Ab-Testcross-linkage").text(data.expectedValues.contAb.toFixed(1));
+                    $("#ExpectedCont-aB-Testcross-linkage").text(data.expectedValues.contaB.toFixed(1));
+                    $("#ExpectedCont-ab-Testcross-linkage").text(data.expectedValues.contab.toFixed(1));
+                }
+                $("#value-Testcross-Aa").text(data.resultValues.chiA.toFixed(2));
+                $("#agree-Testcross-Aa").text(data.agree.chiA);
+                $("#value-Testcross-Bb").text(data.resultValues.chiB.toFixed(2));
+                $("#agree-Testcross-Bb").text(data.agree.chiB);
+                if (data.resultValues.chiInd) {
+                    $("#value-Testcross-Indep").text(data.resultValues.chiInd.toFixed(2));
+                    $("#agree-Testcross-Indep").text(data.agree.chiInd);
+                }
+                if (data.resultValues.chiLink) {
+                    $("#value-Testcross-Lin").text(data.resultValues.chiLink.toFixed(2));
+                    $("#agree-Testcross-Lin").text(data.agree.chiLink);
+                }
+                if (data.resultValues.chiCont) {
+                    $("#value-Testcross-Cont").text(data.resultValues.chiCont.toFixed(2));
+                    $("#agree-Testcross-Cont").text(data.agree.chiCont);
+                }
+                if (data.resultValues.lodZ) {
+                    $("#value-Testcross-LodSZ").text(data.resultValues.lodZ.toFixed(2));
+                }
+                if (data.resultValues.rf) {
+                    $("#value-Testcross-RF").text(data.resultValues.rf.toFixed(2));
+                }
+                if (data.resultValues.distance) {
+                    $("#value-Testcross-Dist").text(data.resultValues.distance.toFixed(2));
+                }
+                if (data.phase.phaseA) {
+                    $("#value-Testcross-Phase").text(data.phase.phaseA);
+                    $("#agree-Testcross-Phase").text(data.phase.phaseB);
+                }
+
+                $("#value-A-Testcross-linkage").text(data.observed.obsA);
+                $("#value-a-Testcross-linkage").text(data.observed.obsa);
+                $("#Expected-A-Testcross-linkage").text(data.expectedValues.expA.toFixed(2));
+                $("#Expected-a-Testcross-linkage").text(data.expectedValues.expa.toFixed(2));
+                $("#value-B-Testcross-linkage").text(data.observed.obsB);
+                $("#value-b-Testcross-linkage").text(data.observed.obsb);
+                $("#Expected-B-Testcross-linkage").text(data.expectedValues.expB.toFixed(2));
+                $("#Expected-b-Testcross-linkage").text(data.expectedValues.expb.toFixed(2));
+                if (data.result) {
+                    $("#result-message-Testcross-linkage").text(data.result);
+                }
+
+            } else { alert(data.feedbackMessage); }
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert("Se ha producido un error: " + errorThrown);
@@ -1137,10 +1364,12 @@ $("#ctoolView").on("click", "#TestcrossDM-linkage", (evt) => {
     });
 });
 
-
+///////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 //EPISTASIAS
 /////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 $("#ctoolView").on("click", "#DoubleDominant-epistasias", (evt) => {
 
@@ -1401,9 +1630,12 @@ $("#ctoolView").on("click", "#WhithoutModification-epistasias", (evt) => {
     });
 });
 
+///////////////////////////////////////////////////////////////////////////////////////////////////
 /////////////////////////////////////////////////////////////////////////////
 //POLYHYBRID
 /////////////////////////////////////////////////////////////////////////////
+///////////////////////////////////////////////////////////////////////////////////////////////////
+
 
 $("#ctoolView").on("click", "#multiplesAlleles-polyhybrid", (evt) => {
 
@@ -1476,439 +1708,15 @@ $("#ctoolView").on("click", "#Polyhybrid-polyhybrid", (evt) => {
 });
 
 $("#ctoolView").on("click", ".btn-clean", (evt) => {
-    //ONE LOCUS
 
-    //Codominance 3
-    $("#Alleles-A1A1-Codominance3").val("");
-    $("#Alleles-A1A3-Codominance3").val("");
-    $("#Alleles-A1A2-Codominance3").val("");
-    $("#Alleles-A2A3-Codominance3").val("");
-    //Codominance 4
-    $("#Alleles-A1A3-Codominance4").val("");
-    $("#Alleles-A1A4-Codominance4").val("");
-    $("#Alleles-A2A3-Codominance4").val("");
-    $("#Alleles-A2A4-Codominance4").val("");
-    //F2 codominance
-    $("#Alleles-A1A1-F2Codominance").val("");
-    $("#Alleles-A1A2-F2Codominance").val("");
-    $("#Alleles-A2A2-F2Codominance").val("");
-    //F2 dominance
-    $("#Alleles-A-F2Dominance").val("");
-    $("#Alleles-a-F2Dominance").val("");
-    //Testcross
-    $("#Alleles-A-Testcross").val("");
-    $("#Alleles-a-Testcross").val("");
-
-    //TWO LOCI
-
-    //F2 Codom2
-    $("#Alleles-A1A1B-F2Codom2").val("");
-    $("#Alleles-A1A2B-F2Codom2").val("");
-    $("#Alleles-A2A2B-F2Codom2").val("");
-    $("#Alleles-A1A1b-F2Codom2").val("");
-    $("#Alleles-A1A2b-F2Codom2").val("");
-    $("#Alleles-A2A2b-F2Codom2").val("");
-    ////F2 Codom4
-    $("#Alleles-A1A3B-F2Codom4").val("");
-    $("#Alleles-A1A3b-F2Codom4").val("");
-    $("#Alleles-A1A4B-F2Codom4").val("");
-    $("#Alleles-A1A4b-F2Codom4").val("");
-    $("#Alleles-A2A3B-F2Codom4").val("");
-    $("#Alleles-A2A3b-F2Codom4").val("");
-    $("#Alleles-A2A4B-F2Codom4").val("");
-    $("#Alleles-A2A4b-F2Codom4").val("");
-    //F2 Codominance
-    $("#Alleles-A1A1B1B1-F2Codominance").val("");
-    $("#Alleles-A1A1B1B2-F2Codominance").val("");
-    $("#Alleles-A1A1B2B2-F2Codominance").val("");
-    $("#Alleles-A1A2B1B1-F2Codominance").val("");
-    $("#Alleles-A1A2B1B2-F2Codominance").val("");
-    $("#Alleles-A1A2B2B2-F2Codominance").val("");
-    $("#Alleles-A2A2B1B1-F2Codominance").val("");
-    $("#Alleles-A2A2B1B2-F2Codominance").val("");
-    $("#Alleles-A2A2B2B2-F2Codominance").val("");
-    //F2 Dominance
-    $("#Alleles-AB-F2Dominance").val("");
-    $("#Alleles-aB-F2Dominance").val("");
-    $("#Alleles-Ab-F2Dominance").val("");
-    $("#Alleles-ab-F2Dominance").val("");
-    //F2 Testcross Dom
-    $("#Alleles-AB-F2TestcrossDominance").val("");
-    $("#Alleles-aB-F2TestcrossDominance").val("");
-    $("#Alleles-Ab-F2TestcrossDominance").val("");
-    $("#Alleles-ab-F2TestcrossDominance").val("");
-    //F2 Testcross Dom 2_1
-    $("#Alleles-A1A1B-F2TestcrossDom2_1").val("");
-    $("#Alleles-A1A2B-F2TestcrossDom2_1").val("");
-    $("#Alleles-A2A2B-F2TestcrossDom2_1").val("");
-    $("#Alleles-A1A1b-F2TestcrossDom2_1").val("");
-    $("#Alleles-A1A2b-F2TestcrossDom2_1").val("");
-    $("#Alleles-A2A2b-F2TestcrossDom2_1").val("");
-    //F2 Testcross Dom 2_2
-    $("#Alleles-A1A3B-F2TestcrossDom2_2").val("");
-    $("#Alleles-A1A3b-F2TestcrossDom2_2").val("");
-    $("#Alleles-A1A4B-F2TestcrossDom2_2").val("");
-    $("#Alleles-A1A4b-F2TestcrossDom2_2").val("");
-    $("#Alleles-A2A3B-F2TestcrossDom2_2").val("");
-    $("#Alleles-A2A3b-F2TestcrossDom2_2").val("");
-    $("#Alleles-A2A4B-F2TestcrossDom2_2").val("");
-    $("#Alleles-A2A4b-F2TestcrossDom2_2").val("");
-    //Testcross
-    $("#Alleles-AB-Testcross").val("");
-    $("#Alleles-aB-Testcross").val("");
-    $("#Alleles-Ab-Testcross").val("");
-    $("#Alleles-ab-Testcross").val("");
-
-    //LINKAGE
-
-    //F2 Codominance
-    $("#Alleles-A1A1B1B1-F2Codominance-linkage").val("");
-    $("#Alleles-A1A1B1B2-F2Codominance-linkage").val("");
-    $("#Alleles-A1A1B2B2-F2Codominance-linkage").val("");
-    $("#Alleles-A1A2B1B1-F2Codominance-linkage").val("");
-    $("#Alleles-A1A2B1B2-F2Codominance-linkage").val("");
-    $("#Alleles-A1A2B2B2-F2Codominance-linkage").val("");
-    $("#Alleles-A2A2B1B1-F2Codominance-linkage").val("");
-    $("#Alleles-A2A2B1B2-F2Codominance-linkage").val("");
-    $("#Alleles-A2A2B2B2-F2Codominance-linkage").val("");
-    //F2 Codominance DM
-    $("#Alleles-F2CodominanceDM-RecFreq").val("");
-    $("#Alleles-F2CodominanceDM-ToS").val("");
-    //F2 Dominance
-    $("#Alleles-AB-F2Dominance-linkage").val("");
-    $("#Alleles-aB-F2Dominance-linkage").val("");
-    $("#Alleles-Ab-F2Dominance-linkage").val("");
-    $("#Alleles-ab-F2Dominance-linkage").val("");
-    //F2 Dominance DM
-    $("#Alleles-F2DominanceDM-RecFreq").val("");
-    $("#Alleles-F2DominanceDM-ToS").val("");
-    //Testcross
-    $("#Alleles-AB-Testcross-linkage").val("");
-    $("#Alleles-aB-Testcross-linkage").val("");
-    $("#Alleles-Ab-Testcross-linkage").val("");
-    $("#Alleles-ab-Testcross-linkage").val("");
-    //Testcross 3 loci
-    $("#Alleles-Testcross3Loci-ABC").val("");
-    $("#Alleles-Testcross3Loci-abc").val("");
-    $("#Alleles-Testcross3Loci-ABc").val("");
-    $("#Alleles-Testcross3Loci-abC").val("");
-    $("#Alleles-Testcross3Loci-aBC").val("");
-    $("#Alleles-Testcross3Loci-Abc").val("");
-    $("#Alleles-Testcross3Loci-AbC").val("");
-    $("#Alleles-Testcross3Loci-aBc").val("");
-    //Testcross 3 loci DM
-    $("#Alleles-Testcross3LociDM-RecFreqR1").val("");
-    $("#Alleles-Testcross3LociDM-RecFreqR2").val("");
-    $("#Alleles-Testcross3LociDM-CoC").val("");
-    $("#Alleles-Testcross3LociDM-ToS").val("");
-    //Testcross DM
-    $("#Alleles-TestcrossDM-RecFreq").val("");
-    $("#Alleles-TestcrossDM-ToS").val("");
-
-    //EPISTASIAS
-
-    //Double dominant
-    $("#Alleles-ABAbaB-DoubleDominant").val("");
-    $("#Alleles-ab-DoubleDominant").val("");
-    //Double dominant recessive
-    $("#Alleles-ABAbab-DoubleDominantRecesive").val("");
-    $("#Alleles-aB-DoubleDominantRecesive").val("");
-    //Double recessive
-    $("#Alleles-AB-DoubleRecesive").val("");
-    $("#Alleles-AbaBab-DoubleRecesive").val("");
-    //Segregation 961
-    $("#Alleles-AB-Segregation961").val("");
-    $("#Alleles-AbaB-Segregation961").val("");
-    $("#Alleles-ab-Segregation961").val("");
-    //Segregation 1033
-    $("#Alleles-ABab-Segregation1033").val("");
-    $("#Alleles-Ab-Segregation1033").val("");
-    $("#Alleles-aB-Segregation1033").val("");
-    //Segregation 6334
-    $("#Alleles-AaB-Segregation6334").val("");
-    $("#Alleles-AAB-Segregation6334").val("");
-    $("#Alleles-Ab-Segregation6334").val("");
-    $("#Alleles-aBab-Segregation6334").val("");
-    //Single Dominant
-    $("#Alleles-ABAb-SingleDominant").val("");
-    $("#Alleles-aB-SingleDominant").val("");
-    $("#Alleles-ab-SingleDominant").val("");
-    //Single Recessive
-    $("#Alleles-AB-SingleRecesive").val("");
-    $("#Alleles-Ab-SingleRecesive").val("");
-    $("#Alleles-aBab-SingleRecesive").val("");
-    //Without modification
-    $("#Alleles-AB-WhithoutModification").val("");
-    $("#Alleles-Ab-WhithoutModification").val("");
-    $("#Alleles-aB-WhithoutModification").val("");
-    $("#Alleles-ab-WhithoutModification").val("");
-
-    //POLYHYBRID
-
-    //Polyhybrid
-    $("#Data-n-polyhybrid").val("");
-    $("#Data-T-polyhybrid").val("");
-    $("#Data-h-polyhybrid").val("");
-    $("#Data-R-polyhybrid").val("");
-    $("#Data-d-polyhybrid").val("");
-    $("#Data-D-polyhybrid").val("");
-    $("#Data-r-polyhybrid").val("");
-    //Multiples alleles
-    $("#locus1-multiplesAlleles").val("");
-    $("#locus2-multiplesAlleles").val("");
-    $("#locus3-multiplesAlleles").val("");
-    $("#locus4-multiplesAlleles").val("");
-    $("#locus5-multiplesAlleles").val("");
-
+    cleanInputs();
     cleanResults();
 });
 
+function cleanInputs() {
+    $(".clean").val("");
+}
+
 function cleanResults() {
-    //ONE LOCUS
-
-    //Testcross
-    $("#total-Testcross").text("");
-    $("#Expected-A-Testcross").text("");
-    $("#Expected-a-Testcross").text("");
-    $("#value-Testcross").text("");
-    $("#agree-Testcross").text("");
-    $("#result-message-Testcross").text("");
-
-    //F2Dominance
-    $("#total-F2Dominance").text("");
-    $("#Expected-A-F2Dominance").text("");
-    $("#Expected-a-F2Dominance").text("");
-    $("#value-F2Dominance").text("");
-    $("#agree-F2Dominance").text("");
-    $("#result-message-F2Dominance").text("");
-
-    //F2Codominance
-
-    //Codominance 3
-    $("#total-Codominance3").text("");
-    $("#Expected-A1A1-Codominance3").text("");
-    $("#Expected-A1A3-Codominance3").text("");
-    $("#Expected-A1A2-Codominance3").text("");
-    $("#Expected-A2A3-Codominance3").text("");
-    $("#value-Codominance3").text("");
-    $("#agree-Codominance3").text("");
-    $("#result-message-Codominance3").text("");
-
-    //Codominance 4
-    $("#total-Codominance4").text("");
-    $("#Expected-A1A3-Codominance4").text("");
-    $("#Expected-A1A4-Codominance4").text("");
-    $("#Expected-A2A3-Codominance4").text("");
-    $("#Expected-A2A4-Codominance4").text("");
-    $("#value-Codominance4").text("");
-    $("#agree-Codominance4").text("");
-    $("#result-message-Codominance4").text("");
-
-
-
-    //TWO LOCI
-
-    //Testcross
-    $("#total-Testcross").text("");
-    $("#ExpectedInd-AB-Testcross").text("");
-    $("#ExpectedInd-Ab-Testcross").text("");
-    $("#ExpectedInd-aB-Testcross").text("");
-    $("#ExpectedInd-ab-Testcross").text("");
-    $("#ExpectedCont-AB-Testcross").text("");
-    $("#ExpectedCont-Ab-Testcross").text("");
-    $("#ExpectedCont-aB-Testcross").text("");
-    $("#ExpectedCont-ab-Testcross").text("");
-    $("#value-A-Testcross").text("");
-    $("#value-a-Testcross").text("");
-    $("#value-Total-Testcross").text("");
-    $("#Expected-A-Testcross").text("");
-    $("#Expected-a-Testcross").text("");
-    $("#value-B-Testcross").text("");
-    $("#value-b-Testcross").text("");
-    $("#Expected-B-Testcross").text("");
-    $("#Expected-b-Testcross").text("");
-    $("#value-Testcross-Aa").text("");
-    $("#agree-Testcross-Aa").text("");
-    $("#value-Testcross-Bb").text("");
-    $("#agree-Testcross-Bb").text("");
-    $("#value-Testcross-Indep").text("");
-    $("#agree-Testcross-Indep").text("");
-    $("#value-Testcross-Cont").text("");
-    $("#agree-Testcross-Cont").text("");
-
-    //F2Dominance
-    $("#total-F2Dominance").text("");
-    $("#ExpectedInd-AB-F2Dominance").text("");
-    $("#ExpectedInd-Ab-F2Dominance").text("");
-    $("#ExpectedInd-aB-F2Dominance").text("");
-    $("#ExpectedInd-ab-F2Dominance").text("");
-    $("#ExpectedCont-AB-F2Dominance").text("");
-    $("#ExpectedCont-Ab-F2Dominance").text("");
-    $("#ExpectedCont-aB-F2Dominance").text("");
-    $("#ExpectedCont-ab-F2Dominance").text("");
-    $("#value-A-F2Dominance").text("");
-    $("#value-a-F2Dominance").text("");
-    $("#value-Total-F2Dominance").text("");
-    $("#Expected-A-F2Dominance").text("");
-    $("#Expected-a-F2Dominance").text("");
-    $("#value-B-F2Dominance").text("");
-    $("#value-b-F2Dominance").text("");
-    $("#Expected-B-F2Dominance").text("");
-    $("#Expected-b-F2Dominance").text("");
-    $("#value-F2Dominance-Aa").text("");
-    $("#agree-F2Dominance-Aa").text("");
-    $("#value-F2Dominance-Bb").text("");
-    $("#agree-F2Dominance-Bb").text("");
-    $("#value-F2Dominance-Indep").text("");
-    $("#agree-F2Dominance-Indep").text("");
-    $("#value-F2Dominance-Cont").text("");
-    $("#agree-F2Dominance-Cont").text("");
-
-    //F2Codominance
-
-    $("#total-F2Codominance").text("");
-    $("#ExpectedInd-A1A1B1B1-F2Codominance").text("");
-    $("#ExpectedInd-A1A1B1B2-F2Codominance").text("");
-    $("#ExpectedInd-A1A1B2B2-F2Codominance").text("");
-    $("#ExpectedInd-A1A2B1B1-F2Codominance").text("");
-    $("#ExpectedInd-A1A2B1B2-F2Codominance").text("");
-    $("#ExpectedInd-A1A2B2B2-F2Codominance").text("");
-    $("#ExpectedInd-A2A2B1B1-F2Codominance").text("");
-    $("#ExpectedInd-A2A2B1B2-F2Codominance").text("");
-    $("#ExpectedInd-A2A2B2B2-F2Codominance").text("");
-    $("#ExpectedCont-A1A1B1B1-F2Codominance").text("");
-    $("#ExpectedCont-A1A1B1B2-F2Codominance").text("");
-    $("#ExpectedCont-A1A1B2B2-F2Codominance").text("");
-    $("#ExpectedCont-A1A2B1B1-F2Codominance").text("");
-    $("#ExpectedCont-A1A2B1B2-F2Codominance").text("");
-    $("#ExpectedCont-A1A2B2B2-F2Codominance").text("");
-    $("#ExpectedCont-A2A2B1B1-F2Codominance").text("");
-    $("#ExpectedCont-A2A2B1B2-F2Codominance").text("");
-    $("#ExpectedCont-A2A2B2B2-F2Codominance").text("");
-    $("#value-A1A1-F2Codominance").text("");
-    $("#value-A1A2-F2Codominance").text("");
-    $("#value-A2A2-F2Codominance").text("");
-    $("#value-Total-F2Codominance").text("");
-    $("#Expected-A1A1-F2Codominance").text("");
-    $("#Expected-A1A2-F2Codominance").text("");
-    $("#Expected-A2A2-F2Codominance").text("");
-    $("#value-B1B1-F2Codominance").text("");
-    $("#value-B1B2-F2Codominance").text("");
-    $("#value-B2B2-F2Codominance").text("");
-    $("#Expected-B1B1-F2Codominance").text("");
-    $("#Expected-B1B2-F2Codominance").text("");
-    $("#Expected-B2B2-F2Codominance").text("");
-    $("#value-F2Codominance-A1A2").text("");
-    $("#agree-F2Codominance-A1A2").text("");
-    $("#value-F2Codominance-B1B2").text("");
-    $("#agree-F2Codominance-B1B2").text("");
-    $("#value-F2Codominance-Indep").text("");
-    $("#agree-F2Codominance-Indep").text("");
-    $("#value-F2Codominance-Cont").text("");
-    $("#agree-F2Codominance-Cont").text("");
-
-    //F2Codom2
-
-    $("#total-F2Codom2").text("");
-    $("#ExpectedInd-A1A1B-F2Codom2").text("");
-    $("#ExpectedInd-A1A2B-F2Codom2").text("");
-    $("#ExpectedInd-A2A2B-F2Codom2").text("");
-    $("#ExpectedInd-A1A1b-F2Codom2").text("");
-    $("#ExpectedInd-A1A2b-F2Codom2").text("");
-    $("#ExpectedInd-A2A2b-F2Codom2").text("");
-    $("#ExpectedCont-A1A1B-F2Codom2").text("");
-    $("#ExpectedCont-A1A2B-F2Codom2").text("");
-    $("#ExpectedCont-A2A2B-F2Codom2").text("");
-    $("#ExpectedCont-A1A1b-F2Codom2").text("");
-    $("#ExpectedCont-A1A2b-F2Codom2").text("");
-    $("#ExpectedCont-A2A2b-F2Codom2").text("");
-    $("#value-A1A1-F2Codom2").text("");
-    $("#value-A1A2-F2Codom2").text("");
-    $("#value-A2A2-F2Codom2").text("");
-    $("#value-Total-F2Codom2").text("");
-    $("#Expected-A1A1-F2Codom2").text("");
-    $("#Expected-A1A2-F2Codom2").text("");
-    $("#Expected-A2A2-F2Codom2").text("");
-    $("#value-B-F2Codom2").text("");
-    $("#value-b-F2Codom2").text("");
-    $("#Expected-B-F2Codom2").text("");
-    $("#Expected-b-F2Codom2").text("");
-    $("#value-F2Codom2-A1A2").text("");
-    $("#agree-F2Codom2-A1A2").text("");
-    $("#value-F2Codom2-Bb").text("");
-    $("#agree-F2Codom2-Bb").text("");
-    $("#value-F2Codom2-Indep").text("");
-    $("#agree-F2Codom2-Indep").text("");
-    $("#value-F2Codom2-Cont").text("");
-    $("#agree-F2Codom2-Cont").text("");
-
-    //F2Codom4
-    $("#total-F2Codom4").text("");
-    $("#ExpectedInd-A1A3B-F2Codom4").text("");
-    $("#ExpectedInd-A1A3b-F2Codom4").text("");
-    $("#ExpectedInd-A1A4B-F2Codom4").text("");
-    $("#ExpectedInd-A1A4b-F2Codom4").text("");
-    $("#ExpectedInd-A2A3B-F2Codom4").text("");
-    $("#ExpectedInd-A2A3b-F2Codom4").text("");
-    $("#ExpectedInd-A2A4B-F2Codom4").text("");
-    $("#ExpectedInd-A2A4b-F2Codom4").text("");
-    $("#ExpectedCont-A1A3B-F2Codom4").text("");
-    $("#ExpectedCont-A1A3b-F2Codom4").text("");
-    $("#ExpectedCont-A1A4B-F2Codom4").text("");
-    $("#ExpectedCont-A1A4b-F2Codom4").text("");
-    $("#ExpectedCont-A2A3B-F2Codom4").text("");
-    $("#ExpectedCont-A2A3b-F2Codom4").text("");
-    $("#ExpectedCont-A2A4B-F2Codom4").text("");
-    $("#ExpectedCont-A2A4b-F2Codom4").text("");
-    $("#value-A1A3-F2Codom4").text("");
-    $("#value-A1A4-F2Codom4").text("");
-    $("#value-A2A3-F2Codom4").text("");
-    $("#value-A2A4-F2Codom4").text("");
-    $("#value-Total-F2Codom4").text("");
-    $("#Expected-A1A3-F2Codom4").text("");
-    $("#Expected-A1A4-F2Codom4").text("");
-    $("#Expected-A2A3-F2Codom4").text("");
-    $("#Expected-A2A4-F2Codom4").text("");
-    $("#value-B-F2Codom4").text("");
-    $("#value-b-F2Codom4").text("");
-    $("#Expected-B-F2Codom4").text("");
-    $("#Expected-b-F2Codom4").text("");
-    $("#value-F2Codom4-LocusA").text("");
-    $("#agree-F2Codom4-LocusA").text("");
-    $("#value-F2Codom4-LocusB").text("");
-    $("#agree-F2Codom4-LocusB").text("");
-    $("#value-F2Codom4-Indep").text("");
-    $("#agree-F2Codom4-Indep").text("");
-    $("#value-F2Codom4-Cont").text("");
-    $("#agree-F2Codom4-Cont").text("");
-
-    //F2 Testcross Dominance
-    $("#total-F2TestcrossDominance").text("");
-    $("#ExpectedInd-AB-F2TestcrossDominance").text("");
-    $("#ExpectedInd-Ab-F2TestcrossDominance").text("");
-    $("#ExpectedInd-aB-F2TestcrossDominance").text("");
-    $("#ExpectedInd-ab-F2TestcrossDominance").text("");
-    $("#ExpectedCont-AB-F2TestcrossDominance").text("");
-    $("#ExpectedCont-Ab-F2TestcrossDominance").text("");
-    $("#ExpectedCont-aB-F2TestcrossDominance").text("");
-    $("#ExpectedCont-ab-F2TestcrossDominance").text("");
-    $("#value-A-F2TestcrossDominance").text("");
-    $("#value-a-F2TestcrossDominance").text("");
-    $("#value-Total-F2TestcrossDominance").text("");
-    $("#Expected-A-F2TestcrossDominance").text("");
-    $("#Expected-a-F2TestcrossDominance").text("");
-    $("#value-B-F2TestcrossDominance").text("");
-    $("#value-b-F2TestcrossDominance").text("");
-    $("#Expected-B-F2TestcrossDominance").text("");
-    $("#Expected-b-F2TestcrossDominance").text("");
-    $("#value-F2TestcrossDominance-Aa").text("");
-    $("#agree-F2TestcrossDominance-Aa").text("");
-    $("#value-F2TestcrossDominance-Bb").text("");
-    $("#agree-F2TestcrossDominance-Bb").text("");
-    $("#value-F2TestcrossDominance-Indep").text("");
-    $("#agree-F2TestcrossDominance-Indep").text("");
-    $("#value-F2TestcrossDominance-Cont").text("");
-    $("#agree-F2TestcrossDominance-Cont").text("");
-
-
+    $(".clean").text("");
 }

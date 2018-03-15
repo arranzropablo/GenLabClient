@@ -1373,261 +1373,416 @@ $("#ctoolView").on("click", "#TestcrossDM-linkage", (evt) => {
 
 $("#ctoolView").on("click", "#DoubleDominant-epistasias", (evt) => {
 
-    let alleles_ABAbaB = $("#Alleles-ABAbaB-DoubleDominant").val();
-    let alleles_ab = $("#Alleles-ab-DoubleDominant").val();
+    let alleles_ABAbaB = Number($("#Alleles-ABAbaB-DoubleDominant").val());
+    let alleles_ab = Number($("#Alleles-ab-DoubleDominant").val());
 
-    alert("Boton DoubleDominant");
-    $.ajax({
-        type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=35",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=35",
-        beforeSend: function(request) {
-            request.setRequestHeader("Access-Control-Allow-Origin", "*");
-        },
-        contentType: "application/json",
-        data: {
-            "ABAbaB": alleles_ABAbaB,
-            "ab": alleles_ab
-        },
-        success: function(data, textStatus, jqXHR) {
-            console.log(data);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert("Se ha producido un error: " + errorThrown);
-        }
-    });
+    if (isNaN(alleles_ABAbaB) || isNaN(alleles_ab)) {
+        alert("Expected values must be numbers");
+    } else {
+        $.ajax({
+            type: "POST",
+            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=35",
+            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=35",
+            beforeSend: function(request) {
+                request.setRequestHeader("Access-Control-Allow-Origin", "*");
+            },
+            contentType: "application/json",
+            data: JSON.stringify({
+                "ABAbaB": alleles_ABAbaB,
+                "ab": alleles_ab
+            }),
+            success: function(data, textStatus, jqXHR) {
+                console.log(data);
+                if (!data.cleanInputs) {
+                    $("#total-DoubleDominant").text(data.resultValues.total);
+
+                    $("#Expected-ABAbaB-DoubleDominant").text(data.expectedValues.expABAbaB.toFixed(1));
+                    $("#Expected-ab-DoubleDominant").text(data.expectedValues.expab.toFixed(1));
+
+                    $("#value-DoubleDominant").text(data.resultValues.chiInd.toFixed(2));
+                    $("#agree-DoubleDominant").text(data.agree.chiInd);
+
+                } else {
+                    alert(data.feedbackMessage);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("Se ha producido un error: " + errorThrown);
+            }
+        });
+    }
 });
 
 $("#ctoolView").on("click", "#DoubleDominantRecesive-epistasias", (evt) => {
 
-    let alleles_ABAbab = $("#Alleles-ABAbab-DoubleDominantRecesive").val();
-    let alleles_aB = $("#Alleles-aB-DoubleDominantRecesive").val();
+    let alleles_ABAbab = Number($("#Alleles-ABAbab-DoubleDominantRecesive").val());
+    let alleles_aB = Number($("#Alleles-aB-DoubleDominantRecesive").val());
 
-    alert("Boton DoubleDominantRecesive");
-    $.ajax({
-        type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=36",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=36",
-        beforeSend: function(request) {
-            request.setRequestHeader("Access-Control-Allow-Origin", "*");
-        },
-        contentType: "application/json",
-        data: {
-            "ABAbab": alleles_ABAbab,
-            "aB": alleles_aB
-        },
-        success: function(data, textStatus, jqXHR) {
-            console.log(data);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert("Se ha producido un error: " + errorThrown);
-        }
-    });
+    if (isNaN(alleles_ABAbab) || isNaN(alleles_aB)) {
+        alert("Expected values must be numbers");
+    } else {
+        $.ajax({
+            type: "POST",
+            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=36",
+            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=36",
+            beforeSend: function(request) {
+                request.setRequestHeader("Access-Control-Allow-Origin", "*");
+            },
+            contentType: "application/json",
+            data: JSON.stringify({
+                "ABAbab": alleles_ABAbab,
+                "aB": alleles_aB
+            }),
+            success: function(data, textStatus, jqXHR) {
+                console.log(data);
+                if (!data.cleanInputs) {
+                    $("#total-DoubleDominantRecesive").text(data.resultValues.total);
+
+                    $("#Expected-ABAbab-DoubleDominantRecesive").text(data.expectedValues.expABAbab.toFixed(1));
+                    $("#Expected-aB-DoubleDominantRecesive").text(data.expectedValues.expaB.toFixed(1));
+
+                    $("#value-DoubleDominantRecesive").text(data.resultValues.chiInd.toFixed(2));
+                    $("#agree-DoubleDominantRecesive").text(data.agree.chiInd);
+
+                } else {
+                    alert(data.feedbackMessage);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("Se ha producido un error: " + errorThrown);
+            }
+        });
+    }
 });
 
 $("#ctoolView").on("click", "#DoubleRecesive-epistasias", (evt) => {
 
-    let alleles_AB = $("#Alleles-AB-DoubleRecesive").val();
-    let alleles_AbaBab = $("#Alleles-AbaBab-DoubleRecesive").val();
+    let alleles_AB = Number($("#Alleles-AB-DoubleRecesive").val());
+    let alleles_AbaBab = Number($("#Alleles-AbaBab-DoubleRecesive").val());
 
-    alert("Boton DoubleRecesive");
-    $.ajax({
-        type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=34",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=34",
-        beforeSend: function(request) {
-            request.setRequestHeader("Access-Control-Allow-Origin", "*");
-        },
-        contentType: "application/json",
-        data: {
-            "AB": alleles_AB,
-            "AbaBab": alleles_AbaBab
-        },
-        success: function(data, textStatus, jqXHR) {
-            console.log(data);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert("Se ha producido un error: " + errorThrown);
-        }
-    });
+    if (isNaN(alleles_AB) || isNaN(alleles_AbaBab)) {
+        alert("Expected values must be numbers");
+    } else {
+        $.ajax({
+            type: "POST",
+            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=34",
+            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=34",
+            beforeSend: function(request) {
+                request.setRequestHeader("Access-Control-Allow-Origin", "*");
+            },
+            contentType: "application/json",
+            data: JSON.stringify({
+                "AB": alleles_AB,
+                "AbaBab": alleles_AbaBab
+            }),
+            success: function(data, textStatus, jqXHR) {
+                console.log(data);
+
+                if (!data.cleanInputs) {
+                    $("#total-DoubleRecesive").text(data.resultValues.total);
+
+                    $("#Expected-AB-DoubleRecesive").text(data.expectedValues.expAB.toFixed(1));
+                    $("#Expected-AbaBab-DoubleRecesive").text(data.expectedValues.expAbaBab.toFixed(1));
+
+                    $("#value-DoubleRecesive").text(data.resultValues.chiInd.toFixed(2));
+                    $("#agree-DoubleRecesive").text(data.agree.chiInd);
+
+                } else {
+                    alert(data.feedbackMessage);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("Se ha producido un error: " + errorThrown);
+            }
+        });
+    }
 });
 
 $("#ctoolView").on("click", "#Segregation961-epistasias", (evt) => {
 
-    let alleles_AB = $("#Alleles-AB-Segregation961").val();
-    let alleles_AbaB = $("#Alleles-AbaB-Segregation961").val();
-    let alleles_ab = $("#Alleles-ab-Segregation961").val();
+    let alleles_AB = Number($("#Alleles-AB-Segregation961").val());
+    let alleles_AbaB = Number($("#Alleles-AbaB-Segregation961").val());
+    let alleles_ab = Number($("#Alleles-ab-Segregation961").val());
 
-    alert("Boton Segregation961");
-    $.ajax({
-        type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=33",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=33",
-        beforeSend: function(request) {
-            request.setRequestHeader("Access-Control-Allow-Origin", "*");
-        },
-        contentType: "application/json",
-        data: {
-            "AB": alleles_AB,
-            "AbaB": alleles_AbaB,
-            "ab": alleles_ab
-        },
-        success: function(data, textStatus, jqXHR) {
-            console.log(data);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert("Se ha producido un error: " + errorThrown);
-        }
-    });
+    if (isNaN(alleles_AB) || isNaN(alleles_AbaB) || isNaN(alleles_ab)) {
+        alert("Expected values must be numbers");
+    } else {
+        $.ajax({
+            type: "POST",
+            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=33",
+            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=33",
+            beforeSend: function(request) {
+                request.setRequestHeader("Access-Control-Allow-Origin", "*");
+            },
+            contentType: "application/json",
+            data: JSON.stringify({
+                "AB": alleles_AB,
+                "AbaB": alleles_AbaB,
+                "ab": alleles_ab
+            }),
+            success: function(data, textStatus, jqXHR) {
+                console.log(data);
+                if (!data.cleanInputs) {
+                    $("#total-Segregation961").text(data.resultValues.total);
+
+                    $("#Expected-AB-Segregation961").text(data.expectedValues.expAB.toFixed(1));
+                    $("#Expected-AbaB-Segregation961").text(data.expectedValues.expAbaB.toFixed(1));
+                    $("#Expected-ab-Segregation961").text(data.expectedValues.expab.toFixed(1));
+
+                    $("#value-Segregation961").text(data.resultValues.chiInd.toFixed(2));
+                    $("#agree-Segregation961").text(data.agree.chiInd);
+
+                } else {
+                    alert(data.feedbackMessage);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("Se ha producido un error: " + errorThrown);
+            }
+        });
+    }
 });
 
 $("#ctoolView").on("click", "#Segregation1033-epistasias", (evt) => {
 
-    let alleles_ABab = $("#Alleles-ABab-Segregation1033").val();
-    let alleles_Ab = $("#Alleles-Ab-Segregation1033").val();
-    let alleles_aB = $("#Alleles-aB-Segregation1033").val();
+    let alleles_ABab = Number($("#Alleles-ABab-Segregation1033").val());
+    let alleles_Ab = Number($("#Alleles-Ab-Segregation1033").val());
+    let alleles_aB = Number($("#Alleles-aB-Segregation1033").val());
 
-    alert("Boton Segregation1033");
-    $.ajax({
-        type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=38",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=38",
-        beforeSend: function(request) {
-            request.setRequestHeader("Access-Control-Allow-Origin", "*");
-        },
-        contentType: "application/json",
-        data: {
-            "ABab": alleles_ABab,
-            "Ab": alleles_Ab,
-            "aB": alleles_aB
-        },
-        success: function(data, textStatus, jqXHR) {
-            console.log(data);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert("Se ha producido un error: " + errorThrown);
-        }
-    });
+    if (isNaN(alleles_ABab) || isNaN(alleles_Ab) || isNaN(alleles_aB)) {
+        alert("Expected values must be numbers");
+    } else {
+        $.ajax({
+            type: "POST",
+            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=38",
+            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=38",
+            beforeSend: function(request) {
+                request.setRequestHeader("Access-Control-Allow-Origin", "*");
+            },
+            contentType: "application/json",
+            data: JSON.stringify({
+                "ABab": alleles_ABab,
+                "Ab": alleles_Ab,
+                "aB": alleles_aB
+            }),
+            success: function(data, textStatus, jqXHR) {
+                console.log(data);
+                if (!data.cleanInputs) {
+                    $("#total-Segregation1033").text(data.resultValues.total);
+
+                    $("#Expected-ABab-Segregation1033").text(data.expectedValues.expABab.toFixed(1));
+                    $("#Expected-Ab-Segregation1033").text(data.expectedValues.expAb.toFixed(1));
+                    $("#Expected-aB-Segregation1033").text(data.expectedValues.expaB.toFixed(1));
+
+                    $("#value-Segregation1033").text(data.resultValues.chiInd.toFixed(2));
+                    $("#agree-Segregation1033").text(data.agree.chiInd);
+
+                } else {
+                    alert(data.feedbackMessage);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("Se ha producido un error: " + errorThrown);
+            }
+        });
+    }
 });
 
 $("#ctoolView").on("click", "#Segregation6334-epistasias", (evt) => {
 
-    let alleles_AaB = $("#Alleles-AaB-Segregation6334").val();
-    let alleles_AAB = $("#Alleles-AAB-Segregation6334").val();
-    let alleles_Ab = $("#Alleles-Ab-Segregation6334").val();
-    let alleles_aBab = $("#Alleles-aBab-Segregation6334").val();
+    let alleles_AaB = Number($("#Alleles-AaB-Segregation6334").val());
+    let alleles_AAB = Number($("#Alleles-AAB-Segregation6334").val());
+    let alleles_Ab = Number($("#Alleles-Ab-Segregation6334").val());
+    let alleles_aBab = Number($("#Alleles-aBab-Segregation6334").val());
 
-    alert("Boton Segregation6334");
-    $.ajax({
-        type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=37",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=37",
-        beforeSend: function(request) {
-            request.setRequestHeader("Access-Control-Allow-Origin", "*");
-        },
-        contentType: "application/json",
-        data: {
-            "AaB": alleles_AaB,
-            "AAB": alleles_AAB,
-            "Ab": alleles_Ab,
-            "aBab": alleles_aBab
-        },
-        success: function(data, textStatus, jqXHR) {
-            console.log(data);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert("Se ha producido un error: " + errorThrown);
-        }
-    });
+    if (isNaN(alleles_AaB) || isNaN(alleles_AAB) || isNaN(alleles_Ab) || isNaN(alleles_aBab)) {
+        alert("Expected values must be numbers");
+    } else {
+        $.ajax({
+            type: "POST",
+            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=37",
+            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=37",
+            beforeSend: function(request) {
+                request.setRequestHeader("Access-Control-Allow-Origin", "*");
+            },
+            contentType: "application/json",
+            data: JSON.stringify({
+                "AaB": alleles_AaB,
+                "AAB": alleles_AAB,
+                "Ab": alleles_Ab,
+                "aBab": alleles_aBab
+            }),
+            success: function(data, textStatus, jqXHR) {
+                console.log(data);
+                if (!data.cleanInputs) {
+                    $("#total-Segregation6334").text(data.resultValues.total);
+
+                    $("#Expected-AaB-Segregation6334").text(data.expectedValues.expAaB.toFixed(1));
+                    $("#Expected-AAB-Segregation6334").text(data.expectedValues.expAAB.toFixed(1));
+                    $("#Expected-Ab-Segregation6334").text(data.expectedValues.expAb.toFixed(1));
+                    $("#Expected-aBab-Segregation6334").text(data.expectedValues.expaBab.toFixed(1));
+
+                    $("#value-Segregation6334").text(data.resultValues.chiInd.toFixed(2));
+                    $("#agree-Segregation6334").text(data.agree.chiInd);
+
+                } else {
+                    alert(data.feedbackMessage);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("Se ha producido un error: " + errorThrown);
+            }
+        });
+    }
 });
 
 $("#ctoolView").on("click", "#SingleDominant-epistasias", (evt) => {
 
-    let alleles_ABAb = $("#Alleles-ABAb-SingleDominant").val();
-    let alleles_aB = $("#Alleles-aB-SingleDominant").val();
-    let alleles_ab = $("#Alleles-ab-SingleDominant").val();
+    let alleles_ABAb = Number($("#Alleles-ABAb-SingleDominant").val());
+    let alleles_aB = Number($("#Alleles-aB-SingleDominant").val());
+    let alleles_ab = Number($("#Alleles-ab-SingleDominant").val());
 
-    alert("Boton SingleDominant");
-    $.ajax({
-        type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=32",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=32",
-        beforeSend: function(request) {
-            request.setRequestHeader("Access-Control-Allow-Origin", "*");
-        },
-        contentType: "application/json",
-        data: {
-            "ABAb": alleles_ABAb,
-            "aB": alleles_aB,
-            "ab": alleles_ab
-        },
-        success: function(data, textStatus, jqXHR) {
-            console.log(data);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert("Se ha producido un error: " + errorThrown);
-        }
-    });
+    if (isNaN(alleles_ABAb) || isNaN(alleles_aB) || isNaN(alleles_ab)) {
+        alert("Expected values must be numbers");
+    } else {
+        $.ajax({
+            type: "POST",
+            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=32",
+            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=32",
+            beforeSend: function(request) {
+                request.setRequestHeader("Access-Control-Allow-Origin", "*");
+            },
+            contentType: "application/json",
+            data: JSON.stringify({
+                "ABAb": alleles_ABAb,
+                "aB": alleles_aB,
+                "ab": alleles_ab
+            }),
+            success: function(data, textStatus, jqXHR) {
+                console.log(data);
+                if (!data.cleanInputs) {
+                    $("#total-SingleDominant").text(data.resultValues.total);
+
+                    $("#Expected-ABAb-SingleDominant").text(data.expectedValues.expABAb.toFixed(1));
+                    $("#Expected-aB-SingleDominant").text(data.expectedValues.expaB.toFixed(1));
+                    $("#Expected-ab-SingleDominant").text(data.expectedValues.expab.toFixed(1));
+
+                    $("#value-SingleDominant").text(data.resultValues.chiInd.toFixed(2));
+                    $("#agree-SingleDominant").text(data.agree.chiInd);
+
+                } else {
+                    alert(data.feedbackMessage);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("Se ha producido un error: " + errorThrown);
+            }
+        });
+    }
 });
 
 $("#ctoolView").on("click", "#SingleRecesive-epistasias", (evt) => {
 
-    let alleles_AB = $("#Alleles-AB-SingleRecesive").val();
-    let alleles_Ab = $("#Alleles-Ab-SingleRecesive").val();
-    let alleles_aBab = $("#Alleles-aBab-SingleRecesive").val();
+    let alleles_AB = Number($("#Alleles-AB-SingleRecesive").val());
+    let alleles_Ab = Number($("#Alleles-Ab-SingleRecesive").val());
+    let alleles_aBab = Number($("#Alleles-aBab-SingleRecesive").val());
 
-    alert("Boton SingleRecesive");
-    $.ajax({
-        type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=31",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=31",
-        beforeSend: function(request) {
-            request.setRequestHeader("Access-Control-Allow-Origin", "*");
-        },
-        contentType: "application/json",
-        data: {
-            "AB": alleles_AB,
-            "Ab": alleles_Ab,
-            "aBab": alleles_aBab
-        },
-        success: function(data, textStatus, jqXHR) {
-            console.log(data);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert("Se ha producido un error: " + errorThrown);
-        }
-    });
+    if (isNaN(alleles_AB) || isNaN(alleles_Ab) || isNaN(alleles_aBab)) {
+        alert("Expected values must be numbers");
+    } else {
+        $.ajax({
+            type: "POST",
+            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=31",
+            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=31",
+            beforeSend: function(request) {
+                request.setRequestHeader("Access-Control-Allow-Origin", "*");
+            },
+            contentType: "application/json",
+            data: JSON.stringify({
+                "AB": alleles_AB,
+                "Ab": alleles_Ab,
+                "aBab": alleles_aBab
+            }),
+            success: function(data, textStatus, jqXHR) {
+                console.log(data);
+                if (!data.cleanInputs) {
+                    $("#total-SingleRecesive").text(data.resultValues.total);
+
+                    $("#Expected-AB-SingleRecesive").text(data.expectedValues.expAB.toFixed(1));
+                    $("#Expected-Ab-SingleRecesive").text(data.expectedValues.expAb.toFixed(1));
+                    $("#Expected-aBab-SingleRecesive").text(data.expectedValues.expaBab.toFixed(1));
+
+                    $("#value-SingleRecesive").text(data.resultValues.chiInd.toFixed(2));
+                    $("#agree-SingleRecesive").text(data.agree.chiInd);
+
+                } else {
+                    alert(data.feedbackMessage);
+                }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("Se ha producido un error: " + errorThrown);
+            }
+        });
+    }
 });
 
 $("#ctoolView").on("click", "#WhithoutModification-epistasias", (evt) => {
 
-    let alleles_AB = $("#Alleles-AB-WhithoutModification").val();
-    let alleles_Ab = $("#Alleles-Ab-WhithoutModification").val();
-    let alleles_aB = $("#Alleles-aB-WhithoutModification").val();
-    let alleles_ab = $("#Alleles-ab-WhithoutModification").val();
+    let alleles_AB = Number($("#Alleles-AB-WhithoutModification").val());
+    let alleles_Ab = Number($("#Alleles-Ab-WhithoutModification").val());
+    let alleles_aB = Number($("#Alleles-aB-WhithoutModification").val());
+    let alleles_ab = Number($("#Alleles-ab-WhithoutModification").val());
 
-    alert("Boton WhithoutModification");
-    $.ajax({
-        type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=30",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=30",
-        beforeSend: function(request) {
-            request.setRequestHeader("Access-Control-Allow-Origin", "*");
-        },
-        contentType: "application/json",
-        data: {
-            "AB": alleles_AB,
-            "Ab": alleles_Ab,
-            "aB": alleles_aB,
-            "ab": alleles_ab
-        },
-        success: function(data, textStatus, jqXHR) {
-            console.log(data);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert("Se ha producido un error: " + errorThrown);
-        }
-    });
+    if (isNaN(alleles_AB) || isNaN(alleles_Ab) || isNaN(alleles_aB) || isNaN(alleles_ab)) {
+        alert("Expected values must be numbers");
+    } else {
+        $.ajax({
+            type: "POST",
+            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=30",
+            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=30",
+            beforeSend: function(request) {
+                request.setRequestHeader("Access-Control-Allow-Origin", "*");
+            },
+            contentType: "application/json",
+            data: JSON.stringify({
+                "AB": alleles_AB,
+                "Ab": alleles_Ab,
+                "aB": alleles_aB,
+                "ab": alleles_ab
+            }),
+            success: function(data, textStatus, jqXHR) {
+                console.log(data);
+                if (!data.cleanInputs) {
+                    $("#total-WhithoutModification").text(data.resultValues.total);
+
+                    $("#Expected-AB-WhithoutModification").text(data.expectedValues.expAB.toFixed(1));
+                    $("#Expected-Ab-WhithoutModification").text(data.expectedValues.expAb.toFixed(1));
+                    $("#Expected-aB-WhithoutModification").text(data.expectedValues.expaB.toFixed(1));
+                    $("#Expected-ab-WhithoutModification").text(data.expectedValues.expab.toFixed(1));
+
+                    $("#value-Aa-WhithoutModification").text(data.resultValues.chiA.toFixed(2));
+                    $("#agree-Aa-WhithoutModification").text(data.agree.chiA);
+                    $("#value-Bb-WhithoutModification").text(data.resultValues.chiB.toFixed(2));
+                    $("#agree-Bb-WhithoutModification").text(data.agree.chiB);
+                    if (data.resultValues.chiInd) {
+                        $("#value-Ind-WhithoutModification").text(data.resultValues.chiInd.toFixed(2));
+                        $("#agree-Ind-WhithoutModification").text(data.agree.chiInd);
+                    }
+                    if (data.resultValues.chiCon) {
+                        $("#value-Cont-WhithoutModification").text(data.resultValues.chiCon.toFixed(2));
+                        $("#agree-Cont-WhithoutModification").text(data.agree.chiCon);
+                    }
+
+                } else {
+                    alert(data.feedbackMessage);
+                }
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("Se ha producido un error: " + errorThrown);
+            }
+        });
+    }
 });
 
 ///////////////////////////////////////////////////////////////////////////////////////////////////
@@ -1639,72 +1794,117 @@ $("#ctoolView").on("click", "#WhithoutModification-epistasias", (evt) => {
 
 $("#ctoolView").on("click", "#multiplesAlleles-polyhybrid", (evt) => {
 
-    let locus1 = $("#locus1-multiplesAlleles").val();
-    let locus2 = $("#locus2-multiplesAlleles").val();
-    let locus3 = $("#locus3-multiplesAlleles").val();
-    let locus4 = $("#locus4-multiplesAlleles").val();
-    let locus5 = $("#locus5-multiplesAlleles").val();
+    let locus1 = Number($("#locus1-multiplesAlleles").val());
+    let locus2 = Number($("#locus2-multiplesAlleles").val());
+    let locus3 = Number($("#locus3-multiplesAlleles").val());
+    let locus4 = Number($("#locus4-multiplesAlleles").val());
+    let locus5 = Number($("#locus5-multiplesAlleles").val());
 
-    alert("Boton multiplesAlleles");
-    $.ajax({
-        type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=41",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=41",
-        beforeSend: function(request) {
-            request.setRequestHeader("Access-Control-Allow-Origin", "*");
-        },
-        contentType: "application/json",
-        data: {
-            "locus1": locus1,
-            "locus2": locus2,
-            "locus3": locus3,
-            "locus4": locus4,
-            "locus5": locus5
-        },
-        success: function(data, textStatus, jqXHR) {
-            console.log(data);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert("Se ha producido un error: " + errorThrown);
-        }
-    });
+    if (isNaN(locus1) || isNaN(locus2) || isNaN(locus3) || isNaN(locus4) || isNaN(locus5)) {
+        alert("Expected values must be numbers");
+    } else {
+        $.ajax({
+            type: "POST",
+            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=41",
+            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=41",
+            beforeSend: function(request) {
+                request.setRequestHeader("Access-Control-Allow-Origin", "*");
+            },
+            contentType: "application/json",
+            data: JSON.stringify({
+                "locus1": locus1,
+                "locus2": locus2,
+                "locus3": locus3,
+                "locus4": locus4,
+                "locus5": locus5
+            }),
+            success: function(data, textStatus, jqXHR) {
+                console.log(data);
+                if (!data.cleanInputs) {
+                    $("#locus1-NG-multiplesAlleles").text(data.resultValues.NG1);
+                    $("#locus1-HM-multiplesAlleles").text(data.resultValues.HM1);
+                    $("#locus1-HT-multiplesAlleles").text(data.resultValues.HT1);
+
+                    $("#locus2-NG-multiplesAlleles").text(data.resultValues.NG2);
+                    $("#locus2-HM-multiplesAlleles").text(data.resultValues.HM2);
+                    $("#locus2-HT-multiplesAlleles").text(data.resultValues.HT2);
+
+                    $("#locus3-NG-multiplesAlleles").text(data.resultValues.NG3);
+                    $("#locus3-HM-multiplesAlleles").text(data.resultValues.HM3);
+                    $("#locus3-HT-multiplesAlleles").text(data.resultValues.HT3);
+
+                    $("#locus4-NG-multiplesAlleles").text(data.resultValues.NG4);
+                    $("#locus4-HM-multiplesAlleles").text(data.resultValues.HM4);
+                    $("#locus4-HT-multiplesAlleles").text(data.resultValues.HT4);
+
+                    $("#locus5-NG-multiplesAlleles").text(data.resultValues.NG5);
+                    $("#locus5-HM-multiplesAlleles").text(data.resultValues.HM5);
+                    $("#locus5-HT-multiplesAlleles").text(data.resultValues.HT5);
+
+                    $("#genotypes-multiplesAlleles").text(data.resultValues.totalgenotypes);
+
+                } else { alert(data.feedbackMessage); }
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("Se ha producido un error: " + errorThrown);
+            }
+        });
+    }
 });
 
 $("#ctoolView").on("click", "#Polyhybrid-polyhybrid", (evt) => {
 
-    let n = $("#Data-n-polyhybrid").val();
-    let T = $("#Data-T-polyhybrid").val();
-    let h = $("#Data-h-polyhybrid").val();
-    let R = $("#Data-R-polyhybrid").val();
-    let d = $("#Data-d-polyhybrid").val();
-    let D = $("#Data-D-polyhybrid").val();
-    let r = $("#Data-r-polyhybrid").val();
+    let n = Number($("#Data-n-polyhybrid").val());
+    let T = Number($("#Data-T-polyhybrid").val());
+    let h = Number($("#Data-h-polyhybrid").val());
+    let R = Number($("#Data-R-polyhybrid").val());
+    let d = Number($("#Data-d-polyhybrid").val());
+    let D = Number($("#Data-D-polyhybrid").val());
+    let r = Number($("#Data-r-polyhybrid").val());
 
-    alert("Boton Polyhybrid");
-    $.ajax({
-        type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=40",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=40",
-        beforeSend: function(request) {
-            request.setRequestHeader("Access-Control-Allow-Origin", "*");
-        },
-        contentType: "application/json",
-        data: {
-            "n": n,
-            "T": T,
-            "h": h,
-            "R": R,
-            "d": d,
-            "D": D,
-            "r": r
-        },
-        success: function(data, textStatus, jqXHR) {
-            console.log(data);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert("Se ha producido un error: " + errorThrown);
-        }
-    });
+    if (isNaN(n) || isNaN(T) || isNaN(h) || isNaN(R) || isNaN(d) || isNaN(D) || isNaN(r)) {
+        alert("Expected values must be numbers");
+    } else {
+        $.ajax({
+            type: "POST",
+            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=40",
+            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=40",
+            beforeSend: function(request) {
+                request.setRequestHeader("Access-Control-Allow-Origin", "*");
+            },
+            contentType: "application/json",
+            data: JSON.stringify({
+                "n": n,
+                "T": T,
+                "h": h,
+                "R": R,
+                "d": d,
+                "D": D,
+                "r": r
+            }),
+            success: function(data, textStatus, jqXHR) {
+                console.log(data);
+                if (!data.cleanInputs) {
+                    $("#DifferentGametes-polyhybrid").text(data.resultValues.gametes);
+                    $("#DifferentGenotypes-polyhybrid").text(data.resultValues.genotypes);
+                    $("#HomozygousGenotypes-polyhybrid").text(data.resultValues.homogenotypes);
+                    $("#HeterozygousGenotypes-polyhybrid").text(data.resultValues.heterogenotypes);
+                    $("#Form1Genotypes-polyhybrid").text(data.resultValues.factGenotypes);
+                    $("#Form2Genotypes-polyhybrid").text(data.resultValues.frGenotype);
+                    $("#FrequencyGenotypes-polyhybrid").text(data.resultValues.frecGenotype);
+                    $("#TotalGenotypes-polyhybrid").text(data.resultValues.totalGenotype);
+                    $("#form1Phenotypes-polyhybrid").text(data.resultValues.factPhenotype);
+                    $("#form2Phenotypes-polyhybrid").text(data.resultValues.frPhenotype);
+                    $("#FrequencyPhenotypes-polyhybrid").text(data.resultValues.frecPhenotype);
+                    $("#TotalPhenotypes-polyhybrid").text(data.resultValues.totalPhenotype);
+                } else { alert(data.feedbackMessage); }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("Se ha producido un error: " + errorThrown);
+            }
+        });
+    }
 });
 
 $("#ctoolView").on("click", ".btn-clean", (evt) => {

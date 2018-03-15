@@ -1794,72 +1794,117 @@ $("#ctoolView").on("click", "#WhithoutModification-epistasias", (evt) => {
 
 $("#ctoolView").on("click", "#multiplesAlleles-polyhybrid", (evt) => {
 
-    let locus1 = $("#locus1-multiplesAlleles").val();
-    let locus2 = $("#locus2-multiplesAlleles").val();
-    let locus3 = $("#locus3-multiplesAlleles").val();
-    let locus4 = $("#locus4-multiplesAlleles").val();
-    let locus5 = $("#locus5-multiplesAlleles").val();
+    let locus1 = Number($("#locus1-multiplesAlleles").val());
+    let locus2 = Number($("#locus2-multiplesAlleles").val());
+    let locus3 = Number($("#locus3-multiplesAlleles").val());
+    let locus4 = Number($("#locus4-multiplesAlleles").val());
+    let locus5 = Number($("#locus5-multiplesAlleles").val());
 
-    alert("Boton multiplesAlleles");
-    $.ajax({
-        type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=41",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=41",
-        beforeSend: function(request) {
-            request.setRequestHeader("Access-Control-Allow-Origin", "*");
-        },
-        contentType: "application/json",
-        data: {
-            "locus1": locus1,
-            "locus2": locus2,
-            "locus3": locus3,
-            "locus4": locus4,
-            "locus5": locus5
-        },
-        success: function(data, textStatus, jqXHR) {
-            console.log(data);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert("Se ha producido un error: " + errorThrown);
-        }
-    });
+    if (isNaN(locus1) || isNaN(locus2) || isNaN(locus3) || isNaN(locus4) || isNaN(locus5)) {
+        alert("Expected values must be numbers");
+    } else {
+        $.ajax({
+            type: "POST",
+            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=41",
+            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=41",
+            beforeSend: function(request) {
+                request.setRequestHeader("Access-Control-Allow-Origin", "*");
+            },
+            contentType: "application/json",
+            data: JSON.stringify({
+                "locus1": locus1,
+                "locus2": locus2,
+                "locus3": locus3,
+                "locus4": locus4,
+                "locus5": locus5
+            }),
+            success: function(data, textStatus, jqXHR) {
+                console.log(data);
+                if (!data.cleanInputs) {
+                    $("#locus1-NG-multiplesAlleles").text(data.resultValues.NG1);
+                    $("#locus1-HM-multiplesAlleles").text(data.resultValues.HM1);
+                    $("#locus1-HT-multiplesAlleles").text(data.resultValues.HT1);
+
+                    $("#locus2-NG-multiplesAlleles").text(data.resultValues.NG2);
+                    $("#locus2-HM-multiplesAlleles").text(data.resultValues.HM2);
+                    $("#locus2-HT-multiplesAlleles").text(data.resultValues.HT2);
+
+                    $("#locus3-NG-multiplesAlleles").text(data.resultValues.NG3);
+                    $("#locus3-HM-multiplesAlleles").text(data.resultValues.HM3);
+                    $("#locus3-HT-multiplesAlleles").text(data.resultValues.HT3);
+
+                    $("#locus4-NG-multiplesAlleles").text(data.resultValues.NG4);
+                    $("#locus4-HM-multiplesAlleles").text(data.resultValues.HM4);
+                    $("#locus4-HT-multiplesAlleles").text(data.resultValues.HT4);
+
+                    $("#locus5-NG-multiplesAlleles").text(data.resultValues.NG5);
+                    $("#locus5-HM-multiplesAlleles").text(data.resultValues.HM5);
+                    $("#locus5-HT-multiplesAlleles").text(data.resultValues.HT5);
+
+                    $("#genotypes-multiplesAlleles").text(data.resultValues.totalgenotypes);
+
+                } else { alert(data.feedbackMessage); }
+
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("Se ha producido un error: " + errorThrown);
+            }
+        });
+    }
 });
 
 $("#ctoolView").on("click", "#Polyhybrid-polyhybrid", (evt) => {
 
-    let n = $("#Data-n-polyhybrid").val();
-    let T = $("#Data-T-polyhybrid").val();
-    let h = $("#Data-h-polyhybrid").val();
-    let R = $("#Data-R-polyhybrid").val();
-    let d = $("#Data-d-polyhybrid").val();
-    let D = $("#Data-D-polyhybrid").val();
-    let r = $("#Data-r-polyhybrid").val();
+    let n = Number($("#Data-n-polyhybrid").val());
+    let T = Number($("#Data-T-polyhybrid").val());
+    let h = Number($("#Data-h-polyhybrid").val());
+    let R = Number($("#Data-R-polyhybrid").val());
+    let d = Number($("#Data-d-polyhybrid").val());
+    let D = Number($("#Data-D-polyhybrid").val());
+    let r = Number($("#Data-r-polyhybrid").val());
 
-    alert("Boton Polyhybrid");
-    $.ajax({
-        type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=40",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=40",
-        beforeSend: function(request) {
-            request.setRequestHeader("Access-Control-Allow-Origin", "*");
-        },
-        contentType: "application/json",
-        data: {
-            "n": n,
-            "T": T,
-            "h": h,
-            "R": R,
-            "d": d,
-            "D": D,
-            "r": r
-        },
-        success: function(data, textStatus, jqXHR) {
-            console.log(data);
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert("Se ha producido un error: " + errorThrown);
-        }
-    });
+    if (isNaN(n) || isNaN(T) || isNaN(h) || isNaN(R) || isNaN(d) || isNaN(D) || isNaN(r)) {
+        alert("Expected values must be numbers");
+    } else {
+        $.ajax({
+            type: "POST",
+            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=40",
+            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=40",
+            beforeSend: function(request) {
+                request.setRequestHeader("Access-Control-Allow-Origin", "*");
+            },
+            contentType: "application/json",
+            data: JSON.stringify({
+                "n": n,
+                "T": T,
+                "h": h,
+                "R": R,
+                "d": d,
+                "D": D,
+                "r": r
+            }),
+            success: function(data, textStatus, jqXHR) {
+                console.log(data);
+                if (!data.cleanInputs) {
+                    $("#DifferentGametes-polyhybrid").text(data.resultValues.gametes);
+                    $("#DifferentGenotypes-polyhybrid").text(data.resultValues.genotypes);
+                    $("#HomozygousGenotypes-polyhybrid").text(data.resultValues.homogenotypes);
+                    $("#HeterozygousGenotypes-polyhybrid").text(data.resultValues.heterogenotypes);
+                    $("#Form1Genotypes-polyhybrid").text(data.resultValues.factGenotypes);
+                    $("#Form2Genotypes-polyhybrid").text(data.resultValues.frGenotype);
+                    $("#FrequencyGenotypes-polyhybrid").text(data.resultValues.frecGenotype);
+                    $("#TotalGenotypes-polyhybrid").text(data.resultValues.totalGenotype);
+                    $("#form1Phenotypes-polyhybrid").text(data.resultValues.factPhenotype);
+                    $("#form2Phenotypes-polyhybrid").text(data.resultValues.frPhenotype);
+                    $("#FrequencyPhenotypes-polyhybrid").text(data.resultValues.frecPhenotype);
+                    $("#TotalPhenotypes-polyhybrid").text(data.resultValues.totalPhenotype);
+                } else { alert(data.feedbackMessage); }
+            },
+            error: function(jqXHR, textStatus, errorThrown) {
+                alert("Se ha producido un error: " + errorThrown);
+            }
+        });
+    }
 });
 
 $("#ctoolView").on("click", ".btn-clean", (evt) => {

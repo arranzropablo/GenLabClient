@@ -2,6 +2,8 @@ let application = 1;
 let tests;
 let currentTest;
 let nameApp = "onelocus";
+let erroneas = [];
+let correctas = [];
 //two-loci 0
 //one locus 1
 //linkage 2
@@ -9,8 +11,31 @@ let nameApp = "onelocus";
 //polyhibrid 4
 
 $("#leftMenu").hide();
+if (sessionStorage.user) {
+    $("#loginView").hide();
+    $("#homeNav").show();
+    $("#homeView").show();
+} else {
+    $("#loginView").show();
+    $("#homeNav").hide();
+    $("#homeView").hide();
+}
 
-$("#menuBtn").click(function() {
+/* $("#logout").click(function() {
+    sessionStorage.user = $("#form-username").val();
+    $("#loginView").hide();
+    $("#homeNav").show();
+    $("#homeView").show();
+}); */
+
+$("#btn-login").click(function () {
+    sessionStorage.user = $("#form-username").val();
+    $("#loginView").hide();
+    $("#homeNav").show();
+    $("#homeView").show();
+});
+
+$("#menuBtn").click(function () {
     if ($("#leftMenu").is(":visible")) {
         $("#leftMenu").hide();
     } else {
@@ -98,12 +123,12 @@ $("#app_sections").on("click", "li", (event) => {
             type: "GET",
             //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
             url: "http://raspberrypablo.ddns.net:8080/api/v1/problems",
-            beforeSend: function(request) {
+            beforeSend: function (request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
             contentType: "application/json",
             data: { sectionid: application },
-            success: function(data, textStatus, jqXHR) {
+            success: function (data, textStatus, jqXHR) {
                 //data es un objeto javascript, con los problemas de la aplicacion en cuestion
                 if (data) {
                     console.log(data);
@@ -118,7 +143,7 @@ $("#app_sections").on("click", "li", (event) => {
                     $("#login-message").text(err).css("color", "red");
                 }
             },
-            error: function(jqXHR, textStatus, errorThrown) {
+            error: function (jqXHR, textStatus, errorThrown) {
                 alert("Se ha producido un error: " + errorThrown);
             }
         });
@@ -152,7 +177,7 @@ $("#app_sections").on("click", "li", (event) => {
             url: "http://raspberrypablo.ddns.net:8080/api/v1/tests",
             contentType: "application/json",
             data: { sectionid: application },
-            success: function(data, textStatus, jqXHR) {
+            success: function (data, textStatus, jqXHR) {
                 //data es un objeto javascript, con los problemas de la aplicacion en cuestion
                 //data = [{ titulo: "Test 3" }, { titulo: "Test 4" }];
                 if (data) {
@@ -167,7 +192,7 @@ $("#app_sections").on("click", "li", (event) => {
                 }
                 $("#testsView").show();
             },
-            error: function(jqXHR, textStatus, errorThrown) {
+            error: function (jqXHR, textStatus, errorThrown) {
                 alert("Se ha producido un error: " + errorThrown);
             }
         });
@@ -214,7 +239,7 @@ $("#app_sections").on("click", "li", (event) => {
             url: "http://raspberrypablo.ddns.net:8080/api/v1/books",
             contentType: "application/json",
             data: { sectionid: application },
-            success: function(data, textStatus, jqXHR) {
+            success: function (data, textStatus, jqXHR) {
                 //data es un objeto javascript, con los problemas de la aplicacion en cuestion
                 if (data) {
                     //name, author, editorial, isbn link
@@ -233,7 +258,7 @@ $("#app_sections").on("click", "li", (event) => {
                     $("#login-message").text(err).css("color", "red");
                 }
             },
-            error: function(jqXHR, textStatus, errorThrown) {
+            error: function (jqXHR, textStatus, errorThrown) {
                 alert("Se ha producido un error: " + errorThrown);
             }
         });
@@ -263,6 +288,8 @@ $("#app_sections").on("click", "li", (event) => {
 
 $(".tests-list").on("click", "button", (event) => {
     var title = $(event.target).text();
+    erroneas = [];
+    correctas = [];
 
     $("#sectionTitle").text(title);
     $("#testQuestions-list").show();
@@ -284,7 +311,46 @@ $(".tests-list").on("click", "button", (event) => {
         questionHTML.append($("<div>").addClass("form-bottom").append(answersHTML));
         $("#testQuestions-list").append(questionHTML);
     });
+    let btnHTML = "<div class='questionCont col-sm-6 col-sm-offset-3 form-box'><button id='btnEnviar' class='btnEnviarT'>Enviar</button></div>";
+    $("#testQuestions-list").append(btnHTML);
+    eventBtnEnviar();
 });
+
+function eventBtnEnviar() {
+    //Evento al hacer click en el botón de Enviar Test
+
+    $("#btnEnviar").on("click", (event) => {
+        let respuestas = {
+            iUsu: sessionStorage.user,
+            right: correctas,
+            wrong: erroneas
+        };
+
+        let datos = {usu: sessionStorage.user, feedback: JSON.stringify({user: sessionStorage.user, right: correctas,
+            wrong: erroneas})};
+
+        $.ajax({
+            type: "GET",
+            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/feedback", //COMPLETAR
+            /* url: "http://raspberrypablo.ddns.net:8080/api/v1/feedback", */
+            url: "http://localhost:8080/api/v1/feedback",
+            contentType: "application/json",
+            data: datos,
+            success: function (data, textStatus, jqXHR) {
+            /* //data es un objeto javascript, con los problemas de la aplicacion en cuestion
+                if (data) {
+                    $("#enviado-message").text("Test enviado").css("color", "green");
+                } else {
+                    $("#enviado-message").text(err).css("color", "red");
+                } */
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                alert("Se ha producido un error: " + errorThrown);
+            }
+        });
+
+    });
+}
 
 //Evento al hacer click en una respuesta
 
@@ -293,9 +359,15 @@ $("#testQuestions-list").on("click", ".answerCont", (event) => {
     let question = Number($(event.target).parent().parent().parent().data("pos"));
 
     console.log(answer + " " + question + " " + currentTest);
+    let oRespuesta = {
+        idTest: parseInt(currentTest),
+        idQ: parseInt(question),
+        idA: parseInt(answer)
+    };
 
     if (!tests[currentTest].questions[question].answers[answer].correcta) {
         $(event.target).addClass("incorrect-answer");
+        erroneas.push(oRespuesta);
         //Esto depende, ya que es posible que si falla se le deje seguir probando para buscar la correcta
         tests[currentTest].questions[question].answers.forEach(answer => {
             if (answer.correcta) {
@@ -305,6 +377,7 @@ $("#testQuestions-list").on("click", ".answerCont", (event) => {
         });
     } else {
         $(event.target).addClass("correct-answer");
+        correctas.push(oRespuesta);
     }
 });
 

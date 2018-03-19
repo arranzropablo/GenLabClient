@@ -341,6 +341,11 @@ img {
     color: white;
 }
 
+.selected-answer {
+    background-color: #00a2ff;
+    color: white;
+}
+
 .header {
     width: 100%;
 }

@@ -346,6 +346,10 @@ img {
     color: white;
 }
 
+#leftMenu li.not-active {
+    color: grey;
+}
+
 .header {
     width: 100%;
 }

@@ -1,5 +1,6 @@
 let application = 1;
 let tests;
+const NUMBERAPPS = 5;
 let currentTest;
 let nameApp = "onelocus";
 let erroneas = [];
@@ -12,6 +13,8 @@ let marked = [];
 //polyhibrid 4
 
 $("#leftMenu").hide();
+$("#homeNav").hide();
+$("#homeView").hide();
 
 //localStorage.setItem('user', JSON.stringify(null));
 let user = JSON.parse(localStorage.getItem('user'));
@@ -21,7 +24,13 @@ if (user) {
     $("#loginView").hide();
     $("#homeNav").show();
     $("#homeView").show();
+    activarApps();
 } else {
+    localStorage.setItem('0', JSON.stringify({ active: false, name: "Two Loci" }));
+    localStorage.setItem('1', JSON.stringify({ active: false, name: "One Locus" }));
+    localStorage.setItem('2', JSON.stringify({ active: false, name: "Linkage" }));
+    localStorage.setItem('3', JSON.stringify({ active: false, name: "Epistasias" }));
+    localStorage.setItem('4', JSON.stringify({ active: false, name: "Polyhybrid" }));
     $("#loginView").show();
     $("#homeNav").hide();
     $("#homeView").hide();
@@ -46,21 +55,29 @@ $("#btn-login").click(function() {
         success: function(data, textStatus, jqXHR) {
             localStorage.setItem('user', JSON.stringify($("#form-username").val()));
             user = JSON.parse(localStorage.getItem('user'));
-            console.log(user);
-            $("#loginView").hide();
-            $("#homeNav").show();
-            $("#homeView").show();
-        },
-        error: function(jqXHR, textStatus, errorThrown) {
-            alert("Se ha producido un error: " + errorThrown);
-        }
-    });
-    $.ajax({
-        type: "GET",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/theory",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/priority",
-        success: function(data, textStatus, jqXHR) {
-            console.log(data);
+            //console.log(user);
+            $.ajax({
+                type: "GET",
+                //url: "http://ingenias.fdi.ucm.es:60070/api/v1/theory",
+                url: "http://raspberrypablo.ddns.net:8080/api/v1/priority",
+                success: function(data, textStatus, jqXHR) {
+                    //console.log(data);
+                    let aux = JSON.parse(localStorage.getItem('' + data[0].id));
+                    aux.active = true;
+                    localStorage.setItem('' + data[0].id, JSON.stringify(aux));
+                    $("#app" + data[0].id).removeClass("not-active");
+                    application = $("#app" + data[0].id).text();
+                    $("#application").text(application);
+                    application = data[0].id;
+                    $("#loginView").hide();
+                    $("#homeNav").show();
+                    $("#homeView").show();
+                },
+                error: function(jqXHR, textStatus, errorThrown) {
+                    alert("Se ha producido un error: " + errorThrown);
+                }
+            });
+
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert("Se ha producido un error: " + errorThrown);
@@ -79,23 +96,58 @@ $("#menuBtn").click(function() {
 
 $("#applications").on("click", "li", (event) => {
     let app = $(event.target);
-    application = app.text();
-    $("#application").text(application);
-    if (application === "Two Loci") {
+    let aux = app.text();
+    let auxApp = application;
+    if (aux === "Two Loci") {
         application = 0;
-        nameApp = "twoloci";
-    } else if (application === "One Locus") {
+        let appActive = JSON.parse(localStorage.getItem('' + application));
+        if (appActive.active) {
+            nameApp = "twoloci";
+            $("#application").text(aux);
+        } else {
+            alert("Section blocked. To unlock, complete all tests from other sections");
+            application = auxApp;
+        }
+    } else if (aux === "One Locus") {
         application = 1;
-        nameApp = "onelocus"
-    } else if (application === "Linkage") {
+        let appActive = JSON.parse(localStorage.getItem('' + application));
+        if (appActive.active) {
+            nameApp = "onelocus";
+            $("#application").text(aux);
+        } else {
+            alert("Section blocked. To unlock, complete all tests from other sections");
+            application = auxApp;
+        }
+    } else if (aux === "Linkage") {
         application = 2;
-        nameApp = "linkage";
-    } else if (application === "Epistasias") {
+        let appActive = JSON.parse(localStorage.getItem('' + application));
+        if (appActive.active) {
+            nameApp = "linkage";
+            $("#application").text(aux);
+        } else {
+            alert("Section blocked. To unlock, complete all tests from other sections");
+            application = auxApp;
+        }
+    } else if (aux === "Epistasias") {
         application = 3;
-        nameApp = "epistasias";
-    } else if (application === "Polyhybrid") {
+        let appActive = JSON.parse(localStorage.getItem('' + application));
+        if (appActive.active) {
+            nameApp = "epistasias";
+            $("#application").text(aux);
+        } else {
+            alert("Section blocked. To unlock, complete all tests from other sections");
+            application = auxApp;
+        }
+    } else if (aux === "Polyhybrid") {
         application = 4;
-        nameApp = "polyhybrid";
+        let appActive = JSON.parse(localStorage.getItem('' + application));
+        if (appActive.active) {
+            nameApp = "polyhybrid";
+            $("#application").text(aux);
+        } else {
+            alert("Section blocked. To unlock, complete all tests from other sections");
+            application = auxApp;
+        }
     }
     $("#leftMenu").hide();
 
@@ -488,3 +540,19 @@ $(".back-btn").on("click", (event) => {
     $("#problems-list").empty();
 
 });
+
+function activarApps() {
+    for (let i = 0; i < NUMBERAPPS; ++i) {
+        let aux = JSON.parse(localStorage.getItem('' + i));
+        console.log(aux);
+        let changed = false;
+        if (aux.active) {
+            $("#app" + i).removeClass("not-active");
+            if (!changed) {
+                $("#application").text(aux.name);
+                application = i;
+                changed = true;
+            }
+        }
+    }
+}

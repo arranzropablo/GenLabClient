@@ -17,9 +17,9 @@ $("#homeNav").hide();
 $("#homeView").hide();
 
 //localStorage.setItem('user', JSON.stringify(null));
-/*let aux = JSON.parse(localStorage.getItem('2'));
+/*let aux = JSON.parse(localStorage.getItem('5'));
 aux.active = true;
-localStorage.setItem('2', JSON.stringify(aux));*/
+localStorage.setItem('5', JSON.stringify(aux));*/
 let user = JSON.parse(localStorage.getItem('user'));
 
 

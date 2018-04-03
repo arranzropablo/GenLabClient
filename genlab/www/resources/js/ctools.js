@@ -127,6 +127,22 @@ $("#ctoolView").on("click", "#F2Codominance-onelocus", (evt) => {
             }),
             success: function(data, textStatus, jqXHR) {
                 console.log(data);
+
+                if (!data.cleanInputs) {
+
+                    $("#total-F2Codominance").text(data.expectedValues.total);
+
+                    $("#Expected-A1A1-F2Codominance").text(data.expectedValues.expA1A1.toFixed(2));
+                    $("#Expected-A1A2-F2Codominance").text(data.expectedValues.expA1A2.toFixed(2));
+                    $("#Expected-A2A2-F2Codominance").text(data.expectedValues.expA2A2.toFixed(2));
+
+                    $("#value_Testcross").text(data.resultValues.chi.toFixed(2));
+                    $("#agree_Testcross").text(data.agree.chi);
+
+
+                } else {
+                    alert(data.feedbackMessage);
+                }
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 alert("Se ha producido un error: " + errorThrown);
@@ -1659,7 +1675,7 @@ $("#ctoolView").on("click", "#DoubleRecesive-epistasias", (evt) => {
                     $("#total-DoubleRecesive").text(data.resultValues.total);
 
                     $("#Expected-AB-DoubleRecesive").text(data.expectedValues.expAB.toFixed(1));
-                    $("#Expected-AbaBab-DoubleRecesive").text(data.expectedValues.expAbaBab.toFixed(1));
+                    $("#Expected-AbaBab-DoubleRecesive").text(data.expectedValues.expAaaBab.toFixed(1));
 
                     $("#value-DoubleRecesive").text(data.resultValues.chiInd.toFixed(2));
                     $("#agree-DoubleRecesive").text(data.agree.chiInd);
@@ -1738,18 +1754,18 @@ $("#ctoolView").on("click", "#Segregation1033-epistasias", (evt) => {
             },
             contentType: "application/json",
             data: JSON.stringify({
-                "ABab": alleles_ABab,
-                "Ab": alleles_Ab,
-                "aB": alleles_aB
+                "10": alleles_ABab,
+                "3a": alleles_Ab,
+                "3b": alleles_aB
             }),
             success: function(data, textStatus, jqXHR) {
                 console.log(data);
                 if (!data.cleanInputs) {
                     $("#total-Segregation1033").text(data.resultValues.total);
 
-                    $("#Expected-ABab-Segregation1033").text(data.expectedValues.expABab.toFixed(1));
-                    $("#Expected-Ab-Segregation1033").text(data.expectedValues.expAb.toFixed(1));
-                    $("#Expected-aB-Segregation1033").text(data.expectedValues.expaB.toFixed(1));
+                    $("#Expected-ABab-Segregation1033").text(data.expectedValues.exp10.toFixed(1));
+                    $("#Expected-Ab-Segregation1033").text(data.expectedValues.exp3a.toFixed(1));
+                    $("#Expected-aB-Segregation1033").text(data.expectedValues.exp3b.toFixed(1));
 
                     $("#value-Segregation1033").text(data.resultValues.chiInd.toFixed(2));
                     $("#agree-Segregation1033").text(data.agree.chiInd);
@@ -1784,20 +1800,20 @@ $("#ctoolView").on("click", "#Segregation6334-epistasias", (evt) => {
             },
             contentType: "application/json",
             data: JSON.stringify({
-                "AaB": alleles_AaB,
-                "AAB": alleles_AAB,
-                "Ab": alleles_Ab,
-                "aBab": alleles_aBab
+                "6": alleles_AaB,
+                "3a": alleles_AAB,
+                "3b": alleles_Ab,
+                "4": alleles_aBab
             }),
             success: function(data, textStatus, jqXHR) {
                 console.log(data);
                 if (!data.cleanInputs) {
                     $("#total-Segregation6334").text(data.resultValues.total);
 
-                    $("#Expected-AaB-Segregation6334").text(data.expectedValues.expAaB.toFixed(1));
-                    $("#Expected-AAB-Segregation6334").text(data.expectedValues.expAAB.toFixed(1));
-                    $("#Expected-Ab-Segregation6334").text(data.expectedValues.expAb.toFixed(1));
-                    $("#Expected-aBab-Segregation6334").text(data.expectedValues.expaBab.toFixed(1));
+                    $("#Expected-AaB-Segregation6334").text(data.expectedValues.exp6.toFixed(1));
+                    $("#Expected-AAB-Segregation6334").text(data.expectedValues.exp3a.toFixed(1));
+                    $("#Expected-Ab-Segregation6334").text(data.expectedValues.exp3b.toFixed(1));
+                    $("#Expected-aBab-Segregation6334").text(data.expectedValues.exp4.toFixed(1));
 
                     $("#value-Segregation6334").text(data.resultValues.chiInd.toFixed(2));
                     $("#agree-Segregation6334").text(data.agree.chiInd);

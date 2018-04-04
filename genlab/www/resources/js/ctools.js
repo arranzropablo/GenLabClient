@@ -1016,7 +1016,7 @@ $("#ctoolView").on("click", "#F2Codominance-linkage", (evt) => {
                     $("#agree-F2Codominance-Cont").text(data.agree.chiCont);
                 }
                 if (data.resultValues.lodZ) {
-                    $("#value-F2Codominance-LodSZ").text(data.resultValues.lodZ.toFixed(2));
+                    $("#value-F2Codominance-LodSZ").text(data.resultValues.lodZ === null ? "-Infinity" : data.resultValues.lodZ.toFixed(2));
                 }
                 if (data.resultValues.rf) {
                     $("#value-F2Codominance-RF").text(data.resultValues.rf);
@@ -1159,7 +1159,7 @@ $("#ctoolView").on("click", "#F2Dominance-linkage", (evt) => {
                     $("#agree-F2Dominance-Cont").text(data.agree.chiCont);
                 }
                 if (data.resultValues.lodZ) {
-                    $("#value-F2Dominance-LodSZ").text(data.resultValues.lodZ.toFixed(2));
+                    $("#value-F2Dominance-LodSZ").text(data.resultValues.lodZ === null ? "-Infinity" : data.resultValues.lodZ.toFixed(2));
                 }
                 if (data.resultValues.rf) {
                     $("#value-F2Dominance-RF").text(data.resultValues.rf.toFixed(2));
@@ -1288,7 +1288,7 @@ $("#ctoolView").on("click", "#Testcross-linkage", (evt) => {
                     $("#agree-Testcross-Cont").text(data.agree.chiCont);
                 }
                 if (data.resultValues.lodZ) {
-                    $("#value-Testcross-LodSZ").text(data.resultValues.lodZ.toFixed(2));
+                    $("#value-Testcross-LodSZ").text(data.resultValues.lodZ === null ? "-Infinity" : data.resultValues.lodZ.toFixed(2));
                 }
                 if (data.resultValues.rf) {
                     $("#value-Testcross-RF").text(data.resultValues.rf.toFixed(2));
@@ -1363,9 +1363,9 @@ $("#ctoolView").on("click", "#Testcross3Loci-linkage", (evt) => {
             $("#value-Testcross3Loci-Cont-AaBb").text(data.resultValues.chiAB.toFixed(2));
             $("#value-Testcross3Loci-Cont-AaCc").text(data.resultValues.chiAC.toFixed(2));
             $("#value-Testcross3Loci-Cont-BbCc").text(data.resultValues.chiBC.toFixed(2));
-            $("#value-Testcross3Loci-LodZ-AaBb").text(data.resultValues.lodzAB.toFixed(2));
-            $("#value-Testcross3Loci-LodZ-AaCc").text(data.resultValues.lodzAC.toFixed(2));
-            $("#value-Testcross3Loci-LodZ-BbCc").text(data.resultValues.lodzBC.toFixed(2));
+            $("#value-Testcross3Loci-LodZ-AaBb").text(data.resultValues.lodzAB === null ? "-Infinity" : data.resultValues.lodzAB.toFixed(2));
+            $("#value-Testcross3Loci-LodZ-AaCc").text(data.resultValues.lodzAC === null ? "-Infinity" : data.resultValues.lodzAC.toFixed(2));
+            $("#value-Testcross3Loci-LodZ-BbCc").text(data.resultValues.lodzBC === null ? "-Infinity" : data.resultValues.lodzBC.toFixed(2));
 
             $("#value-Testcross3Loci-RF-AaBb").text(data.resultValues.rfAB.toFixed(2));
             $("#value-Testcross3Loci-RF-AaCc").text(data.resultValues.rfAC.toFixed(2));

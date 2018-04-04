@@ -1,8 +1,8 @@
-let application = 1;
+let application;
 let tests;
 const NUMBERAPPS = 5;
 let currentTest;
-let nameApp = "onelocus";
+let nameApp;
 let erroneas = [];
 let correctas = [];
 let marked = [];
@@ -17,6 +17,9 @@ $("#homeNav").hide();
 $("#homeView").hide();
 
 //localStorage.setItem('user', JSON.stringify(null));
+/*let aux = JSON.parse(localStorage.getItem('5'));
+aux.active = true;
+localStorage.setItem('5', JSON.stringify(aux));*/
 let user = JSON.parse(localStorage.getItem('user'));
 
 
@@ -26,11 +29,11 @@ if (user) {
     $("#homeView").show();
     activarApps();
 } else {
-    localStorage.setItem('0', JSON.stringify({ active: false, name: "Two Loci" }));
-    localStorage.setItem('1', JSON.stringify({ active: false, name: "One Locus" }));
-    localStorage.setItem('2', JSON.stringify({ active: false, name: "Linkage" }));
-    localStorage.setItem('3', JSON.stringify({ active: false, name: "Epistasias" }));
-    localStorage.setItem('4', JSON.stringify({ active: false, name: "Polyhybrid" }));
+    localStorage.setItem('0', JSON.stringify({ active: false, title: "Two Loci", name: "twoloci" }));
+    localStorage.setItem('1', JSON.stringify({ active: false, title: "One Locus", name: "onelocus" }));
+    localStorage.setItem('2', JSON.stringify({ active: false, title: "Linkage", name: "linkage" }));
+    localStorage.setItem('3', JSON.stringify({ active: false, title: "Epistasias", name: "epistasias" }));
+    localStorage.setItem('4', JSON.stringify({ active: false, title: "Polyhybrid", name: "polyhybrid" }));
     $("#loginView").show();
     $("#homeNav").hide();
     $("#homeView").hide();
@@ -69,6 +72,7 @@ $("#btn-login").click(function() {
                     application = $("#app" + data[0].id).text();
                     $("#application").text(application);
                     application = data[0].id;
+                    nameApp = aux.name;
                     $("#loginView").hide();
                     $("#homeNav").show();
                     $("#homeView").show();
@@ -112,7 +116,7 @@ $("#applications").on("click", "li", (event) => {
         application = 1;
         let appActive = JSON.parse(localStorage.getItem('' + application));
         if (appActive.active) {
-            nameApp = "onelocus";
+            nameApp = appActive.name;
             $("#application").text(aux);
         } else {
             alert("Section blocked. To unlock, complete all tests from other sections");
@@ -122,7 +126,7 @@ $("#applications").on("click", "li", (event) => {
         application = 2;
         let appActive = JSON.parse(localStorage.getItem('' + application));
         if (appActive.active) {
-            nameApp = "linkage";
+            nameApp = appActive.name;
             $("#application").text(aux);
         } else {
             alert("Section blocked. To unlock, complete all tests from other sections");
@@ -132,7 +136,7 @@ $("#applications").on("click", "li", (event) => {
         application = 3;
         let appActive = JSON.parse(localStorage.getItem('' + application));
         if (appActive.active) {
-            nameApp = "epistasias";
+            nameApp = appActive.name;
             $("#application").text(aux);
         } else {
             alert("Section blocked. To unlock, complete all tests from other sections");
@@ -142,7 +146,7 @@ $("#applications").on("click", "li", (event) => {
         application = 4;
         let appActive = JSON.parse(localStorage.getItem('' + application));
         if (appActive.active) {
-            nameApp = "polyhybrid";
+            nameApp = appActive.name;
             $("#application").text(aux);
         } else {
             alert("Section blocked. To unlock, complete all tests from other sections");
@@ -150,6 +154,12 @@ $("#applications").on("click", "li", (event) => {
         }
     }
     $("#leftMenu").hide();
+    $("#homeView").show();
+    $("#sectionView").hide();
+    $("#sectionContent").hide();
+    $("#ctoolView").empty();
+    $(".tests-list").empty();
+    $("#problems-list").empty();
 
 });
 
@@ -411,12 +421,22 @@ function eventBtnEnviar() {
 
     $("#btnEnviar").on("click", (event) => {
         marked.forEach(answer => {
+            let answerPos = Number($(answer.answer).data("pos"));
+            let questionPos = Number($(answer.answer).parent().parent().parent().data("pos"));
+            let oRespuesta = {
+                idTest: parseInt(tests[currentTest].id),
+                idQ: parseInt(tests[currentTest].questions[questionPos].id),
+                idA: parseInt(tests[currentTest].questions[questionPos].answers[answerPos].id)
+            };
             $(answer.answer).removeClass("selected-answer");
             if (answer.correct) {
                 $(answer.answer).addClass("correct-answer");
+                correctas.push(oRespuesta);
             } else {
                 $(answer.answer).addClass("incorrect-answer");
+                erroneas.push(oRespuesta);
             }
+            console.log(oRespuesta.idTest + " " + oRespuesta.idQ + " " + oRespuesta.idA);
         });
 
         let respuestas = {
@@ -433,6 +453,8 @@ function eventBtnEnviar() {
                 wrong: erroneas
             })
         };
+
+        console.log(datos);
 
         $.ajax({
             type: "GET",
@@ -466,18 +488,12 @@ $("#testQuestions-list").on("click", ".answerCont", (event) => {
 
     $("#questionTest" + question).children().removeClass("selected-answer");
     //console.log(answer + " " + question + " " + currentTest);
-    let oRespuesta = {
-        idTest: parseInt(currentTest),
-        idQ: parseInt(question),
-        idA: parseInt(answer)
-    };
 
     if (!marked["" + question]) {
         marked["" + question] = { correct: undefined, answer: undefined }
     }
     if (!tests[currentTest].questions[question].answers[answer].correcta) {
         //$(event.target).addClass("incorrect-answer");
-        erroneas.push(oRespuesta);
         marked["" + question].correct = false;
         //Esto depende, ya que es posible que si falla se le deje seguir probando para buscar la correcta
         tests[currentTest].questions[question].answers.forEach(answer => {
@@ -489,7 +505,6 @@ $("#testQuestions-list").on("click", ".answerCont", (event) => {
     } else {
         //$(event.target).addClass("correct-answer");
         marked["" + question].correct = true;
-        correctas.push(oRespuesta);
     }
     $(event.target).addClass("selected-answer");
     marked["" + question].answer = event.target;
@@ -549,8 +564,9 @@ function activarApps() {
         if (aux.active) {
             $("#app" + i).removeClass("not-active");
             if (!changed) {
-                $("#application").text(aux.name);
+                $("#application").text(aux.title);
                 application = i;
+                nameApp = aux.name;
                 changed = true;
             }
         }

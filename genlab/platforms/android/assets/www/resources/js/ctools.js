@@ -127,6 +127,22 @@ $("#ctoolView").on("click", "#F2Codominance-onelocus", (evt) => {
             }),
             success: function(data, textStatus, jqXHR) {
                 console.log(data);
+
+                if (!data.cleanInputs) {
+
+                    $("#total-F2Codominance").text(data.expectedValues.total);
+
+                    $("#Expected-A1A1-F2Codominance").text(data.expectedValues.expA1A1.toFixed(2));
+                    $("#Expected-A1A2-F2Codominance").text(data.expectedValues.expA1A2.toFixed(2));
+                    $("#Expected-A2A2-F2Codominance").text(data.expectedValues.expA2A2.toFixed(2));
+
+                    $("#value_Testcross").text(data.resultValues.chi.toFixed(2));
+                    $("#agree_Testcross").text(data.agree.chi);
+
+
+                } else {
+                    alert(data.feedbackMessage);
+                }
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 alert("Se ha producido un error: " + errorThrown);
@@ -1039,8 +1055,8 @@ $("#ctoolView").on("click", "#F2Codominance-linkage", (evt) => {
 
 $("#ctoolView").on("click", "#F2CodominanceDM-linkage", (evt) => {
 
-    let recFreq = $("#Alleles-F2CodominanceDM-RecFreq").val();
-    let ToS = $("#Alleles-F2CodominanceDM-ToS").val();
+    let recFreq = Number($("#Alleles-F2CodominanceDM-RecFreq").val());
+    let ToS = Number($("#Alleles-F2CodominanceDM-ToS").val());
 
     alert("Boton f2codominancedm");
     $.ajax({
@@ -1051,12 +1067,36 @@ $("#ctoolView").on("click", "#F2CodominanceDM-linkage", (evt) => {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
         contentType: "application/json",
-        data: {
+        data: JSON.stringify({
             "r1": recFreq,
             "tOs": ToS
-        },
+        }),
         success: function(data, textStatus, jqXHR) {
             console.log(data);
+            if (!data.cleanInputs) {
+
+                $("#rep-F2CodominanceDM-A1A1B1B1").text(data.resultValues.repulsionA1A1B1B1);
+                $("#coupling-F2CodominanceDM-A1A1B1B1").text(data.resultValues.couplingA1A1B1B1);
+                $("#rep-F2CodominanceDM-A1A2B1B1").text(data.resultValues.repulsionA1A2B1B1);
+                $("#coupling-F2CodominanceDM-A1A2B1B1").text(data.resultValues.couplingA1A2B1B1);
+                $("#rep-F2CodominanceDM-A2A2B1B1").text(data.resultValues.repulsionA2A2B1B1);
+                $("#coupling-F2CodominanceDM-A2A2B1B1").text(data.resultValues.couplingA2A2B1B1);
+                $("#rep-F2CodominanceDM-A1A1B1B2").text(data.resultValues.repulsionA1A1B1B2);
+                $("#coupling-F2CodominanceDM-A1A1B1B2").text(data.resultValues.couplingA1A1B1B2);
+                $("#rep-F2CodominanceDM-A1A2B1B2").text(data.resultValues.repulsionA1A2B1B2);
+                $("#coupling-F2CodominanceDM-A1A2B1B2").text(data.resultValues.couplingA1A2B1B2);
+                $("#rep-F2CodominanceDM-A2A2B1B2").text(data.resultValues.repulsionA2A2B1B2);
+                $("#coupling-F2CodominanceDM-A2A2B1B2").text(data.resultValues.couplingA2A2B1B2);
+                $("#rep-F2CodominanceDM-A1A1B2B2").text(data.resultValues.repulsionA1A1B2B2);
+                $("#coupling-F2CodominanceDM-A1A1B2B2").text(data.resultValues.couplingA1A1B2B2);
+                $("#rep-F2CodominanceDM-A1A2B2B2").text(data.resultValues.repulsionA1A2B2B2);
+                $("#coupling-F2CodominanceDM-A1A2B2B2").text(data.resultValues.couplingA1A2B2B2);
+                $("#rep-F2CodominanceDM-A2A2B2B2").text(data.resultValues.repulsionA2A2B2B2);
+                $("#coupling-F2CodominanceDM-A2A2B2B2").text(data.resultValues.couplingA2A2B2B2);
+
+            } else {
+                alert(data.feedbackMessage);
+            }
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert("Se ha producido un error: " + errorThrown);
@@ -1154,8 +1194,8 @@ $("#ctoolView").on("click", "#F2Dominance-linkage", (evt) => {
 
 $("#ctoolView").on("click", "#F2DominanceDM-linkage", (evt) => {
 
-    let recFreq = $("#Alleles-F2DominanceDM-RecFreq").val();
-    let ToS = $("#Alleles-F2DominanceDM-ToS").val();
+    let recFreq = Number($("#Alleles-F2DominanceDM-RecFreq").val());
+    let ToS = Number($("#Alleles-F2DominanceDM-ToS").val());
 
     alert("Boton f2dominanceDM");
     $.ajax({
@@ -1166,12 +1206,26 @@ $("#ctoolView").on("click", "#F2DominanceDM-linkage", (evt) => {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
         contentType: "application/json",
-        data: {
+        data: JSON.stringify({
             "r1": recFreq,
             "tOs": ToS
-        },
+        }),
         success: function(data, textStatus, jqXHR) {
             console.log(data);
+            if (!data.cleanInputs) {
+                $("#rep-F2DominanceDM-AB").text(data.resultValues.repulsionAB);
+                $("#coupling-F2DominanceDM-AB").text(data.resultValues.couplingAB);
+                $("#rep-F2DominanceDM-Ab").text(data.resultValues.repulsionAb);
+                $("#coupling-F2DominanceDM-Ab").text(data.resultValues.couplingAb);
+                $("#rep-F2DominanceDM-aB").text(data.resultValues.repulsionaB);
+                $("#coupling-F2DominanceDM-aB").text(data.resultValues.couplingaB);
+                $("#rep-F2DominanceDM-ab").text(data.resultValues.repulsionab);
+                $("#coupling-F2DominanceDM-ab").text(data.resultValues.couplingab);
+
+            } else {
+                alert(data.feedbackMessage);
+            }
+
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert("Se ha producido un error: " + errorThrown);
@@ -1269,14 +1323,14 @@ $("#ctoolView").on("click", "#Testcross-linkage", (evt) => {
 
 $("#ctoolView").on("click", "#Testcross3Loci-linkage", (evt) => {
 
-    let alleles_ABC = $("#Alleles-Testcross3Loci-ABC").val();
-    let alleles_abc = $("#Alleles-Testcross3Loci-abc").val();
-    let alleles_ABc = $("#Alleles-Testcross3Loci-ABc").val();
-    let alleles_abC = $("#Alleles-Testcross3Loci-abC").val();
-    let alleles_aBC = $("#Alleles-Testcross3Loci-aBC").val();
-    let alleles_Abc = $("#Alleles-Testcross3Loci-Abc").val();
-    let alleles_AbC = $("#Alleles-Testcross3Loci-AbC").val();
-    let alleles_aBc = $("#Alleles-Testcross3Loci-aBc").val();
+    let alleles_ABC = Number($("#Alleles-Testcross3Loci-ABC").val());
+    let alleles_abc = Number($("#Alleles-Testcross3Loci-abc").val());
+    let alleles_ABc = Number($("#Alleles-Testcross3Loci-ABc").val());
+    let alleles_abC = Number($("#Alleles-Testcross3Loci-abC").val());
+    let alleles_aBC = Number($("#Alleles-Testcross3Loci-aBC").val());
+    let alleles_Abc = Number($("#Alleles-Testcross3Loci-Abc").val());
+    let alleles_AbC = Number($("#Alleles-Testcross3Loci-AbC").val());
+    let alleles_aBc = Number($("#Alleles-Testcross3Loci-aBc").val());
 
     alert("Boton Testcross3Loci");
     $.ajax({
@@ -1287,7 +1341,7 @@ $("#ctoolView").on("click", "#Testcross3Loci-linkage", (evt) => {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
         contentType: "application/json",
-        data: {
+        data: JSON.stringify({
             "ABC": alleles_ABC,
             "abc": alleles_abc,
             "ABc": alleles_ABc,
@@ -1296,9 +1350,86 @@ $("#ctoolView").on("click", "#Testcross3Loci-linkage", (evt) => {
             "Abc": alleles_Abc,
             "AbC": alleles_AbC,
             "aBc": alleles_aBc
-        },
+        }),
         success: function(data, textStatus, jqXHR) {
             console.log(data);
+            $("#value-Testcross3Loci-Aa").text(data.resultValues.chiA.toFixed(2));
+            $("#agree-Testcross3Loci-Aa").text(data.agree.chiA);
+            $("#value-Testcross3Loci-Bb").text(data.resultValues.chiB.toFixed(2));
+            $("#agree-Testcross3Loci-Bb").text(data.agree.chiB);
+            $("#value-Testcross3Loci-Cc").text(data.resultValues.chiC.toFixed(2));
+            $("#agree-Testcross3Loci-Cc").text(data.agree.chiC);
+
+            $("#value-Testcross3Loci-Cont-AaBb").text(data.resultValues.chiAB.toFixed(2));
+            $("#value-Testcross3Loci-Cont-AaCc").text(data.resultValues.chiAC.toFixed(2));
+            $("#value-Testcross3Loci-Cont-BbCc").text(data.resultValues.chiBC.toFixed(2));
+            $("#value-Testcross3Loci-LodZ-AaBb").text(data.resultValues.lodzAB.toFixed(2));
+            $("#value-Testcross3Loci-LodZ-AaCc").text(data.resultValues.lodzAC.toFixed(2));
+            $("#value-Testcross3Loci-LodZ-BbCc").text(data.resultValues.lodzBC.toFixed(2));
+
+            $("#value-Testcross3Loci-RF-AaBb").text(data.resultValues.rfAB.toFixed(2));
+            $("#value-Testcross3Loci-RF-AaCc").text(data.resultValues.rfAC.toFixed(2));
+            $("#value-Testcross3Loci-RF-BbCc").text(data.resultValues.rfBC.toFixed(2));
+            $("#value-Testcross3Loci-Dist-AaBb").text(data.resultValues.distAB.toFixed(2));
+            $("#value-Testcross3Loci-Dist-AaCc").text(data.resultValues.distAC.toFixed(2));
+            $("#value-Testcross3Loci-Dist-BbCc").text(data.resultValues.distBC.toFixed(2));
+
+            $("#value-Testcross3Loci-Centre").text(data.resultValues.centre);
+            $("#value-Testcross3Loci-Phase").text(data.phase.phaseA);
+            $("#value-Testcross3Loci-Coc").text(data.resultValues.cOc);
+            $("#value-Testcross3Loci-Interference").text(data.resultValues.interference);
+
+            $("#value-Testcross3Loci-A").text(data.observed.obsA);
+            $("#value-Testcross3Loci-a").text(data.observed.obsa);
+            $("#value-Testcross3Loci-B").text(data.observed.obsB);
+            $("#value-Testcross3Loci-b").text(data.observed.obsb);
+            $("#value-Testcross3Loci-C").text(data.observed.obsC);
+            $("#value-Testcross3Loci-c").text(data.observed.obsc);
+
+            $("#value-DR1-Testcross3Loci").text(data.expectedValues.expDo);
+            $("#value-DR2-Testcross3Loci").text(data.expectedValues.expRe);
+
+            $("#value-Testcross3Loci-Obs-AB").text(data.observed.obsAB);
+            $("#value-Testcross3Loci-Obs-Ab").text(data.observed.obsAb);
+            $("#value-Testcross3Loci-Obs-aB").text(data.observed.obsaB);
+            $("#value-Testcross3Loci-Obs-ab").text(data.observed.obsab);
+            $("#value-Testcross3Loci-Ind-AB").text(data.expectedValues.expIndAB.toFixed(2));
+            $("#value-Testcross3Loci-Ind-Ab").text(data.expectedValues.expIndAb.toFixed(2));
+            $("#value-Testcross3Loci-Ind-aB").text(data.expectedValues.expIndaB.toFixed(2));
+            $("#value-Testcross3Loci-Ind-ab").text(data.expectedValues.expIndab.toFixed(2));
+            $("#value-Testcross3Loci-Cont-AB").text(data.expectedValues.contAB.toFixed(2));
+            $("#value-Testcross3Loci-Cont-Ab").text(data.expectedValues.contAb.toFixed(2));
+            $("#value-Testcross3Loci-Cont-aB").text(data.expectedValues.contaB.toFixed(2));
+            $("#value-Testcross3Loci-Cont-ab").text(data.expectedValues.contab.toFixed(2));
+
+            $("#value-Testcross3Loci-Obs-AC").text(data.observed.obsAC);
+            $("#value-Testcross3Loci-Obs-Ac").text(data.observed.obsAc);
+            $("#value-Testcross3Loci-Obs-aC").text(data.observed.obsaC);
+            $("#value-Testcross3Loci-Obs-ac").text(data.observed.obsac);
+            $("#value-Testcross3Loci-Ind-AC").text(data.expectedValues.expIndAC.toFixed(2));
+            $("#value-Testcross3Loci-Ind-Ac").text(data.expectedValues.expIndAc.toFixed(2));
+            $("#value-Testcross3Loci-Ind-aC").text(data.expectedValues.expIndaC.toFixed(2));
+            $("#value-Testcross3Loci-Ind-ac").text(data.expectedValues.expIndac.toFixed(2));
+            $("#value-Testcross3Loci-Cont-AC").text(data.expectedValues.contAC.toFixed(2));
+            $("#value-Testcross3Loci-Cont-Ac").text(data.expectedValues.contAc.toFixed(2));
+            $("#value-Testcross3Loci-Cont-aC").text(data.expectedValues.contaC.toFixed(2));
+            $("#value-Testcross3Loci-Cont-ac").text(data.expectedValues.contac.toFixed(2));
+
+            $("#value-Testcross3Loci-Obs-BC").text(data.observed.obsBC);
+            $("#value-Testcross3Loci-Obs-Bc").text(data.observed.obsBc);
+            $("#value-Testcross3Loci-Obs-bC").text(data.observed.obsbC);
+            $("#value-Testcross3Loci-Obs-bc").text(data.observed.obsbc);
+            $("#value-Testcross3Loci-Ind-BC").text(data.expectedValues.expIndBC.toFixed(2));
+            $("#value-Testcross3Loci-Ind-Bc").text(data.expectedValues.expIndBc.toFixed(2));
+            $("#value-Testcross3Loci-Ind-bC").text(data.expectedValues.expIndbC.toFixed(2));
+            $("#value-Testcross3Loci-Ind-bc").text(data.expectedValues.expIndbc.toFixed(2));
+            $("#value-Testcross3Loci-Cont-BC").text(data.expectedValues.contBC.toFixed(2));
+            $("#value-Testcross3Loci-Cont-Bc").text(data.expectedValues.contBc.toFixed(2));
+            $("#value-Testcross3Loci-Cont-bC").text(data.expectedValues.contbC.toFixed(2));
+            $("#value-Testcross3Loci-Cont-bc").text(data.expectedValues.contbc.toFixed(2));
+
+
+
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert("Se ha producido un error: " + errorThrown);
@@ -1308,10 +1439,10 @@ $("#ctoolView").on("click", "#Testcross3Loci-linkage", (evt) => {
 
 $("#ctoolView").on("click", "#Testcross3LociDM-linkage", (evt) => {
 
-    let recFreqR1 = $("#Alleles-Testcross3LociDM-RecFreqR1").val();
-    let recFreqR2 = $("#Alleles-Testcross3LociDM-RecFreqR2").val();
-    let CoC = $("#Alleles-Testcross3LociDM-CoC").val();
-    let ToS = $("#Alleles-Testcross3LociDM-ToS").val();
+    let recFreqR1 = Number($("#Alleles-Testcross3LociDM-RecFreqR1").val());
+    let recFreqR2 = Number($("#Alleles-Testcross3LociDM-RecFreqR2").val());
+    let CoC = Number($("#Alleles-Testcross3LociDM-CoC").val());
+    let ToS = Number($("#Alleles-Testcross3LociDM-ToS").val());
 
     alert("Boton Testcross3LociDM");
     $.ajax({
@@ -1322,14 +1453,63 @@ $("#ctoolView").on("click", "#Testcross3LociDM-linkage", (evt) => {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
         contentType: "application/json",
-        data: {
+        data: JSON.stringify({
             "r1": recFreqR1,
             "r2": recFreqR2,
             "cOc": CoC,
             "tOs": ToS
-        },
+        }),
         success: function(data, textStatus, jqXHR) {
             console.log(data);
+            if (!data.cleanInputs) {
+
+                $("#value-Testcross3LociDM-Interference").text(data.resultValues.interference);
+                $("#value-Testcross3LociDM-RecFreq").text(data.phase.rf);
+
+                $("#estOspring-Testcross3LociDM-ABC_ABC-abc").text(data.resultValues.vABCn);
+                $("#estOspring-Testcross3LociDM-ABC_ABc-abC").text(data.resultValues.vABC2);
+                $("#estOspring-Testcross3LociDM-ABC_Abc-aBC").text(data.resultValues.vABC3);
+                $("#estOspring-Testcross3LociDM-ABC_AbC-aBC").text(data.resultValues.vABC4);
+
+                $("#estOspring-Testcross3LociDM-aBC_ABC-abc").text(data.resultValues.vaBCn);
+                $("#estOspring-Testcross3LociDM-aBC_ABc-abC").text(data.resultValues.vaBC2);
+                $("#estOspring-Testcross3LociDM-aBC_Abc-aBC").text(data.resultValues.vaBC3);
+                $("#estOspring-Testcross3LociDM-aBC_AbC-aBC").text(data.resultValues.vaBC4);
+
+                $("#estOspring-Testcross3LociDM-AbC_ABC-abc").text(data.resultValues.vAbCn);
+                $("#estOspring-Testcross3LociDM-AbC_ABc-abC").text(data.resultValues.vAbC2);
+                $("#estOspring-Testcross3LociDM-AbC_Abc-aBC").text(data.resultValues.vAbC3);
+                $("#estOspring-Testcross3LociDM-AbC_AbC-aBC").text(data.resultValues.vAbC4);
+
+                $("#estOspring-Testcross3LociDM-abc_ABC-abc").text(data.resultValues.vabcn);
+                $("#estOspring-Testcross3LociDM-abc_ABc-abC").text(data.resultValues.vabc2);
+                $("#estOspring-Testcross3LociDM-abc_Abc-aBC").text(data.resultValues.vabc3);
+                $("#estOspring-Testcross3LociDM-abc_AbC-aBC").text(data.resultValues.vabc4);
+
+                $("#estOspring-Testcross3LociDM-ABc_ABC-abc").text(data.resultValues.vABcn);
+                $("#estOspring-Testcross3LociDM-ABc_ABc-abC").text(data.resultValues.vABc2);
+                $("#estOspring-Testcross3LociDM-ABc_Abc-aBC").text(data.resultValues.vABc3);
+                $("#estOspring-Testcross3LociDM-ABc_AbC-aBC").text(data.resultValues.vABc4);
+
+                $("#estOspring-Testcross3LociDM-aBc_ABC-abc").text(data.resultValues.vaBcn);
+                $("#estOspring-Testcross3LociDM-aBc_ABc-abC").text(data.resultValues.vaBc2);
+                $("#estOspring-Testcross3LociDM-aBc_Abc-aBC").text(data.resultValues.vaBc3);
+                $("#estOspring-Testcross3LociDM-aBc_AbC-aBC").text(data.resultValues.vaBc4);
+
+                //estOspring-Testcross3LociDM-AbC_ABC-abc
+                $("#estOspring-Testcross3LociDM-Abc_ABC-abc").text(data.resultValues.vAbcn);
+                $("#estOspring-Testcross3LociDM-Abc_ABc-abC").text(data.resultValues.vAbc2);
+                $("#estOspring-Testcross3LociDM-Abc_Abc-aBC").text(data.resultValues.vAbc3);
+                $("#estOspring-Testcross3LociDM-Abc_AbC-aBC").text(data.resultValues.vAbc4);
+
+                $("#estOspring-Testcross3LociDM-abC_ABC-abc").text(data.resultValues.vabCn.toFixed(2));
+                $("#estOspring-Testcross3LociDM-abC_ABc-abC").text(data.resultValues.vabC2);
+                $("#estOspring-Testcross3LociDM-abC_Abc-aBC").text(data.resultValues.vabC3);
+                $("#estOspring-Testcross3LociDM-abC_AbC-aBC").text(data.resultValues.vabC4);
+
+            } else {
+                alert(data.feedbackMessage);
+            }
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert("Se ha producido un error: " + errorThrown);
@@ -1339,8 +1519,8 @@ $("#ctoolView").on("click", "#Testcross3LociDM-linkage", (evt) => {
 
 $("#ctoolView").on("click", "#TestcrossDM-linkage", (evt) => {
 
-    let recFreq = $("#Alleles-TestcrossDM-RecFreq").val();
-    let ToS = $("#Alleles-TestcrossDM-ToS").val();
+    let recFreq = Number($("#Alleles-TestcrossDM-RecFreq").val());
+    let ToS = Number($("#Alleles-TestcrossDM-ToS").val());
 
     alert("Boton TestcrossDM");
     $.ajax({
@@ -1351,12 +1531,25 @@ $("#ctoolView").on("click", "#TestcrossDM-linkage", (evt) => {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
         contentType: "application/json",
-        data: {
+        data: JSON.stringify({
             "r1": recFreq,
-            "ToS": ToS
-        },
+            "tOs": ToS
+        }),
         success: function(data, textStatus, jqXHR) {
             console.log(data);
+            if (!data.cleanInputs) {
+                $("#rep-TestcrossDM-AB").text(data.resultValues.repulsionAB);
+                $("#coupling-TestcrossDM-AB").text(data.resultValues.couplingAB);
+                $("#rep-TestcrossDM-Ab").text(data.resultValues.repulsionAb);
+                $("#coupling-TestcrossDM-Ab").text(data.resultValues.couplingAb);
+                $("#rep-TestcrossDM-aB").text(data.resultValues.repulsionaB);
+                $("#coupling-TestcrossDM-aB").text(data.resultValues.couplingaB);
+                $("#rep-TestcrossDM-ab").text(data.resultValues.repulsionab);
+                $("#coupling-TestcrossDM-ab").text(data.resultValues.couplingab);
+
+            } else {
+                alert(data.feedbackMessage);
+            }
         },
         error: function(jqXHR, textStatus, errorThrown) {
             alert("Se ha producido un error: " + errorThrown);
@@ -1482,7 +1675,7 @@ $("#ctoolView").on("click", "#DoubleRecesive-epistasias", (evt) => {
                     $("#total-DoubleRecesive").text(data.resultValues.total);
 
                     $("#Expected-AB-DoubleRecesive").text(data.expectedValues.expAB.toFixed(1));
-                    $("#Expected-AbaBab-DoubleRecesive").text(data.expectedValues.expAbaBab.toFixed(1));
+                    $("#Expected-AbaBab-DoubleRecesive").text(data.expectedValues.expAaaBab.toFixed(1));
 
                     $("#value-DoubleRecesive").text(data.resultValues.chiInd.toFixed(2));
                     $("#agree-DoubleRecesive").text(data.agree.chiInd);
@@ -1561,18 +1754,18 @@ $("#ctoolView").on("click", "#Segregation1033-epistasias", (evt) => {
             },
             contentType: "application/json",
             data: JSON.stringify({
-                "ABab": alleles_ABab,
-                "Ab": alleles_Ab,
-                "aB": alleles_aB
+                "10": alleles_ABab,
+                "3a": alleles_Ab,
+                "3b": alleles_aB
             }),
             success: function(data, textStatus, jqXHR) {
                 console.log(data);
                 if (!data.cleanInputs) {
                     $("#total-Segregation1033").text(data.resultValues.total);
 
-                    $("#Expected-ABab-Segregation1033").text(data.expectedValues.expABab.toFixed(1));
-                    $("#Expected-Ab-Segregation1033").text(data.expectedValues.expAb.toFixed(1));
-                    $("#Expected-aB-Segregation1033").text(data.expectedValues.expaB.toFixed(1));
+                    $("#Expected-ABab-Segregation1033").text(data.expectedValues.exp10.toFixed(1));
+                    $("#Expected-Ab-Segregation1033").text(data.expectedValues.exp3a.toFixed(1));
+                    $("#Expected-aB-Segregation1033").text(data.expectedValues.exp3b.toFixed(1));
 
                     $("#value-Segregation1033").text(data.resultValues.chiInd.toFixed(2));
                     $("#agree-Segregation1033").text(data.agree.chiInd);
@@ -1607,20 +1800,20 @@ $("#ctoolView").on("click", "#Segregation6334-epistasias", (evt) => {
             },
             contentType: "application/json",
             data: JSON.stringify({
-                "AaB": alleles_AaB,
-                "AAB": alleles_AAB,
-                "Ab": alleles_Ab,
-                "aBab": alleles_aBab
+                "6": alleles_AaB,
+                "3a": alleles_AAB,
+                "3b": alleles_Ab,
+                "4": alleles_aBab
             }),
             success: function(data, textStatus, jqXHR) {
                 console.log(data);
                 if (!data.cleanInputs) {
                     $("#total-Segregation6334").text(data.resultValues.total);
 
-                    $("#Expected-AaB-Segregation6334").text(data.expectedValues.expAaB.toFixed(1));
-                    $("#Expected-AAB-Segregation6334").text(data.expectedValues.expAAB.toFixed(1));
-                    $("#Expected-Ab-Segregation6334").text(data.expectedValues.expAb.toFixed(1));
-                    $("#Expected-aBab-Segregation6334").text(data.expectedValues.expaBab.toFixed(1));
+                    $("#Expected-AaB-Segregation6334").text(data.expectedValues.exp6.toFixed(1));
+                    $("#Expected-AAB-Segregation6334").text(data.expectedValues.exp3a.toFixed(1));
+                    $("#Expected-Ab-Segregation6334").text(data.expectedValues.exp3b.toFixed(1));
+                    $("#Expected-aBab-Segregation6334").text(data.expectedValues.exp4.toFixed(1));
 
                     $("#value-Segregation6334").text(data.resultValues.chiInd.toFixed(2));
                     $("#agree-Segregation6334").text(data.agree.chiInd);

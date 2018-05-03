@@ -51,8 +51,8 @@ $("#btn-login").click(function() {
 
     $.ajax({
         type: "PUT",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/theory",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/newUser",
+        url: "http://ingenias.fdi.ucm.es:60070/api/v1/newUser",
+        //url: "http://raspberrypablo.ddns.net:8080/api/v1/newUser",
         contentType: "application/json",
         data: aux,
         success: function(data, textStatus, jqXHR) {
@@ -61,8 +61,8 @@ $("#btn-login").click(function() {
             //console.log(user);
             $.ajax({
                 type: "GET",
-                //url: "http://ingenias.fdi.ucm.es:60070/api/v1/theory",
-                url: "http://raspberrypablo.ddns.net:8080/api/v1/priority",
+                url: "http://ingenias.fdi.ucm.es:60070/api/v1/priority",
+                //url: "http://raspberrypablo.ddns.net:8080/api/v1/priority",
                 success: function(data, textStatus, jqXHR) {
                     //console.log(data);
                     let aux = JSON.parse(localStorage.getItem('' + data[0].id));
@@ -186,8 +186,8 @@ $("#app_sections").on("click", "li", (event) => {
         //DESCOMENTAR CUANDO ESTE LISTA LA API
         /*$.ajax({
             type: "GET",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/theory",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/theory",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/theory",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/theory",
             contentType: "application/json",
             data: { sectionid: application },
             success: function(data, textStatus, jqXHR) {
@@ -217,8 +217,8 @@ $("#app_sections").on("click", "li", (event) => {
         //DESCOMENTAR CUANDO ESTE LISTA LA API
         $.ajax({
             type: "GET",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/problems",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/problems",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
@@ -269,8 +269,8 @@ $("#app_sections").on("click", "li", (event) => {
         //Obtener numero de preguntas
         $.ajax({
             type: "GET",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/tests", //COMPLETAR
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/tests",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/tests", //COMPLETAR
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/tests",
             contentType: "application/json",
             data: { sectionid: application },
             success: function(data, textStatus, jqXHR) {
@@ -332,8 +332,8 @@ $("#app_sections").on("click", "li", (event) => {
 
         $.ajax({
             type: "GET",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/books", //COMPLETAR
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/books",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/books", //COMPLETAR
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/books",
             contentType: "application/json",
             data: { sectionid: application },
             success: function(data, textStatus, jqXHR) {
@@ -458,8 +458,8 @@ function eventBtnEnviar() {
 
         $.ajax({
             type: "GET",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/feedback", //COMPLETAR
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/feedback",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/feedback", //COMPLETAR
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/feedback",
             //url: "http://localhost:8080/api/v1/feedback",
             contentType: "application/json",
             data: datos,

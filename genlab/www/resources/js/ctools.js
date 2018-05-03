@@ -20,8 +20,8 @@ $("#ctoolView").on("click", "#testcross-onelocus", (evt) => {
     } else {
         $.ajax({
             type: "POST",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=10",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=10",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=10",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=10",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
@@ -66,8 +66,8 @@ $("#ctoolView").on("click", "#F2Dominance-onelocus", (evt) => {
     } else {
         $.ajax({
             type: "POST",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=11",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=11",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=11",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=11",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
@@ -111,11 +111,10 @@ $("#ctoolView").on("click", "#F2Codominance-onelocus", (evt) => {
     if (isNaN(alleles_A1A1) || isNaN(alleles_A1A2) || isNaN(alleles_A2A2)) {
         alert("Expected values must be numbers");
     } else {
-        alert(alleles_A1A1 + " " + alleles_A1A2 + " " + alleles_A2A2);
         $.ajax({
             type: "POST",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=12",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=12",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=12",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=12",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
@@ -163,8 +162,8 @@ $("#ctoolView").on("click", "#Codominance3-onelocus", (evt) => {
     } else {
         $.ajax({
             type: "POST",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=13",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=13",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=13",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=13",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
@@ -211,8 +210,8 @@ $("#ctoolView").on("click", "#Codominance4-onelocus", (evt) => {
     } else {
         $.ajax({
             type: "POST",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=14",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=14",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=14",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=14",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
@@ -271,8 +270,8 @@ $("#ctoolView").on("click", "#F2Codom2-twoloci", (evt) => {
     } else {
         $.ajax({
             type: "POST",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=03",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=03",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=03",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=03",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
@@ -362,8 +361,8 @@ $("#ctoolView").on("click", "#F2Codom4-twoloci", (evt) => {
     } else {
         $.ajax({
             type: "POST",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=04",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=04",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=04",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=04",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
@@ -456,12 +455,10 @@ $("#ctoolView").on("click", "#F2Codominance-twoloci", (evt) => {
     let alleles_A2A2B1B2 = $("#Alleles-A2A2B1B2-F2Codominance").val();
     let alleles_A2A2B2B2 = $("#Alleles-A2A2B2B2-F2Codominance").val();
 
-
-    alert(alleles_A1A1B1B1 + " " + alleles_A1A1B1B2 + " " + alleles_A1A1B2B2 + " " + alleles_A1A2B1B1 + " " + alleles_A1A2B1B2 + " " + alleles_A1A2B2B2 + " " + alleles_A2A2B1B1 + " " + alleles_A2A2B1B2 + " " + alleles_A2A2B2B2);
     $.ajax({
         type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=02",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=02",
+        url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=02",
+        //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=02",
         beforeSend: function(request) {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
@@ -554,12 +551,10 @@ $("#ctoolView").on("click", "#F2Dominance-twoloci", (evt) => {
     let alleles_Ab = $("#Alleles-Ab-F2Dominance").val();
     let alleles_ab = $("#Alleles-ab-F2Dominance").val();
 
-
-    alert(alleles_AB + " " + alleles_aB + " " + alleles_Ab + " " + alleles_ab);
     $.ajax({
         type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=01",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=01",
+        url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=01",
+        //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=01",
         beforeSend: function(request) {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
@@ -633,8 +628,8 @@ $("#ctoolView").on("click", "#F2TestcrossDominance-twoloci", (evt) => {
 
     $.ajax({
         type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=05",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=05",
+        url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=05",
+        //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=05",
         beforeSend: function(request) {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
@@ -707,11 +702,10 @@ $("#ctoolView").on("click", "#F2TestcrossDom2_1-twoloci", (evt) => {
     let alleles_A1A2b = Number($("#Alleles-A1A2b-F2TestcrossDom2_1").val());
     let alleles_A2A2b = Number($("#Alleles-A2A2b-F2TestcrossDom2_1").val());
 
-    alert(alleles_A1A1B + " " + alleles_A1A2B + " " + alleles_A2A2B + " " + alleles_A1A1b + " " + alleles_A1A2b + " " + alleles_A2A2b);
     $.ajax({
         type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=06",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=06",
+        url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=06",
+        //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=06",
         beforeSend: function(request) {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
@@ -794,11 +788,10 @@ $("#ctoolView").on("click", "#F2TestcrossDom2_2-twoloci", (evt) => {
     let alleles_A2A4B = Number($("#Alleles-A2A4B-F2TestcrossDom2_2").val());
     let alleles_A2A4b = Number($("#Alleles-A2A4b-F2TestcrossDom2_2").val());
 
-    alert(alleles_A1A3B + " " + alleles_A1A3b + " " + alleles_A1A4B + " " + alleles_A1A4b + " " + alleles_A2A3B + " " + alleles_A2A3b + " " + alleles_A2A4B + " " + alleles_A2A4b);
     $.ajax({
         type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=07",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=07",
+        url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=07",
+        //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=07",
         beforeSend: function(request) {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
@@ -885,11 +878,10 @@ $("#ctoolView").on("click", "#Testcross-twoloci", (evt) => {
     let alleles_Ab = Number($("#Alleles-Ab-Testcross").val());
     let alleles_ab = Number($("#Alleles-ab-Testcross").val());
 
-    alert(alleles_AB + " " + alleles_aB + " " + alleles_Ab + " " + alleles_ab);
     $.ajax({
         type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctools",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=00",
+        url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=00",
+        //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=00",
         beforeSend: function(request) {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
@@ -974,11 +966,10 @@ $("#ctoolView").on("click", "#F2Codominance-linkage", (evt) => {
     let alleles_A2A2B1B2 = $("#Alleles-A2A2B1B2-F2Codominance-linkage").val();
     let alleles_A2A2B2B2 = $("#Alleles-A2A2B2B2-F2Codominance-linkage").val();
 
-    alert("Boton f2codominance");
     $.ajax({
         type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=22",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=22",
+        url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=22",
+        //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=22",
         beforeSend: function(request) {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
@@ -1058,11 +1049,10 @@ $("#ctoolView").on("click", "#F2CodominanceDM-linkage", (evt) => {
     let recFreq = Number($("#Alleles-F2CodominanceDM-RecFreq").val());
     let ToS = Number($("#Alleles-F2CodominanceDM-ToS").val());
 
-    alert("Boton f2codominancedm");
     $.ajax({
         type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=26",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=26",
+        url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=26",
+        //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=26",
         beforeSend: function(request) {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
@@ -1111,11 +1101,10 @@ $("#ctoolView").on("click", "#F2Dominance-linkage", (evt) => {
     let alleles_Ab = $("#Alleles-Ab-F2Dominance-linkage").val();
     let alleles_ab = $("#Alleles-ab-F2Dominance-linkage").val();
 
-    alert("Boton f2dominance");
     $.ajax({
         type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=21",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=21",
+        url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=21",
+        //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=21",
         beforeSend: function(request) {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
@@ -1197,11 +1186,10 @@ $("#ctoolView").on("click", "#F2DominanceDM-linkage", (evt) => {
     let recFreq = Number($("#Alleles-F2DominanceDM-RecFreq").val());
     let ToS = Number($("#Alleles-F2DominanceDM-ToS").val());
 
-    alert("Boton f2dominanceDM");
     $.ajax({
         type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=25",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=25",
+        url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=25",
+        //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=25",
         beforeSend: function(request) {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
@@ -1240,11 +1228,10 @@ $("#ctoolView").on("click", "#Testcross-linkage", (evt) => {
     let alleles_Ab = $("#Alleles-Ab-Testcross-linkage").val();
     let alleles_ab = $("#Alleles-ab-Testcross-linkage").val();
 
-    alert("Boton Testcross");
     $.ajax({
         type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=20",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=20",
+        url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=20",
+        //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=20",
         beforeSend: function(request) {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
@@ -1332,11 +1319,10 @@ $("#ctoolView").on("click", "#Testcross3Loci-linkage", (evt) => {
     let alleles_AbC = Number($("#Alleles-Testcross3Loci-AbC").val());
     let alleles_aBc = Number($("#Alleles-Testcross3Loci-aBc").val());
 
-    alert("Boton Testcross3Loci");
     $.ajax({
         type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=23",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=23",
+        url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=23",
+        //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=23",
         beforeSend: function(request) {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
@@ -1444,11 +1430,10 @@ $("#ctoolView").on("click", "#Testcross3LociDM-linkage", (evt) => {
     let CoC = Number($("#Alleles-Testcross3LociDM-CoC").val());
     let ToS = Number($("#Alleles-Testcross3LociDM-ToS").val());
 
-    alert("Boton Testcross3LociDM");
     $.ajax({
         type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=27",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=27",
+        url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=27",
+        //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=27",
         beforeSend: function(request) {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
@@ -1522,11 +1507,10 @@ $("#ctoolView").on("click", "#TestcrossDM-linkage", (evt) => {
     let recFreq = Number($("#Alleles-TestcrossDM-RecFreq").val());
     let ToS = Number($("#Alleles-TestcrossDM-ToS").val());
 
-    alert("Boton TestcrossDM");
     $.ajax({
         type: "POST",
-        //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=24",
-        url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=24",
+        url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=24",
+        //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=24",
         beforeSend: function(request) {
             request.setRequestHeader("Access-Control-Allow-Origin", "*");
         },
@@ -1574,8 +1558,8 @@ $("#ctoolView").on("click", "#DoubleDominant-epistasias", (evt) => {
     } else {
         $.ajax({
             type: "POST",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=35",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=35",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=35",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=35",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
@@ -1616,8 +1600,8 @@ $("#ctoolView").on("click", "#DoubleDominantRecesive-epistasias", (evt) => {
     } else {
         $.ajax({
             type: "POST",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=36",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=36",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=36",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=36",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
@@ -1658,8 +1642,8 @@ $("#ctoolView").on("click", "#DoubleRecesive-epistasias", (evt) => {
     } else {
         $.ajax({
             type: "POST",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=34",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=34",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=34",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=34",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
@@ -1702,8 +1686,8 @@ $("#ctoolView").on("click", "#Segregation961-epistasias", (evt) => {
     } else {
         $.ajax({
             type: "POST",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=33",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=33",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=33",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=33",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
@@ -1747,8 +1731,8 @@ $("#ctoolView").on("click", "#Segregation1033-epistasias", (evt) => {
     } else {
         $.ajax({
             type: "POST",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=38",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=38",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=38",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=38",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
@@ -1793,8 +1777,8 @@ $("#ctoolView").on("click", "#Segregation6334-epistasias", (evt) => {
     } else {
         $.ajax({
             type: "POST",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=37",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=37",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=37",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=37",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
@@ -1840,8 +1824,8 @@ $("#ctoolView").on("click", "#SingleDominant-epistasias", (evt) => {
     } else {
         $.ajax({
             type: "POST",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=32",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=32",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=32",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=32",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
@@ -1885,8 +1869,8 @@ $("#ctoolView").on("click", "#SingleRecesive-epistasias", (evt) => {
     } else {
         $.ajax({
             type: "POST",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=31",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=31",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=31",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=31",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
@@ -1931,8 +1915,8 @@ $("#ctoolView").on("click", "#WhithoutModification-epistasias", (evt) => {
     } else {
         $.ajax({
             type: "POST",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=30",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=30",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=30",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=30",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
@@ -1998,8 +1982,8 @@ $("#ctoolView").on("click", "#multiplesAlleles-polyhybrid", (evt) => {
     } else {
         $.ajax({
             type: "POST",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=41",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=41",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=41",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=41",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },
@@ -2061,8 +2045,8 @@ $("#ctoolView").on("click", "#Polyhybrid-polyhybrid", (evt) => {
     } else {
         $.ajax({
             type: "POST",
-            //url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=40",
-            url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=40",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/calctool?CTid=40",
+            //url: "http://raspberrypablo.ddns.net:8080/api/v1/calctool?CTid=40",
             beforeSend: function(request) {
                 request.setRequestHeader("Access-Control-Allow-Origin", "*");
             },

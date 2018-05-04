@@ -227,7 +227,7 @@ $("#app_sections").on("click", "li", (event) => {
             success: function(data, textStatus, jqXHR) {
                 //data es un objeto javascript, con los problemas de la aplicacion en cuestion
                 if (data) {
-                    console.log(data);
+                    //console.log(data);
                     data.forEach(p => {
                         let problem = $("<div>").addClass("problem");
                         problem.append($("<h2>").addClass("problem-title").text(p.nombre));
@@ -277,7 +277,7 @@ $("#app_sections").on("click", "li", (event) => {
                 //data es un objeto javascript, con los problemas de la aplicacion en cuestion
                 //data = [{ titulo: "Test 3" }, { titulo: "Test 4" }];
                 if (data) {
-                    console.log(data);
+                    //console.log(data);
                     tests = data;
                     let pos = 0;
                     tests.forEach(test => {
@@ -436,7 +436,7 @@ function eventBtnEnviar() {
                 $(answer.answer).addClass("incorrect-answer");
                 erroneas.push(oRespuesta);
             }
-            console.log(oRespuesta.idTest + " " + oRespuesta.idQ + " " + oRespuesta.idA);
+            //console.log(oRespuesta.idTest + " " + oRespuesta.idQ + " " + oRespuesta.idA);
         });
 
         let respuestas = {
@@ -454,7 +454,7 @@ function eventBtnEnviar() {
             })
         };
 
-        console.log(datos);
+        //console.log(datos);
 
         $.ajax({
             type: "GET",
@@ -465,11 +465,15 @@ function eventBtnEnviar() {
             data: datos,
             success: function(data, textStatus, jqXHR) {
                 //data es un objeto javascript, con los problemas de la aplicacion en cuestion
-                console.log(data);
+                //console.log(data);
                 if (data) {
-                    $("#enviado-message").text("Test enviado").css("color", "green");
+                    //$("#enviado-message").text("Test enviado").css("color", "green");
+                    alert("Test sended");
+                    activateApps();
+
                 } else {
-                    $("#enviado-message").text("No se ha podido enviar el test").css("color", "red");
+                    //$("#enviado-message").text("No se ha podido enviar el test").css("color", "red");
+                    alert("Test not sended. Try again");
                 }
             },
             error: function(jqXHR, textStatus, errorThrown) {
@@ -508,7 +512,7 @@ $("#testQuestions-list").on("click", ".answerCont", (event) => {
     }
     $(event.target).addClass("selected-answer");
     marked["" + question].answer = event.target;
-    console.log(marked);
+    //console.log(marked);
 });
 
 
@@ -571,4 +575,47 @@ function activarApps() {
             }
         }
     }
+}
+
+
+
+function activateApps() {
+    $.ajax({
+        type: "GET",
+        url: "http://ingenias.fdi.ucm.es:60070/api/v1/sectioncompleted", //COMPLETAR
+        //url: "http://raspberrypablo.ddns.net:8080/api/v1/feedback",
+        contentType: "application/json",
+        data: { user: user, sectionid: application },
+        success: function(data, textStatus, jqXHR) {
+            console.log(data + " " + user + " " + application);
+            if (data) {
+                $.ajax({
+                    type: "GET",
+                    url: "http://ingenias.fdi.ucm.es:60070/api/v1/priority",
+                    //url: "http://raspberrypablo.ddns.net:8080/api/v1/feedback",
+                    success: function(data, textStatus, jqXHR) {
+                        for (let i = 0; i < data.length - 1; ++i) {
+                            if (nameApp === data[i].nombre) {
+                                let aux = JSON.parse(localStorage.getItem('' + (i + 1)));
+                                if (!aux.active) {
+                                    aux.active = true;
+                                    localStorage.setItem('' + (i + 1), JSON.stringify(aux));
+                                    $("#app" + (i + 1)).removeClass("not-active");
+                                    alert("Congratulations! You have unlocked " + aux.title + " section!");
+                                }
+                                break;
+                            }
+                        }
+
+                    },
+                    error: function(jqXHR, textStatus, errorThrown) {
+                        alert("Se ha producido un error: " + errorThrown);
+                    }
+                });
+            }
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });
 }

@@ -606,6 +606,8 @@ function showCtools() {
     } else if (application == 3) {
         $("#epistasias-ctools").show();
     }
+
+    $("#sectionTitle").text(title);
 }
 
 function activarApps() {

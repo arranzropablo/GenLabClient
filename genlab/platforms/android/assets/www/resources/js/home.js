@@ -9,7 +9,7 @@ let marked = [];
 //two-loci 0
 //one locus 1
 //linkage 2
-//epistasia 3
+//epistasias 3
 //polyhibrid 4
 
 $("#leftMenu").hide();
@@ -99,6 +99,7 @@ $("#menuBtn").click(function() {
 });
 
 $("#applications").on("click", "li", (event) => {
+    $(".back-btn").show();
     let app = $(event.target);
     let aux = app.text();
     let auxApp = application;
@@ -182,16 +183,28 @@ $("#app_sections").on("click", "li", (event) => {
     let section = $(event.target).parent();
     if (section.data("section") === "Theory") {
         title = "Theory";
+        $("#theoryView").show();
 
-        //DESCOMENTAR CUANDO ESTE LISTA LA API
-        /*$.ajax({
+        $.ajax({
             type: "GET",
-            url: "http://ingenias.fdi.ucm.es:60070/api/v1/theory",
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/theory/titles",
             //url: "http://raspberrypablo.ddns.net:8080/api/v1/theory",
             contentType: "application/json",
             data: { sectionid: application },
             success: function(data, textStatus, jqXHR) {
                 //data es un objeto javascript, con la teoria de la aplicacion en cuestion
+                console.log(data);
+                if (data) {
+                    let theoryListId = Object.keys(data);
+                    console.log(theoryListId);
+                    theoryListId.forEach(item => {
+                        let theoryHTML = $("<li>").addClass("nav-item");
+                        theoryHTML.append($("<button>").addClass("partBtn btn btn-block").text(data[item]).data("id", item));
+                        $(".theory-list").append(theoryHTML);
+
+                    });
+                }
+                /*
                 if (data) {
                     data.forEach(t => {
                         let theory = $("<div>").addClass("theory");
@@ -202,19 +215,18 @@ $("#app_sections").on("click", "li", (event) => {
                     });
                 } else {
                     $("#login-message").text(err).css("color", "red");
-                }
+                }*/
             },
             error: function(jqXHR, textStatus, errorThrown) {
                 alert("Se ha producido un error: " + errorThrown);
             }
-        });*/
+        });
 
     } else if (section.data("section") === "Problems") {
         title = "Problems";
 
         $("#problemsView").show();
 
-        //DESCOMENTAR CUANDO ESTE LISTA LA API
         $.ajax({
             type: "GET",
             url: "http://ingenias.fdi.ucm.es:60070/api/v1/problems",
@@ -245,23 +257,7 @@ $("#app_sections").on("click", "li", (event) => {
         });
 
     } else if (section.data("section") === "CTools") {
-        title = "Calculation Tools";
-
-        //$("#pruebaI").load('ctools/onelocus_Testcross.html');
-        $("#ctoolsView").show();
-        if (application == 1) {
-            $("#one-locus-ctools").show();
-        } else if (application == 0) {
-            $("#two-independent-loci-ctools").show();
-        } else if (application == 2) {
-            $("#linkage-ctools").show();
-        } else if (application == 4) {
-            $("#polyhybrid-ctools").show();
-        } else if (application == 3) {
-            $("#epistasias-ctools").show();
-        }
-
-
+        showCtools();
 
     } else if (section.data("section") === "Tests") {
         $("#testQuestions-list").hide();
@@ -292,31 +288,7 @@ $("#app_sections").on("click", "li", (event) => {
                 alert("Se ha producido un error: " + errorThrown);
             }
         });
-        let num = 10;
-        $(".answerCont").on("click", (event) => {
-            /////////////////////////////////////
-            //Comprobar que la respuesta clicada
-            //es correcta en esa pregunta
-            //Mediante peticion ajax
-            /////////////////////////////////////
-            /*let answer = $(event.target);
-            let sel = $(answer).data("selected");
-            if (sel == 'False') {
-                $(answer).addClass("answerContSel");
-                $(answer).data("selected", "True");
-            } else {
-                $(answer).removeClass("answerContSel");
-                $(answer).data("selected", "False");
-            }*/
-        });
-        /*$(".partsTest button").on("click", (event) => {
-            var title = $(event.target).text();
-            $("#sectionTitle").text(title);
-            $("#testQuestions-list").show();
-            $("#test-list").hide();
-            $(".back-btn-test").show();
-            $(".back-btn").hide();
-        });*/
+
         $(".back-btn-test").on("click", (event) => {
             $("#sectionTitle").text("Tests");
             $("#testQuestions-list").hide();
@@ -380,8 +352,63 @@ $("#app_sections").on("click", "li", (event) => {
 
 
 });
+//Evento del boton de atrás de una ctool
+$(".back-btn-ctool").on("click", (event) => {
+    $("#test-list").show();
+    $(".back-btn-ctool").hide();
+    $(".back-btn").show();
+    $("#ctoolView").empty();
+    showCtools();
+});
+
+//Evento del boton de atrás de theory
+$(".back-btn-theory").on("click", (event) => {
+    $("#sectionTitle").text("Theory");
+    $(".theory-list").show();
+    $(".back-btn-theory").hide();
+    $(".back-btn").show();
+    $("#viewTheory").empty();
+});
 
 //Evento al hacer click en un test en concreto
+
+$(".theory-list").on("click", "button", (event) => {
+    $(".theory-list").hide();
+    $(".back-btn-theory").show();
+    $(".back-btn").hide();
+
+    let id = Number($(event.target).data("id"));
+
+    $.ajax({
+        type: "GET",
+        url: "http://ingenias.fdi.ucm.es:60070/api/v1/theory",
+        //url: "http://raspberrypablo.ddns.net:8080/api/v1/theory",
+        contentType: "application/json",
+        data: { id: id },
+        success: function(data, textStatus, jqXHR) {
+            console.log(data);
+            $("#sectionTitle").text(data.titulo);
+            let theory = $("<div>").addClass("theory");
+            theory.append($("<p>").html(data.contenido));
+            $("#viewTheory").append(theory);
+            /*
+            if (data) {
+                data.forEach(t => {
+                    let theory = $("<div>").addClass("theory");
+                    theory.append($("<h2>").addClass("theory-title").text(t.titulo));
+                    theory.append($("<p>").text(t.contenido));
+
+                    $("#theory-list").append(theory);
+                });
+            } else {
+                $("#login-message").text(err).css("color", "red");
+            }*/
+        },
+        error: function(jqXHR, textStatus, errorThrown) {
+            alert("Se ha producido un error: " + errorThrown);
+        }
+    });
+});
 
 $(".tests-list").on("click", "button", (event) => {
     $("#btnEnviar").show();
@@ -532,6 +559,8 @@ $(".ctools-list").on("click", "div", (event) => {
         $("#loading-message").remove();
     });
     $("#ctoolView").show();
+    $(".back-btn-ctool").show();
+    $(".back-btn").hide();
     //$("#ctoolView").text(file);
 });
 
@@ -553,12 +582,31 @@ $(".back-btn").on("click", (event) => {
     $("#homeView").show();
     $("#sectionView").hide();
     $("#sectionContent").hide();
-    //Esto va en el boton de back de las ctools pero aun no esta creado
+
     $("#ctoolView").empty();
     $(".tests-list").empty();
+    $(".theory-list").empty();
     $("#problems-list").empty();
 
 });
+
+function showCtools() {
+    title = "Calculation Tools";
+
+    //$("#pruebaI").load('ctools/onelocus_Testcross.html');
+    $("#ctoolsView").show();
+    if (application == 1) {
+        $("#one-locus-ctools").show();
+    } else if (application == 0) {
+        $("#two-independent-loci-ctools").show();
+    } else if (application == 2) {
+        $("#linkage-ctools").show();
+    } else if (application == 4) {
+        $("#polyhybrid-ctools").show();
+    } else if (application == 3) {
+        $("#epistasias-ctools").show();
+    }
+}
 
 function activarApps() {
     for (let i = 0; i < NUMBERAPPS; ++i) {

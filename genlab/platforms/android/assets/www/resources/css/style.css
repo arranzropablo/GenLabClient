@@ -28,7 +28,8 @@ strong {
     align-items: center;
 }
 
-.problem {
+.problem,
+.theory {
     background-color: #8bc34a;
     border-width: medium;
     border-color: #042304;
@@ -37,8 +38,8 @@ strong {
     margin-top: 4vw;
     margin-bottom: 4vw;
     padding: 3vw;
-    margin-left: 10%;
-    margin-right: 10%;
+    margin-left: 5%;
+    margin-right: 5%;
 }
 
 .book-title {
@@ -63,7 +64,9 @@ strong {
 }
 
 .back-btn,
-.back-btn-test {
+.back-btn-test,
+.back-btn-ctool,
+.back-btn-theory {
     position: fixed;
     right: 0;
     top: 0;

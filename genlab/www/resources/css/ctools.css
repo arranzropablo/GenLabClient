@@ -37,11 +37,11 @@
 }
 
 @media screen and (max-width: 450px) {
-    .onelocus-table input,
+    /*.onelocus-table input,
     .twolocus-table input,
     .generic-ctools-table input {
         width: 100%;
-    }
+    }*/
     .responsive-table {
         margin-left: 0;
         margin-right: 0;

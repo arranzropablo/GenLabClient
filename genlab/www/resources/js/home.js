@@ -161,6 +161,7 @@ $("#applications").on("click", "li", (event) => {
     $("#ctoolView").empty();
     $(".tests-list").empty();
     $("#problems-list").empty();
+    $("#books-list").empty();
 
 });
 
@@ -304,7 +305,7 @@ $("#app_sections").on("click", "li", (event) => {
 
         $.ajax({
             type: "GET",
-            url: "http://ingenias.fdi.ucm.es:60070/api/v1/books", //COMPLETAR
+            url: "http://ingenias.fdi.ucm.es:60070/api/v1/books",
             //url: "http://raspberrypablo.ddns.net:8080/api/v1/books",
             contentType: "application/json",
             data: { sectionid: application },
@@ -330,21 +331,6 @@ $("#app_sections").on("click", "li", (event) => {
             error: function(jqXHR, textStatus, errorThrown) {
                 alert("Se ha producido un error: " + errorThrown);
             }
-        });
-
-        let data = [];
-        data[0] = { name: "libro genial", author: "Alberto", editorial: "Anaya", isbn: 23232434, link: "https://www.google.es" }
-
-        data.forEach(l => {
-            let book = $("<div>").addClass("book");
-            book.append($("<h3>").addClass("book-title").text(l.name));
-            book.append($("<p>").text("Autores: " + l.author));
-            book.append($("<p>").text("ISBN: " + l.isbn));
-            book.append($("<p>").text("Editorial: " + l.editorial));
-            book.append($("<a>").addClass("book-link").prop("href", l.link).text("Página web"));
-
-
-            $("#books-list").append(book);
         });
     }
     $("#sectionTitle").text(title);
@@ -587,6 +573,7 @@ $(".back-btn").on("click", (event) => {
     $(".tests-list").empty();
     $(".theory-list").empty();
     $("#problems-list").empty();
+    $("#books-list").empty();
 
 });
 

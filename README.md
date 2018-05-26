@@ -1,2 +1,2 @@
 # GenLabClient
-Client side of the Web Application Genlab. TFG
+Client side of the Web Application Genlab.
